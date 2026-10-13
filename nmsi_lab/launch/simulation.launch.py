@@ -50,7 +50,7 @@ def launch_setup(context):
             executable='map_processor',
             name='map_processor',
             output='screen',
-            parameters=[{'robot_radius': 0.25, 'max_cost_distance': 1.0}]
+            parameters=[{'robot_radius': 0.5, 'max_cost_distance': 1.0}]
         ),
         Node(
             package='nav2_amcl',

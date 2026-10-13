@@ -62,9 +62,10 @@ private:
   string robot_frame = "base_link";
   double max_angle_vel = 2.0;
   double min_linear_vel = 0.1;
-  double max_linear_vel = 2.0;
+  double max_linear_vel = 1.0;
   double angle_tolerance = 0.02;
   double xy_tolerance = 0.05;
+  double lookahead = 0.4;
   void follow_path();
   void head_to_point(PoseStamped point);
   void stop_moving();
@@ -98,6 +99,11 @@ void PathFollower::follow_path()
   try
   {
     target = global_to_local(path->poses[pose_id]);
+    while (pose_id < path->poses.size() - 1 && distance(target) < lookahead)
+    {
+      pose_id += 1;
+      target = global_to_local(path->poses[pose_id]);
+    }
   }
   catch (const tf2::TransformException& ex)
   {
