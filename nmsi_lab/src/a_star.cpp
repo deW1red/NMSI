@@ -45,9 +45,9 @@ public:
     subscription = this->create_subscription<PoseStamped>("/goal_pose", 10, pose_callback);
     auto map_qos = rclcpp::QoS(1).transient_local().reliable();
     dilated_map_subscription = this->create_subscription<OccupancyGrid>(
-      "/map_dilated", map_qos, [this](OccupancyGrid::UniquePtr map) { map_dilated = std::move(map); });
+        "/map_dilated", map_qos, [this](OccupancyGrid::UniquePtr map) { map_dilated = std::move(map); });
     cost_map_subscription = this->create_subscription<OccupancyGrid>(
-      "/map_cost", map_qos, [this](OccupancyGrid::UniquePtr map) { map_cost = std::move(map); });
+        "/map_cost", map_qos, [this](OccupancyGrid::UniquePtr map) { map_cost = std::move(map); });
     publisher = this->create_publisher<Path>("/path", 10);
     tf_buffer = std::make_unique<tf2_ros::Buffer>(this->get_clock());
     tf_listener = std::make_unique<tf2_ros::TransformListener>(*tf_buffer);
