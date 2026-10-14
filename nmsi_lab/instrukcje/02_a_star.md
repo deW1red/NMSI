@@ -299,7 +299,7 @@ Tutaj $d(x,y)$ to odległość geometryczna między komórkami, a $\text{cost}(y
 
 ### Zadanie 4 — A\* zmodyfikowany
 
-Rozszerz implementację o zbiór przejrzanych wierzchołków zgodnie z pseudokodem 4.2. Porównaj obie wersje dla tych samych map, wag, heurystyki i punktów start–cel: wypisz liczbę rozwiniętych wierzchołków oraz łączny koszt trasy (możesz podać także jej długość geometryczną). Przy wielu trasach o takim samym koszcie ich przebieg może się różnić; porównuj przede wszystkim optymalny koszt.
+Rozszerz implementację o zbiór przejrzanych wierzchołków zgodnie z pseudokodem 4.2. Porównaj obie wersje dla tych samych map, wag, heurystyki i punktów start–cel: wypisz liczbę rozwiniętych wierzchołków oraz łączny koszt trasy (możesz podać także jej długość geometryczną).
 
 ### Zadanie bonusowe — modyfikacja mapy kosztów
 
