@@ -27,19 +27,21 @@ ros2 launch nmsi_lab robot_controller.launch.py
 
 ### 2.1. Punktacja
 
-> Punktacja do uzupełnienia przez prowadzącego.
-
 | Zadanie | Opis | Punkty |
 |---------|------|--------|
-| 1 | Graf z mapy: konwersje współrzędnych, sprawdzanie dostępności komórek, sąsiedzi | `[do uzupełnienia]` |
-| 2 | A\* podstawowy | `[do uzupełnienia]` |
-| 3 | A\* zmodyfikowany (ze zbiorem przejrzanych) | `[do uzupełnienia]` |
-| Bonus | Uwzględnienie mapy kosztów `/map_cost` | `[do uzupełnienia]` |
-| — | `[miejsce na dodatkowe pozycje]` | `[do uzupełnienia]` |
+| 1 | Podstawowy A\*: obsługa mapy rozszerzonej (`/map_dilated`), sprawdzanie dostępności komórek i sąsiadów; sąsiedztwo czterospójne | 5 |
+| 2 | Uwzględnienie 8 sąsiadów | 1,5 |
+| 3 | Uwzględnienie mapy kosztów `/map_cost` | 1,5 |
+| 4 | Zmodyfikowany A\* (ze zbiorem przejrzanych) | 2 |
+| Bonus | Samodzielna modyfikacja mapy kosztów lub publikacja własnej mapy, która uwzględnia dodatkowe właściwości (np. koszt nieliniowy względem odległości od przeszkód). Zachęcamy do kreatywnych rozwiązań. | bonus |
 
-Termin oddania: `[do uzupełnienia]`. Kod (plik `a_star.cpp`) należy przesłać przez platformę zajęć. Wysyłaj wyłącznie pliki źródłowe, bez katalogów `build`, `install` i `log`.
+Zwykły termin oddania: **8 listopada**. Bieda termin: **15 listopada** — za pracę oddaną w tym terminie przyznawane jest 75% punktów zdobytych za zadania w zwykłym terminie.
+
+Kod źródłowy należy przesłać przez platformę **LeON**. Wysyłaj wyłącznie pliki źródłowe, bez katalogów `build`, `install` i `log`.
 
 ### 2.2. Samodzielność pracy
+
+Rozwiązanie można przygotować w **C++ lub Pythonie**.
 
 > **Zadanie trzeba wykonać samodzielnie.**
 >
