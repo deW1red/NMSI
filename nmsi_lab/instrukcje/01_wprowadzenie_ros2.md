@@ -26,7 +26,7 @@ W ćwiczeniu korzystamy z następujących narzędzi:
 | **RViz2** | wizualizacja danych (mapa, skan, trasa) i wskazywanie celu |
 | **Nav2: `map_server`, `amcl`** | udostępnienie mapy i lokalizacja robota na mapie |
 | **colcon** | budowanie pakietów |
-| **C++17, VS Code** | język i edytor |
+| **C++17, Python 3, VS Code** | języki i edytor |
 
 Ta instrukcja składa się z dwóch etapów. Najpierw (punkty 2 i 3) poznasz pojęcia ROS 2 i architekturę naszego ćwiczenia, a następnie (punkt 4) sprawdzisz je w praktyce na działającej symulacji. W punkcie 4 wykonujesz polecenia, obserwujesz ich efekty i odpowiadasz na pytania. Pod każdym pytaniem znajduje się rozwijane wyjaśnienie — zajrzyj do niego dopiero po własnej próbie odpowiedzi.
 
@@ -74,10 +74,13 @@ Kod edytujesz tylko w `src`. Katalogi `build`, `install` i `log` tworzy narzędz
 
 Zachowanie węzła można zmieniać bez ingerencji w jego kod za pomocą **parametrów**. Przykładem jest `robot_radius` węzła `map_processor`, który określa, o ile mają zostać „pogrubione" przeszkody na mapie. Parametry przekazuje się przy uruchamianiu węzła, najczęściej z pliku YAML (u nas `config/nav_config.yaml`) albo bezpośrednio w pliku launch.
 
-Uruchamianie każdego węzła osobno byłoby uciążliwe, dlatego używa się **plików launch** (`launch/*.launch.py`), które uruchamiają wiele węzłów naraz i ustawiają ich parametry. W ćwiczeniu są dwa takie pliki:
+Uruchamianie każdego węzła osobno byłoby uciążliwe, dlatego używa się **plików launch** (`launch/*.launch.py`), które uruchamiają wiele węzłów naraz i ustawiają ich parametry. W ćwiczeniu są trzy takie pliki:
 
 - `simulation.launch.py` uruchamia symulator, RViz2, serwer mapy i lokalizację; nie modyfikujesz go,
-- `robot_controller.launch.py` uruchamia węzły `a_star` i `path_follower`; to dzięki niemu Twój kod trafi do działającego systemu.
+- `robot_controller.launch.py` uruchamia szkielet `a_star` w C++ oraz `path_follower`,
+- `robot_controller_python.launch.py` uruchamia szkielet `a_star` w Pythonie oraz `path_follower`.
+
+Wybierz jeden wariant launch kontrolera — nie uruchamiaj obu jednocześnie.
 
 ### 2.5. TF — układy współrzędnych
 
@@ -89,7 +92,7 @@ Ta sama pozycja ma inne współrzędne zależnie od tego, względem czego ją op
 | `odom` | układ, w którym pozycję robota wyznacza się z odometrii (ruchu kół); z czasem narasta w niej błąd, czyli „dryf" |
 | `base_link` | układ przymocowany do robota, porusza się razem z nim |
 
-Układy tworzą łańcuch: `map` jest układem nadrzędnym względem `odom`, a `odom` względem `base_link`. Każde ogniwo tego łańcucha publikuje inny węzeł. Przekształcenie `odom → base_link`, czyli pozycję robota policzoną z odometrii, publikuje symulator. Przekształcenie `map → odom` publikuje węzeł `amcl`, który porównuje odczyty lasera z mapą i na tej podstawie koryguje dryf odometrii. TF potrafi złożyć oba przekształcenia i podać pozycję robota bezpośrednio w układzie `map`. Właśnie tak szkielet `a_star.cpp` wyznacza punkt startowy (`lookupTransform("map", "base_link", ...)`), nie wiedząc nic o odometrii ani lokalizacji.
+Układy tworzą łańcuch: `map` jest układem nadrzędnym względem `odom`, a `odom` względem `base_link`. Każde ogniwo tego łańcucha publikuje inny węzeł. Przekształcenie `odom → base_link`, czyli pozycję robota policzoną z odometrii, publikuje symulator. Przekształcenie `map → odom` publikuje węzeł `amcl`, który porównuje odczyty lasera z mapą i na tej podstawie koryguje dryf odometrii. TF potrafi złożyć oba przekształcenia i podać pozycję robota bezpośrednio w układzie `map`. W obu szablonach (`a_star.cpp` i `a_star.py`) punkt startowy jest pobierany z TF (`map` względem `base_link`), bez potrzeby samodzielnej obsługi odometrii ani lokalizacji.
 
 ### 2.6. Czas symulacji
 
@@ -142,7 +145,7 @@ Diagram można odczytać jako historię jednego zadania dla robota:
 
 Na tym samym temacie `/cmd_vel` może publikować również panel Teleop w RViz2, co pozwala sterować robotem ręcznie.
 
-W szkielecie, który dostajesz, `a_star` zamiast trasy publikuje na razie prosty odcinek od startu do celu. Zobaczysz to w punkcie 4.10.
+W szablonach, które dostajesz, `a_star` zamiast trasy publikuje na razie prosty odcinek od startu do celu. Zobaczysz to w punkcie 4.10.
 
 ## 4. Praca z symulacją
 
@@ -264,7 +267,7 @@ Węzły są na nim połączone strzałkami opisanymi nazwami tematów. Jeśli wi
 <details>
 <summary>Wyjaśnienie</summary>
 
-Brakuje `a_star` i `path_follower`, ponieważ uruchamia je dopiero drugi plik launch (`robot_controller.launch.py`). Do tego czasu temat `/path` może mieć odbiorcę (RViz2), który czeka na dane, ale nie ma jeszcze nadawcy.
+Brakuje `a_star` i `path_follower`, ponieważ uruchamia je dopiero jeden z plików launch kontrolera (`robot_controller.launch.py` albo `robot_controller_python.launch.py`). Do tego czasu temat `/path` może mieć odbiorcę (RViz2), który czeka na dane, ale nie ma jeszcze nadawcy.
 
 </details>
 
@@ -369,13 +372,18 @@ cd ~/nmsi_ws
 colcon build --symlink-install --packages-select nmsi_lab
 ```
 
-Jeśli budowanie się powiodło, na końcu zobaczysz podsumowanie `Summary: 1 package finished`. W razie błędu szukaj pierwszej linii zawierającej `error:`. Po **każdej** zmianie kodu C++ trzeba ponownie zbudować pakiet i zrestartować węzły (Ctrl+C w karcie z `robot_controller.launch.py` i ponowne uruchomienie).
+Jeśli budowanie się powiodło, na końcu zobaczysz podsumowanie `Summary: 1 package finished`. W razie błędu szukaj pierwszej linii zawierającej `error:`. Po zmianach w CMake, zależnościach lub plikach launch ponownie zbuduj pakiet. Po zmianie kodu C++ również trzeba go przebudować. Przy użyciu `--symlink-install` po zmianie kodu Python wystarczy zrestartować węzeł; bez tej opcji przebuduj pakiet.
 
-Przy działającej symulacji i wyłączonym panelu Teleop uruchom w nowej karcie węzły ze szkieletu:
+Przy działającej symulacji i wyłączonym panelu Teleop wybierz jeden z wariantów i uruchom go w nowej karcie:
 
 ```bash
+# C++
 ros2 launch nmsi_lab robot_controller.launch.py
+# albo Python
+ros2 launch nmsi_lab robot_controller_python.launch.py
 ```
+
+Nie uruchamiaj obu wariantów jednocześnie — każdy uruchamia własny węzeł `a_star` i `path_follower`.
 
 W RViz2 wybierz narzędzie **2D Goal Pose** na górnym pasku, kliknij punkt na mapie po drugiej stronie przeszkody i przeciągnij kursor (kierunek nie ma tu znaczenia). Potem w innej karcie wypisz otrzymaną trasę:
 
@@ -383,14 +391,14 @@ W RViz2 wybierz narzędzie **2D Goal Pose** na górnym pasku, kliknij punkt na m
 ros2 topic echo /path --once
 ```
 
-W RViz2 pojawi się zielona trasa `/path`, a `path_follower` wypisze w terminalu `Path registered`, a po dojechaniu `Goal achieved...`. Robot jedzie prosto do celu, a jeśli po drodze jest ściana, zatrzymuje się na niej (jeśli utknie, zatrzymaj go klawiszami Ctrl+C w karcie z `robot_controller.launch.py`). Lista `poses` zawiera tylko dwa punkty.
+W RViz2 pojawi się zielona trasa `/path`, a `path_follower` wypisze w terminalu `Path registered`, a po dojechaniu `Goal achieved...`. Robot jedzie prosto do celu, a jeśli po drodze jest ściana, zatrzymuje się na niej (jeśli utknie, zatrzymaj go klawiszami Ctrl+C w karcie z wybranym plikiem launch kontrolera). Lista `poses` zawiera tylko dwa punkty.
 
 Dlaczego robot nie omija przeszkód i co musi zrobić `a_star`, żeby dojechał do celu bezpiecznie?
 
 <details>
 <summary>Wyjaśnienie</summary>
 
-Szkielet nie planuje żadnej trasy: publikuje tylko punkt startowy i cel. `path_follower` nie zna mapy i po prostu jedzie do kolejnych punktów trasy, więc omijanie ścian musi być zapewnione przez samą trasę. Zadaniem `a_star` jest więc zastąpienie tej prostej linii serią punktów, które prowadzą przez wolne komórki mapy.
+Żaden z szablonów nie planuje jeszcze trasy: publikuje tylko punkt startowy i cel. `path_follower` nie zna mapy i po prostu jedzie do kolejnych punktów trasy, więc omijanie ścian musi być zapewnione przez samą trasę. Zadaniem `a_star` jest więc zastąpienie tej prostej linii serią punktów, które prowadzą przez wolne komórki mapy.
 
 </details>
 
@@ -424,7 +432,8 @@ Przed przejściem do `02_a_star.md` sprawdź, czy potrafisz odpowiedzieć na pon
 | Polecenie | Opis |
 |-----------|------|
 | `ros2 launch nmsi_lab simulation.launch.py world:=hallway` | symulacja (`cave`, `hallway`, `lines`) |
-| `ros2 launch nmsi_lab robot_controller.launch.py` | węzły `a_star` i `path_follower` |
+| `ros2 launch nmsi_lab robot_controller.launch.py` | węzły `a_star` (C++) i `path_follower` |
+| `ros2 launch nmsi_lab robot_controller_python.launch.py` | węzły `a_star` (Python) i `path_follower` |
 | `ros2 node list` / `ros2 node info <węzeł>` | węzły |
 | `ros2 topic list -t` | tematy z typami |
 | `ros2 topic info <temat> --verbose` | typ oraz węzły publikujące i subskrybujące |

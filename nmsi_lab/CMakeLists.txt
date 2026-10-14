@@ -35,6 +35,9 @@ target_compile_features(a_star PUBLIC c_std_99 cxx_std_17)
 install(TARGETS a_star
 DESTINATION lib/${PROJECT_NAME})
 
+install(PROGRAMS src/a_star.py
+DESTINATION lib/${PROJECT_NAME})
+
 add_executable(path_follower src/path_follower.cpp)
 target_link_libraries(path_follower PUBLIC
   ${rclcpp_TARGETS}

@@ -10,18 +10,27 @@ Węzeł `a_star` odbiera cel z RViz2 (`/goal_pose`), wyznacza pozycję startową
 void AStarCalculator::a_star(PoseStamped start, PoseStamped end);
 ```
 
-Pakiet zawiera szkielet w C++ w pliku `nmsi_lab/src/a_star.cpp`. Jeśli wybierasz C++, uzupełnij metodę `a_star`, aby wyznaczała optymalną trasę na mapie za pomocą algorytmu A\* i publikowała ją na temat `/path` (typ `nav_msgs/msg/Path`). Jeśli wybierasz Python, zaimplementuj równoważny węzeł ROS 2 i skonfiguruj jego uruchamianie w pakiecie, zachowując te same interfejsy tematów. Resztą (jazda po trasie) zajmuje się gotowy węzeł `path_follower`.
+Pakiet zawiera dwa równoważne szkielety:
+
+- C++: `nmsi_lab/src/a_star.cpp` — uzupełnij metodę `AStarCalculator::a_star`,
+- Python: `nmsi_lab/src/a_star.py` — uzupełnij metodę `AStarCalculator.a_star`.
+
+W wybranym wariancie zaimplementuj algorytm A\*, aby wyznaczał optymalną trasę na mapie i publikował ją na temat `/path` (typ `nav_msgs/msg/Path`). Pozostałe elementy interfejsu są przygotowane w szablonie. Resztą (jazda po trasie) zajmuje się gotowy węzeł `path_follower`.
 
 Nie zmieniaj nazw tematów ani zachowania pozostałych węzłów.
 
-Uruchamianie (po zbudowaniu pakietu):
+Po zbudowaniu pakietu uruchom symulację i dokładnie jeden wariant kontrolera:
 
 ```bash
 # terminal 1
 ros2 launch nmsi_lab simulation.launch.py world:=hallway
-# terminal 2
+# terminal 2 — wybierz C++:
 ros2 launch nmsi_lab robot_controller.launch.py
+# albo zamiast powyższego wybierz Python:
+ros2 launch nmsi_lab robot_controller_python.launch.py
 ```
+
+Oba pliki kontrolera uruchamiają `path_follower` oraz węzeł `a_star` o tej samej nazwie, dlatego nie uruchamiaj ich jednocześnie.
 
 ## 2. Punktacja i zasady
 
@@ -37,7 +46,7 @@ ros2 launch nmsi_lab robot_controller.launch.py
 
 Zwykły termin oddania: **8 listopada**. Termin zapasowy: **15 listopada** — za pracę oddaną w tym terminie przyznawane jest 75% punktów zdobytych za zadania w zwykłym terminie. Po tym terminie zero.
 
-Kod źródłowy należy przesłać przez platformę **LeON**. Wysyłaj wyłącznie pliki źródłowe, bez katalogów `build`, `install` i `log`.
+Kod źródłowy należy przesłać przez platformę **LeON**. Wysyłaj wyłącznie pliki źródłowe, bez katalogów `build`, `install` i `log`. Przy wyborze Pythona dołącz także zmienione pliki konfiguracji pakietu i launch, jeśli były potrzebne do uruchomienia rozwiązania.
 
 ### 2.2. Samodzielność pracy
 
@@ -256,7 +265,7 @@ Obie mapy mają ten sam rozmiar, rozdzielczość i origin jak `/map`.
 
 Sugerowana kolejność punktów trasy: `start` (dokładna pozycja robota) → środki kolejnych komórek trasy → `end` (dokładny cel z `/goal_pose`).
 
-Gdy trasa nie istnieje, wypisz w logu komunikat **„Brak"** (np. `RCLCPP_WARN` w C++) i **nie publikuj** żadnej trasy.
+Gdy trasa nie istnieje, wypisz w logu komunikat **„Brak"** (np. `RCLCPP_WARN` w C++ lub `self.get_logger().warning(...)` w Pythonie) i **nie publikuj** żadnej trasy.
 
 ## 6. Zadania
 
@@ -312,7 +321,7 @@ Przetestuj rozwiązanie w co najmniej kilku scenariuszach (świat wybierasz para
 
 Wskazówki dotyczące debugowania:
 
-- Wypisuj w logu (np. `RCLCPP_INFO` w C++) współrzędne i indeksy startu oraz celu, rozmiar mapy i liczbę rozwiniętych wierzchołków.
+- Wypisuj w logu (np. `RCLCPP_INFO` w C++ lub `self.get_logger().info(...)` w Pythonie) współrzędne i indeksy startu oraz celu, rozmiar mapy i liczbę rozwiniętych wierzchołków.
 - Wyświetl w RViz2 `/map_dilated`, żeby zobaczyć, gdzie algorytm może przechodzić (punkt 4.9 w `01_wprowadzenie_ros2.md`).
 - Najpierw sprawdź konwersje współrzędnych na prostych przykładach — typowe błędy to zamienione osie `x`/`y`, pominięty `origin` i indeks `iy * width + ix` zapisany jako `ix * height + iy`.
 - Dla małych map (`hallway`, rozdzielczość 0,1 m) A\* działa natychmiast. Mapy `cave` i `lines` mają rozdzielczość 0,032 m (ok. 250 tys. komórek). Wielokrotne liniowe przeszukiwanie całego zbioru otwartego w celu znalezienia minimum może być na nich wyraźnie wolniejsze; w razie potrzeby wybierz strukturę danych, która sprawnie aktualizuje priorytety i pobiera minimum bez utrzymywania nieaktualnych duplikatów.
