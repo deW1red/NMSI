@@ -70,7 +70,7 @@ W tym ćwiczeniu graf **nie jest dany w całości z góry** — budujemy go na b
 | Element grafu | W naszym zadaniu |
 |---------------|------------------|
 | wierzchołek | wolna komórka mapy $(x, y)$ |
-| krawędź | połączenie komórek sąsiednich (8 kierunków) |
+| krawędź | połączenie komórek sąsiednich (4 lub 8 kierunków) |
 | waga krawędzi | odległość między środkami komórek: $r$ dla ruchu w poziomie/pionie, $r\sqrt{2}$ po skosie ($r$ — rozdzielczość mapy w metrach) |
 
 Sąsiadów komórki wyznaczasz „w locie" w momencie, gdy jej potrzebujesz. Z tego powodu nie ma sensu z góry wypełniać tablicy $g$ nieskończonościami dla wszystkich komórek — mapa `cave` ma ok. 250 tys. komórek. W pseudokodzie poniżej wartości $g$ zapisujemy tylko dla komórek, które faktycznie odwiedziliśmy.
