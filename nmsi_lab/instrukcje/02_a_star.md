@@ -287,7 +287,7 @@ Zaimplementuj A\* według pseudokodu 4.1, korzystając z `/map_dilated` do budow
 
 ### Zadanie 2 — 8-sąsiedztwo
 
-Rozszerz graf o ruch po przekątnej. Waga krawędzi wynosi $r$ dla ruchu poziomego/pionowego oraz $r\sqrt{2}$ dla ruchu po skosie. Nie dopuszczaj ruchu po przekątnej, który przecina róg przeszkody; typowo wymaga to dostępności obu sąsiadujących komórek osiowych.
+Rozszerz graf o ruch po przekątnej. Waga krawędzi wynosi $r$ dla ruchu poziomego/pionowego oraz $r\sqrt{2}$ dla ruchu po skosie.
 
 ### Zadanie 3 — mapa kosztów
 
