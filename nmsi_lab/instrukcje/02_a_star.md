@@ -198,9 +198,9 @@ funkcja zrekonstruuj_trasę(przyszedłZ, obecny):
 
 (Alternatywnie dodawaj na koniec i odwróć listę na końcu.)
 
-### 4.4. Przykład
+### 4.4. Samodzielne prześledzenie algorytmu
 
-Przykładowy graf z wagami krawędzi i wartościami heurystyki oraz przebieg algorytmu krok po kroku znajdziesz w prezentacji `materialy/Grafy.pdf` (slajdy 21–28). W tej prezentacji tablice `g` i `f` są inicjalizowane nieskończonością dla wszystkich wierzchołków — w naszej implementacji nie robimy tego, ale przebieg algorytmu jest ten sam. Warto samodzielnie rozpisać go na kartce, zanim zaczniesz kodować.
+Przed kodowaniem prześledź algorytm na niewielkim grafie z wagami krawędzi i wartościami heurystyki. Zapisz kolejno wartości `g` i `f`, poprzedników oraz wybierane wierzchołki. Pamiętaj, że pseudokod przechowuje wpisy `g` tylko dla odkrytych wierzchołków; brak klucza oznacza, że koszt nie został jeszcze wyznaczony.
 
 ## 5. Mapa w ROS 2 — jak dostać się do komórek
 
@@ -331,5 +331,4 @@ Wskazówki dotyczące debugowania:
 ## 8. Przydatne odnośniki
 
 - Dokumentacja ROS 2: <https://docs.ros.org/en/lyrical/ROS-Framework.html>
-- Prezentacja z teorią grafów i A\*: `materialy/Grafy.pdf`
 - A\* (Wikipedia, pełny pseudokod): <https://en.wikipedia.org/wiki/A*_search_algorithm>
