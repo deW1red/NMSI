@@ -4,15 +4,15 @@ Przed rozpoczęciem tej części wykonaj `01_wprowadzenie_ros2.md` — zakładam
 
 ## 1. Cel ćwiczenia
 
-W pliku `nmsi_lab/src/a_star.cpp` znajduje się węzeł `a_star`. Odbiera on cel z RViz2 (`/goal_pose`), wyznacza pozycję startową robota z TF i wywołuje metodę:
+Węzeł `a_star` odbiera cel z RViz2 (`/goal_pose`), wyznacza pozycję startową robota z TF i wywołuje metodę:
 
 ```cpp
 void AStarCalculator::a_star(PoseStamped start, PoseStamped end);
 ```
 
-W szkielecie metoda publikuje tylko prosty odcinek od startu do celu. **Twoim zadaniem jest uzupełnić ją tak, aby wyznaczała optymalną trasę na mapie za pomocą algorytmu A\*** i publikowała ją na temat `/path` (typ `nav_msgs/msg/Path`). Resztą (jazda po trasie) zajmuje się gotowy węzeł `path_follower`.
+Pakiet zawiera szkielet w C++ w pliku `nmsi_lab/src/a_star.cpp`. Jeśli wybierasz C++, uzupełnij metodę `a_star`, aby wyznaczała optymalną trasę na mapie za pomocą algorytmu A\* i publikowała ją na temat `/path` (typ `nav_msgs/msg/Path`). Jeśli wybierasz Python, zaimplementuj równoważny węzeł ROS 2 i skonfiguruj jego uruchamianie w pakiecie, zachowując te same interfejsy tematów. Resztą (jazda po trasie) zajmuje się gotowy węzeł `path_follower`.
 
-Wszystkie zmiany wykonujesz w `a_star.cpp`. Nie zmieniaj nazw tematów ani pozostałych węzłów.
+Nie zmieniaj nazw tematów ani zachowania pozostałych węzłów.
 
 Uruchamianie (po zbudowaniu pakietu):
 
@@ -45,7 +45,7 @@ Rozwiązanie można przygotować w **C++ lub Pythonie**.
 
 > **Zadanie trzeba wykonać samodzielnie.**
 >
-> Wolno korzystać z: własnej wiedzy, materiałów przygotowanych przez prowadzącego (w tym tej instrukcji i pseudokodu), dokumentacji ROS 2 i C++, a także z kontenerów biblioteki standardowej (`std::map`, `std::unordered_map`, `std::priority_queue` itp.).
+> Wolno korzystać z: własnej wiedzy, materiałów przygotowanych przez prowadzącego (w tym tej instrukcji i pseudokodu), dokumentacji ROS 2 oraz wybranego języka i jego biblioteki standardowej (np. `std::map`, `std::unordered_map`, `std::vector` w C++ albo `dict`, `list`, `set` w Pythonie).
 >
 > Nie wolno korzystać z: bibliotek do obsługi grafów i planowania trasy (np. Nav2 planner, LEMON, Boost.Graph), gotowych fragmentów kodu z internetu, kodu innych osób ani **kodu wygenerowanego przez modele językowe (LLM) i inne narzędzia AI**.
 >
@@ -102,19 +102,21 @@ Własności heurystyki:
 
 Odległość euklidesowa spełnia oba warunki, o ile wagi krawędzi nie są mniejsze niż odległość euklidesowa między końcami krawędzi. Pamiętaj o tym, jeśli zdecydujesz się modyfikować wagi (zadanie bonusowe).
 
-### 3.4. Kolejka priorytetowa
+### 3.4. Zbiór otwarty i wybór kolejnego wierzchołka
 
-Struktura „zbiór rozpatrywanych" z algorytmu A\* to w praktyce **kolejka priorytetowa**, z której pobieramy element o najmniejszym $f$. Standardowa kolejka (`std::priority_queue`) nie umożliwia zmiany priorytetu elementu już w niej znajdującego się. Typowe rozwiązanie: gdy znajdziemy lepszą drogę do wierzchołka, **wstawiamy go do kolejki ponownie** z nowym priorytetem, a stare wpisy traktujemy jako nieaktualne. W zależności od wersji algorytmu zostaną one pominięte lub przetworzone ponownie (patrz niżej).
+**Zbiór otwarty** zawiera odkryte wierzchołki, które nie zostały jeszcze rozwinięte. Dla każdego wierzchołka przechowuj w nim tylko jeden bieżący priorytet $f$. Gdy znajdziesz lepszą drogę do wierzchołka, zaktualizuj jego koszt i priorytet w zbiorze otwartym — nie dodawaj drugiego wpisu, który mógłby mieć nieaktualną wartość. W każdej iteracji wybieraj i usuwaj wierzchołek o najmniejszym $f$.
+
+Sposób przechowywania zbioru zależy od języka i rozwiązania. Możesz użyć np. mapy/słownika indeksowanego wierzchołkiem i wyszukiwać minimum, albo struktury uporządkowanej według pary $(f, \text{identyfikator wierzchołka})$, która pozwala sprawnie aktualizować wpis i pobierać minimum. Wybór konkretnego kontenera nie jest narzucony; ważne, by aktualizacja nie pozostawiała nieaktualnych duplikatów.
 
 ### 3.5. Dwie wersje algorytmu
 
-**Wersja podstawowa** nie pamięta, które wierzchołki zostały już rozwinięte. Wierzchołek może więc być rozwijany wielokrotnie, jeśli w międzyczasie znajdziemy do niego lepszą drogę. Trasa jest optymalna, jeśli heurystyka jest dopuszczalna.
+**Wersja podstawowa** nie pamięta, które wierzchołki zostały już rozwinięte. Jeśli po rozwinięciu wierzchołka zostanie znaleziona do niego lepsza droga, może on wrócić do zbioru otwartego i zostać rozwinięty ponownie. Trasa jest optymalna, jeśli heurystyka jest dopuszczalna.
 
-**Wersja zmodyfikowana** utrzymuje dodatkowo **zbiór przejrzanych** wierzchołków (rozwiniętych). Rozwinięte wierzchołki nigdy nie są rozpatrywane ponownie. Jest szybsza, ale gwarantuje optymalność tylko dla heurystyki **spójnej**.
+**Wersja zmodyfikowana** utrzymuje dodatkowo **zbiór przejrzanych** wierzchołków (rozwiniętych) i pomija je przy rozpatrywaniu sąsiadów. Jest szybsza, ale gwarantuje optymalność tylko dla heurystyki **spójnej**. Przy spójnej heurystyce, takiej jak używana w tym ćwiczeniu, nie ma potrzeby ponownego otwierania rozwiniętych wierzchołków.
 
 ## 4. Pseudokod
 
-Oznaczenia: `Q` — kolejka priorytetowa zwracająca element o najmniejszym priorytecie (parę `(wierzchołek, f)`); `g` i `przyszedłZ` — mapy (słowniki), w których **brak klucza oznacza wartość nieskończoną / brak poprzednika** (nie inicjalizujemy ich dla całego grafu); `waga(x, y)` — waga krawędzi; `sąsiedzi(x)` — dostępni sąsiedzi komórki `x`.
+Oznaczenia: `otwarte` — mapa/słownik przechowujący dla każdego wierzchołka w zbiorze otwartym jego bieżące $f$; `g` i `przyszedłZ` — mapy/słowniki, w których **brak klucza oznacza wartość nieskończoną / brak poprzednika** (nie inicjalizujemy ich dla całego grafu); `waga(x, y)` — waga krawędzi; `sąsiedzi(x)` — dostępni sąsiedzi komórki `x`.
 
 ### 4.1. Wersja podstawowa
 
@@ -123,11 +125,11 @@ funkcja A*(start, meta):
     g := pusta mapa
     przyszedłZ := pusta mapa
     g[start] := 0
-    Q := pusta kolejka priorytetowa
-    Q.wstaw(start, g[start] + h(start))
+    otwarte := pusta mapa
+    otwarte[start] := g[start] + h(start)
 
-    dopóki Q jest niepusta:
-        x := Q.zdejmij_minimum()
+    dopóki otwarte nie jest puste:
+        x := wybierz i usuń z otwarte wierzchołek o najmniejszym f
         jeśli x = meta:
             zwróć zrekonstruuj_trasę(przyszedłZ, meta)
         dla każdego y spośród sąsiedzi(x):
@@ -135,14 +137,15 @@ funkcja A*(start, meta):
             jeśli y nie ma w g lub tymczasowe_g < g[y]:
                 przyszedłZ[y] := x
                 g[y] := tymczasowe_g
-                Q.wstaw(y, g[y] + h(y))
+                otwarte[y] := g[y] + h(y)
     zwróć porażka
 ```
 
 Uwagi:
 
 - Warunek „`y` nie ma w `g`" zastępuje porównanie z nieskończonością.
-- Ten sam wierzchołek może znajdować się w `Q` wielokrotnie (z różnymi priorytetami). Po zdjęciu z kolejki przetwarzamy go z aktualną (najlepszą znaną) wartością `g[x]`, więc wynik pozostaje poprawny.
+- Przypisanie `otwarte[y]` dodaje wierzchołek albo aktualizuje jego bieżący priorytet. W zbiorze otwartym nie ma kilku wpisów dla tego samego wierzchołka.
+- Po rozwinięciu wierzchołek nie znajduje się już w `otwarte`; jeśli później zostanie znaleziona do niego lepsza droga, może zostać dodany ponownie.
 
 ### 4.2. Wersja zmodyfikowana (ze zbiorem przejrzanych)
 
@@ -152,13 +155,11 @@ funkcja A*(start, meta):
     g := pusta mapa
     przyszedłZ := pusta mapa
     g[start] := 0
-    Q := pusta kolejka priorytetowa
-    Q.wstaw(start, g[start] + h(start))
+    otwarte := pusta mapa
+    otwarte[start] := g[start] + h(start)
 
-    dopóki Q jest niepusta:
-        x := Q.zdejmij_minimum()
-        jeśli x w przejrzane:
-            continue                      // nieaktualny duplikat w kolejce
+    dopóki otwarte nie jest puste:
+        x := wybierz i usuń z otwarte wierzchołek o najmniejszym f
         jeśli x = meta:
             zwróć zrekonstruuj_trasę(przyszedłZ, meta)
         dodaj x do przejrzane
@@ -169,9 +170,11 @@ funkcja A*(start, meta):
             jeśli y nie ma w g lub tymczasowe_g < g[y]:
                 przyszedłZ[y] := x
                 g[y] := tymczasowe_g
-                Q.wstaw(y, g[y] + h(y))
+                otwarte[y] := g[y] + h(y)
     zwróć porażka
 ```
+
+Ponieważ w tej wersji sąsiedzi należący do `przejrzane` są pomijani, rozwinięty wierzchołek nie wraca do zbioru otwartego. Ta wersja wymaga spójnej heurystyki, zgodnie z punktem 3.5.
 
 ### 4.3. Odtwarzanie trasy
 
@@ -219,7 +222,7 @@ Wartości w `data`:
 
 ### 5.2. Wskazówki dotyczące odczytu
 
-W C++ pola wiadomości odczytujesz tak jak pola struktury, np. `map_dilated->info.width`, `map_dilated->info.origin.position.x`, `map_dilated->data[idx]`. Zwróć uwagę, że w klasie mapy są przechowywane jako `OccupancyGrid::UniquePtr` — **mogą być puste** (`nullptr`), jeżeli mapa jeszcze nie dotarła. Sprawdź to na początku metody `a_star` i wypisz ostrzeżenie (`RCLCPP_WARN`).
+W C++ pola wiadomości odczytujesz tak jak pola struktury, np. `map_dilated->info.width`, `map_dilated->info.origin.position.x`, `map_dilated->data[idx]`. W Pythonie analogiczne pola są dostępne przez atrybuty, np. `map_dilated.info.width` i `map_dilated.data[idx]`. Mapa **może jeszcze nie być dostępna** (w C++ wskaźnik jest pusty, w Pythonie wartość może być `None`); sprawdź to przed użyciem i zgłoś ostrzeżenie w logu.
 
 ### 5.3. Konwersje współrzędnych
 
@@ -237,8 +240,8 @@ Przy dzieleniu pamiętaj o rzutowaniu na `double`. Przed użyciem indeksów spra
 
 | Mapa | Zastosowanie |
 |------|--------------|
-| `/map_dilated` | **sprawdzanie, czy komórka jest dostępna**. Przeszkody są pogrubione o promień robota (0,25 m), więc robota można traktować jak punkt. Komórkę uznaj za wolną, gdy `0 <= data < 65`; wartość `-1` (nieznane) i wartości `>= 65` traktuj jako przeszkodę. |
-| `/map_cost` | koszt 0–100 rosnący w miarę zbliżania się do przeszkód (0 = daleko od przeszkód); wykorzystywany tylko w zadaniu bonusowym. |
+| `/map_dilated` | **sprawdzanie, czy komórka jest dostępna**. Przeszkody są pogrubiane o promień robota, więc robota można traktować jak punkt. W konfiguracji `simulation.launch.py` parametr `robot_radius` wynosi obecnie 0,5 m; jeśli parametr zostanie zmieniony, obowiązuje wartość z uruchomienia. Komórkę uznaj za wolną, gdy `0 <= data < 65`; wartość `-1` (nieznane) i wartości `>= 65` traktuj jako przeszkodę. |
+| `/map_cost` | koszt 0–100 rosnący w miarę zbliżania się do przeszkód (0 = daleko od przeszkód); wykorzystywany w zadaniu 3. Wartość `-1` oznacza obszar nieznany, a nie koszt do użycia we wzorze. |
 
 Obie mapy mają ten sam rozmiar, rozdzielczość i origin jak `/map`.
 
@@ -253,41 +256,45 @@ Obie mapy mają ten sam rozmiar, rozdzielczość i origin jak `/map`.
 
 Sugerowana kolejność punktów trasy: `start` (dokładna pozycja robota) → środki kolejnych komórek trasy → `end` (dokładny cel z `/goal_pose`).
 
-Gdy trasa nie istnieje, wypisz w logu komunikat **„Brak"** (`RCLCPP_WARN`) i **nie publikuj** żadnej trasy.
+Gdy trasa nie istnieje, wypisz w logu komunikat **„Brak"** (np. `RCLCPP_WARN` w C++) i **nie publikuj** żadnej trasy.
 
 ## 6. Zadania
 
-### Zadanie 1 — graf z mapy
+Przygotuj funkcje pomocnicze (jako metody klasy lub funkcje poza klasą), które ułatwią rozwiązanie. Poniższe odpowiedzialności są wskazówkami, a nie wymaganym podziałem na funkcje ani narzuconymi sygnaturami — możesz je łączyć lub dzielić zależnie od rozwiązania:
 
-Przygotuj funkcje pomocnicze (jako metody klasy lub funkcje statyczne), które będą budować graf „w locie":
-
-1. konwersja współrzędnych w metrach na indeks komórki i z powrotem (punkt 5.3),
-2. sprawdzenie, czy komórka mieści się w mapie i jest dostępna (punkt 5.4),
-3. wyznaczenie dostępnych sąsiadów komórki wraz z wagami krawędzi (8-sąsiedztwo; $r$ i $r\sqrt{2}$),
-4. heurystyka — odległość euklidesowa do celu (punkt 3.3).
+1. konwersja współrzędnych w metrach na komórkę oraz wyznaczenie współrzędnych jej środka (punkt 5.3),
+2. sprawdzenie, czy komórka mieści się w mapie i jest dostępna na podstawie `/map_dilated`, oraz bezpieczny odczyt jej wartości,
+3. wyznaczenie sąsiadów i wag krawędzi dla aktualnego etapu ćwiczenia,
+4. obliczenie heurystyki (punkt 3.3) oraz odtworzenie trasy z mapy poprzedników (punkt 4.3).
 
 Wskazówki i pułapki:
 
-- Pozycja startowa robota może leżeć w „pogrubionym" obszarze (np. gdy robot stoi blisko ściany) — nie odrzucaj startu z tego powodu.
-- Cel wskazany w przeszkodzie lub poza mapą oznacza „Brak".
-- Dla ruchu po przekątnej rozważ zabronienie „przecinania rogów", gdy któraś z dwóch sąsiadujących komórek jest przeszkodą.
-- Jako identyfikatora wierzchołka wygodnie używać indeksu `idx` z punktu 5.1 (jedna liczba całkowita jako klucz w słowniku).
+- Pozycja startowa robota może leżeć w obszarze oznaczonym jako niedostępny na `/map_dilated` (np. gdy robot stoi blisko ściany) — jeśli leży w mapie, nie odrzucaj startu z tego powodu. Start poza mapą albo cel w przeszkodzie lub poza mapą oznacza „Brak".
+- Przy identyfikowaniu komórki pamiętaj o indeksie wierszowym z punktu 5.1 i sprawdzaj granice przed odczytem mapy. Wygodnym identyfikatorem wierzchołka może być para indeksów komórki albo pojedynczy `idx`.
 
-### Zadanie 2 — A\* podstawowy
+### Zadanie 1 — A\* podstawowy (4-sąsiedztwo)
 
-Zaimplementuj A\* według pseudokodu 4.1. Wynikiem ma być trasa opublikowana na `/path` lub komunikat „Brak". Kolejka priorytetowa: `std::priority_queue` z odpowiednim komparatorem (domyślnie zwraca największy element — potrzebujesz najmniejszego).
+Zaimplementuj A\* według pseudokodu 4.1, korzystając z `/map_dilated` do budowania grafu w locie. Na tym etapie uwzględnij czterech sąsiadów (góra, dół, lewo, prawo); każda krawędź ma wagę równą rozdzielczości mapy $r$. Wynikiem ma być trasa opublikowana na `/path` albo komunikat „Brak".
 
-### Zadanie 3 — A\* zmodyfikowany
+### Zadanie 2 — 8-sąsiedztwo
 
-Rozszerz implementację o zbiór przejrzanych wierzchołków zgodnie z pseudokodem 4.2. Wykonaj porównanie obu wersji: wypisz w logu liczbę rozwiniętych wierzchołków i długość trasy dla tych samych punktów start–cel. Czy trasy są takie same? Czy liczba rozwiniętych wierzchołków się zmieniła?
+Rozszerz graf o ruch po przekątnej. Waga krawędzi wynosi $r$ dla ruchu poziomego/pionowego oraz $r\sqrt{2}$ dla ruchu po skosie. Nie dopuszczaj ruchu po przekątnej, który przecina róg przeszkody; typowo wymaga to dostępności obu sąsiadujących komórek osiowych.
 
-### Zadanie bonusowe — mapa kosztów
+### Zadanie 3 — mapa kosztów
 
-Uwzględnij mapę `/map_cost`, aby trasa trzymała się z dala od ścian (a nie tylko omijała pogrubione przeszkody). Zwiększ wagę krawędzi proporcjonalnie do kosztu komórki, np.:
+Uwzględnij mapę `/map_cost`, aby trasa trzymała się z dala od ścian (a nie tylko omijała pogrubione przeszkody). Zwiększ wagę krawędzi proporcjonalnie do kosztu komórki docelowej, np.:
 
 $$w(x, y) = d(x, y) \cdot \left(1 + k \cdot \frac{\text{cost}(y)}{100}\right), \quad k \ge 0$$
 
-Dla $k \ge 0$ waga nie jest mniejsza niż odległość geometryczna, więc heurystyka euklidesowa pozostaje dopuszczalna i spójna. Porównaj trasy dla różnych $k$.
+Tutaj $d(x,y)$ to odległość geometryczna między komórkami, a $\text{cost}(y)$ to wartość komórki docelowej odczytana z `/map_cost`. Dla $k \ge 0$ waga nie jest mniejsza niż odległość geometryczna, więc heurystyka euklidesowa pozostaje dopuszczalna i spójna. Nie podstawiaj wartości `-1` za obszar nieznany do tego wzoru. Porównaj wynik dla różnych $k$.
+
+### Zadanie 4 — A\* zmodyfikowany
+
+Rozszerz implementację o zbiór przejrzanych wierzchołków zgodnie z pseudokodem 4.2. Porównaj obie wersje dla tych samych map, wag, heurystyki i punktów start–cel: wypisz liczbę rozwiniętych wierzchołków oraz łączny koszt trasy (możesz podać także jej długość geometryczną). Przy wielu trasach o takim samym koszcie ich przebieg może się różnić; porównuj przede wszystkim optymalny koszt.
+
+### Zadanie bonusowe — modyfikacja mapy kosztów
+
+Samodzielnie zmodyfikuj sposób wyznaczania kosztu lub opublikuj własną mapę uwzględniającą dodatkowe właściwości, np. koszt nieliniowy względem odległości od przeszkód.
 
 ## 7. Testowanie
 
@@ -305,10 +312,10 @@ Przetestuj rozwiązanie w co najmniej kilku scenariuszach (świat wybierasz para
 
 Wskazówki dotyczące debugowania:
 
-- Wypisuj w logu (`RCLCPP_INFO`) współrzędne i indeksy startu oraz celu, rozmiar mapy i liczbę rozwiniętych wierzchołków.
+- Wypisuj w logu (np. `RCLCPP_INFO` w C++) współrzędne i indeksy startu oraz celu, rozmiar mapy i liczbę rozwiniętych wierzchołków.
 - Wyświetl w RViz2 `/map_dilated`, żeby zobaczyć, gdzie algorytm może przechodzić (punkt 4.9 w `01_wprowadzenie_ros2.md`).
 - Najpierw sprawdź konwersje współrzędnych na prostych przykładach — typowe błędy to zamienione osie `x`/`y`, pominięty `origin` i indeks `iy * width + ix` zapisany jako `ix * height + iy`.
-- Dla małych map (`hallway`, rozdzielczość 0,1 m) A\* działa natychmiast. Mapy `cave` i `lines` mają rozdzielczość 0,032 m (ok. 250 tys. komórek) — źle napisana implementacja (np. liniowe szukanie minimum zamiast kolejki priorytetowej) będzie wyraźnie wolna.
+- Dla małych map (`hallway`, rozdzielczość 0,1 m) A\* działa natychmiast. Mapy `cave` i `lines` mają rozdzielczość 0,032 m (ok. 250 tys. komórek). Wielokrotne liniowe przeszukiwanie całego zbioru otwartego w celu znalezienia minimum może być na nich wyraźnie wolniejsze; w razie potrzeby wybierz strukturę danych, która sprawnie aktualizuje priorytety i pobiera minimum bez utrzymywania nieaktualnych duplikatów.
 - Dla `h ≡ 0` otrzymasz algorytm Dijkstry — możesz porównać liczbę rozwiniętych wierzchołków z wersją z heurystyką euklidesową.
 - Jeżeli robot jedzie nieregularnie po trasie z gęsto rozmieszczonymi punktami (w `cave` odległość między komórkami to 3 cm, a `path_follower` uznaje punkt za osiągnięty w promieniu 5 cm), możesz opublikować co kilka punktów trasy, pamiętając o zachowaniu ostatniego.
 
