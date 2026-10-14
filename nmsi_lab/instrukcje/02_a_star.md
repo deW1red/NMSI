@@ -33,9 +33,9 @@ ros2 launch nmsi_lab robot_controller.launch.py
 | 2 | Uwzględnienie 8 sąsiadów | 1,5 |
 | 3 | Uwzględnienie mapy kosztów `/map_cost` | 1,5 |
 | 4 | Zmodyfikowany A\* (ze zbiorem przejrzanych) | 2 |
-| Bonus | Samodzielna modyfikacja mapy kosztów lub publikacja własnej mapy, która uwzględnia dodatkowe właściwości (np. koszt nieliniowy względem odległości od przeszkód). Zachęcamy do kreatywnych rozwiązań. | bonus |
+| Bonus | Samodzielna modyfikacja mapy kosztów lub publikacja własnej mapy, która uwzględnia dodatkowe właściwości (np. koszt nieliniowy względem odległości od przeszkód). Zachęcamy do kreatywnych rozwiązań. | +1 |
 
-Zwykły termin oddania: **8 listopada**. Bieda termin: **15 listopada** — za pracę oddaną w tym terminie przyznawane jest 75% punktów zdobytych za zadania w zwykłym terminie.
+Zwykły termin oddania: **8 listopada**. Termin zapasowy: **15 listopada** — za pracę oddaną w tym terminie przyznawane jest 75% punktów zdobytych za zadania w zwykłym terminie. Po tym terminie zero.
 
 Kod źródłowy należy przesłać przez platformę **LeON**. Wysyłaj wyłącznie pliki źródłowe, bez katalogów `build`, `install` i `log`.
 
