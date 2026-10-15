@@ -239,7 +239,7 @@ Przeliczenie punktu $(x, y)$ w metrach (układ `map`) na indeksy komórki oraz z
 
 $$ix = \left\lfloor \frac{x - o_x}{r} \right\rfloor, \qquad iy = \left\lfloor \frac{y - o_y}{r} \right\rfloor$$
 
-$$x = o_x + (ix + 0{,}5)\, r, \qquad y = o_y + (iy + 0{,}5)\, r$$
+$$x = o_x + (ix + 0.5)\cdot r, \qquad y = o_y + (iy + 0.5)\cdot r$$
 
 gdzie $(o_x, o_y)$ to `info.origin.position`, a $r$ to `info.resolution`. Mapy w tym ćwiczeniu nie są obrócone (orientacja `origin` jest jednostkowa), więc obrót możesz pominąć.
 
