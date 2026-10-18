@@ -69,6 +69,9 @@ class AStarCalculator(Node):
         calculated_path.poses.append(end)
         self.publisher.publish(calculated_path)
 
+    def array_position(ix,iy):
+        return 
+
 
 def main(args=None) -> None:
     rclpy.init(args=args)
