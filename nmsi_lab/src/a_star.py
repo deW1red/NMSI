@@ -95,7 +95,7 @@ class AStarCalculator(Node):
         ix = floor((x - self.map_ox)/self.map_res)
         iy = floor((y - self.map_oy)/self.map_res)
 
-        return ix,iy
+        return ix, iy
 
     def index_to_meter(self,ix,iy):
         self.update_map_info(self)
@@ -103,7 +103,7 @@ class AStarCalculator(Node):
         x = self.map_ox + (ix + 0.5)*self.map_res
         y = self.map_oy + (iy + 0.5)*self.map_res
 
-        return x,y
+        return x, y
 
 
 
