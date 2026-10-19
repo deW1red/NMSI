@@ -7,7 +7,7 @@ from rclpy.node import Node
 from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile, ReliabilityPolicy
 from rclpy.time import Time
 from tf2_ros import Buffer, TransformException, TransformListener
-
+from math import sqrt,floor
 
 class AStarCalculator(Node):
     def __init__(self) -> None:
@@ -69,9 +69,46 @@ class AStarCalculator(Node):
         calculated_path.poses.append(end)
         self.publisher.publish(calculated_path)
 
-    def array_position(ix,iy):
-        return 
+    def array_position(self,ix,iy):
+        self.update_map_info(self)
+        return map_width*iy +ix
 
+    def update_map_info(self):
+        self.map_width = self.map_dilated.info.width
+        self.map_height = self.map_dilated.info.height
+        self.map_ox = self.map_dilated.info.origin.position.x
+        self.map_oy = self.map_dilated.info.origin.position.y
+        self.map_res = self.map_dilated.info.resolution
+
+    def meter_to_index(self,x,y):
+        self.update_map_info(self)
+
+        if(x < 0):
+            x = 0
+        if(y < 0):
+            y = 0
+        if(x > self.map_width):
+            x = self.map_width - 0.1
+        if(y > self.map_height):
+            y = self.map_height - 0.1
+
+        ix = floor((x - self.map_ox)/self.map_res)
+        iy = floor((y - self.map_oy)/self.map_res)
+
+        return ix,iy
+
+    def index_to_meter(self,ix,iy):
+        self.update_map_info(self)
+
+        x = self.map_ox + (ix + 0.5)*self.map_res
+        y = self.map_oy + (iy + 0.5)*self.map_res
+
+        return x,y
+
+
+        
+def euclidean_distance(x1,y1,x2,y2):
+    return sqrt((x2-x1)**2+(y2-y1)**2)
 
 def main(args=None) -> None:
     rclpy.init(args=args)
