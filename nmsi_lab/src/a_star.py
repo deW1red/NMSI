@@ -69,16 +69,16 @@ class AStarCalculator(Node):
         calculated_path.poses.append(end)
         self.publisher.publish(calculated_path)
 
-    def array_position(self,ix,iy):
-        self.update_map_info(self)
-        return map_width*iy +ix
-
     def update_map_info(self):
         self.map_width = self.map_dilated.info.width
         self.map_height = self.map_dilated.info.height
         self.map_ox = self.map_dilated.info.origin.position.x
         self.map_oy = self.map_dilated.info.origin.position.y
         self.map_res = self.map_dilated.info.resolution
+    
+    def array_position(self,ix,iy):
+        self.update_map_info(self)
+        return self.map_width*iy +ix
 
     def meter_to_index(self,x,y):
         self.update_map_info(self)
@@ -106,7 +106,7 @@ class AStarCalculator(Node):
         return x,y
 
 
-        
+
 def euclidean_distance(x1,y1,x2,y2):
     return sqrt((x2-x1)**2+(y2-y1)**2)
 
