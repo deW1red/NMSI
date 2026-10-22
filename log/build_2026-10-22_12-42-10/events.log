@@ -1,0 +1,992 @@
+[0.000000] (-) TimerEvent: {}
+[0.000545] (stage) JobQueued: {'identifier': 'stage', 'dependencies': OrderedDict()}
+[0.000579] (teleop_panel) JobQueued: {'identifier': 'teleop_panel', 'dependencies': OrderedDict()}
+[0.000593] (stage_ros2) JobQueued: {'identifier': 'stage_ros2', 'dependencies': OrderedDict({'stage': '/home/lab50/nmsi_ws/src/NMSI/install/stage'})}
+[0.000607] (nmsi_lab) JobQueued: {'identifier': 'nmsi_lab', 'dependencies': OrderedDict({'stage': '/home/lab50/nmsi_ws/src/NMSI/install/stage', 'stage_ros2': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2'})}
+[0.000618] (stage) JobStarted: {'identifier': 'stage'}
+[0.004207] (teleop_panel) JobStarted: {'identifier': 'teleop_panel'}
+[0.007034] (stage) JobProgress: {'identifier': 'stage', 'progress': 'cmake'}
+[0.007215] (stage) Command: {'cmd': ['/usr/bin/cmake', '/home/lab50/nmsi_ws/src/NMSI/Stage', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCMAKE_INSTALL_PREFIX=/home/lab50/nmsi_ws/src/NMSI/install/stage'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/stage', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/stage', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[0.010178] (teleop_panel) JobProgress: {'identifier': 'teleop_panel', 'progress': 'cmake'}
+[0.010385] (teleop_panel) Command: {'cmd': ['/usr/bin/cmake', '/home/lab50/nmsi_ws/src/NMSI/teleop_panel', '-DCMAKE_INSTALL_PREFIX=/home/lab50/nmsi_ws/src/NMSI/install/teleop_panel'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/teleop_panel', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/teleop_panel', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[0.085897] (stage) StdoutLine: {'line': b'-- The C compiler identification is GNU 15.2.0\n'}
+[0.086074] (teleop_panel) StdoutLine: {'line': b'-- The C compiler identification is GNU 15.2.0\n'}
+[0.099805] (-) TimerEvent: {}
+[0.187551] (stage) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 15.2.0\n'}
+[0.187677] (teleop_panel) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 15.2.0\n'}
+[0.195389] (stage) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.195617] (teleop_panel) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199881] (-) TimerEvent: {}
+[0.262687] (teleop_panel) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.262803] (stage) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.272566] (stage) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.272672] (teleop_panel) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.272813] (teleop_panel) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.272867] (stage) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.273154] (teleop_panel) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.273203] (stage) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.282331] (stage) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.282467] (teleop_panel) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.299977] (-) TimerEvent: {}
+[0.344279] (stage) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.344433] (teleop_panel) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.355993] (stage) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.356153] (teleop_panel) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.356202] (stage) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.356300] (teleop_panel) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.356594] (stage) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.356730] (teleop_panel) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.360876] (stage) StdoutLine: {'line': b'-- Stage version 4.3.0\n'}
+[0.360992] (stage) StdoutLine: {'line': b'-- Operating system is Linux\n'}
+[0.361033] (stage) StdoutLine: {'line': b'-- Installing Libraries to /home/lab50/nmsi_ws/src/NMSI/install/stage/lib\n'}
+[0.361067] (stage) StdoutLine: {'line': b'-- Installing Plugins to /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3\n'}
+[0.361116] (stage) StdoutLine: {'line': b'-- Build type RELEASE\n'}
+[0.361146] (stage) StdoutLine: {'line': b'-- Checking for libtool\n'}
+[0.364181] (teleop_panel) StdoutLine: {'line': b'-- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)\n'}
+[0.366596] (stage) StdoutLine: {'line': b'-- Checking for required libraries...\n'}
+[0.393978] (stage) StdoutLine: {'line': b'-- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80")\n'}
+[0.400062] (-) TimerEvent: {}
+[0.408489] (stage) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3.1")\n'}
+[0.429077] (stage) StdoutLine: {'line': b'-- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.57")\n'}
+[0.437812] (stage) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so\n'}
+[0.500145] (-) TimerEvent: {}
+[0.554876] (stage) StdoutLine: {'line': b'-- Found X11: /usr/include\n'}
+[0.555186] (stage) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so\n'}
+[0.559205] (teleop_panel) StdoutLine: {'line': b'-- Found geometry_msgs: 5.9.3 (/opt/ros/lyrical/share/geometry_msgs/cmake)\n'}
+[0.584760] (teleop_panel) StdoutLine: {'line': b'-- Found rosidl_generator_c: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_c/cmake)\n'}
+[0.591080] (teleop_panel) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_cpp/cmake)\n'}
+[0.600236] (-) TimerEvent: {}
+[0.603208] (teleop_panel) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.606764] (stage) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found\n'}
+[0.606869] (stage) StdoutLine: {'line': b'-- Looking for gethostbyname\n'}
+[0.613312] (teleop_panel) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.645065] (teleop_panel) StdoutLine: {'line': b'-- Found pluginlib: 5.8.5 (/opt/ros/lyrical/share/pluginlib/cmake)\n'}
+[0.657343] (stage) StdoutLine: {'line': b'-- Looking for gethostbyname - found\n'}
+[0.657461] (stage) StdoutLine: {'line': b'-- Looking for connect\n'}
+[0.676903] (teleop_panel) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.700327] (-) TimerEvent: {}
+[0.706852] (stage) StdoutLine: {'line': b'-- Looking for connect - found\n'}
+[0.706976] (stage) StdoutLine: {'line': b'-- Looking for remove\n'}
+[0.732597] (teleop_panel) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.733292] (teleop_panel) StdoutLine: {'line': b'-- Found Threads: TRUE\n'}
+[0.746803] (teleop_panel) StdoutLine: {'line': b'-- Performing Test HAVE_STDATOMIC\n'}
+[0.755701] (stage) StdoutLine: {'line': b'-- Looking for remove - found\n'}
+[0.755857] (stage) StdoutLine: {'line': b'-- Looking for shmat\n'}
+[0.800441] (-) TimerEvent: {}
+[0.805852] (stage) StdoutLine: {'line': b'-- Looking for shmat - found\n'}
+[0.805982] (stage) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE\n'}
+[0.853240] (teleop_panel) StdoutLine: {'line': b'-- Performing Test HAVE_STDATOMIC - Success\n'}
+[0.853961] (teleop_panel) StdoutLine: {'line': b'-- Found WrapAtomic: TRUE\n'}
+[0.856864] (stage) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE - found\n'}
+[0.878850] (teleop_panel) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so\n'}
+[0.879492] (teleop_panel) StdoutLine: {'line': b'-- Found WrapOpenGL: TRUE\n'}
+[0.885908] (stage) StdoutLine: {'line': b'-- Found FLTK: fltk_images;fltk_forms;fltk_gl;fltk\n'}
+[0.887529] (stage) StdoutLine: {'line': b'-- Checking for optional libraries...\n'}
+[0.887890] (stage) StdoutLine: {'line': b'-- Installation path CMAKE_INSTALL_PREFIX=/home/lab50/nmsi_ws/src/NMSI/install/stage\n'}
+[0.888372] (stage) StdoutLine: {'line': b'-- Configuring libstage\n'}
+[0.894097] (stage) StdoutLine: {'line': b'-- Found PkgConfig: /usr/bin/pkg-config (found version "2.5.1")\n'}
+[0.894467] (stage) StdoutLine: {'line': b"-- Checking for one of the modules 'playercore>=2.1.0'\n"}
+[0.900537] (-) TimerEvent: {}
+[0.911536] (teleop_panel) StdoutLine: {'line': b'-- Found WrapVulkanHeaders: /usr/include\n'}
+[0.920266] (stage) StdoutLine: {'line': b'--   * Player not detected. If Player is installed but not detected, check your PKG_CONFIG_PATH.\n'}
+[0.925070] (teleop_panel) StdoutLine: {'line': b'-- Found rclcpp: 32.0.3 (/opt/ros/lyrical/share/rclcpp/cmake)\n'}
+[0.928853] (stage) StdoutLine: {'line': b'-- Configuring done (0.9s)\n'}
+[0.957997] (stage) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[0.958307] (stage) StderrLine: {'line': b'\x1b[33mCMake Warning:\n'}
+[0.958353] (stage) StderrLine: {'line': b'  Manually-specified variables were not used by the project:\n'}
+[0.958384] (stage) StderrLine: {'line': b'\n'}
+[0.958411] (stage) StderrLine: {'line': b'    CATKIN_INSTALL_INTO_PREFIX_ROOT\n'}
+[0.958437] (stage) StderrLine: {'line': b'\n'}
+[0.958462] (stage) StderrLine: {'line': b'\x1b[0m\n'}
+[0.965892] (stage) StdoutLine: {'line': b'-- Build files have been written to: /home/lab50/nmsi_ws/src/NMSI/build/stage\n'}
+[0.968889] (teleop_panel) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.10.2 (/opt/ros/lyrical/share/rmw_implementation_cmake/cmake)\n'}
+[0.970618] (stage) CommandEnded: {'returncode': 0}
+[0.971023] (stage) JobProgress: {'identifier': 'stage', 'progress': 'build'}
+[0.971039] (teleop_panel) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 9.4.10 (/opt/ros/lyrical/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.971616] (stage) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lab50/nmsi_ws/src/NMSI/build/stage', '--', '-j12', '-l12'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/stage', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/stage', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[0.994016] (teleop_panel) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.000641] (-) TimerEvent: {}
+[1.006130] (stage) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/block.cc.o\x1b[0m\n'}
+[1.006299] (stage) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/camera.cc.o\x1b[0m\n'}
+[1.006368] (stage) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/color.cc.o\x1b[0m\n'}
+[1.006418] (stage) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/gl.cc.o\x1b[0m\n'}
+[1.006469] (stage) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/logentry.cc.o\x1b[0m\n'}
+[1.006505] (stage) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model.cc.o\x1b[0m\n'}
+[1.006536] (stage) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_actuator.cc.o\x1b[0m\n'}
+[1.006573] (stage) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_blinkenlight.cc.o\x1b[0m\n'}
+[1.006884] (stage) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/file_manager.cc.o\x1b[0m\n'}
+[1.008599] (stage) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/blockgroup.cc.o\x1b[0m\n'}
+[1.008739] (stage) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_blobfinder.cc.o\x1b[0m\n'}
+[1.072123] (teleop_panel) StdoutLine: {'line': b'-- Found rviz_common: 15.2.6 (/opt/ros/lyrical/share/rviz_common/cmake)\n'}
+[1.099473] (teleop_panel) StdoutLine: {'line': b"-- Setting OGRE_DIR to: '/opt/ros/lyrical/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'\n"}
+[1.100709] (-) TimerEvent: {}
+[1.102246] (teleop_panel) StdoutLine: {'line': b'-- Found OGRE\n'}
+[1.102426] (teleop_panel) StdoutLine: {'line': b'--   static     : OFF\n'}
+[1.102529] (teleop_panel) StdoutLine: {'line': b'--   components : MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume\n'}
+[1.102625] (teleop_panel) StdoutLine: {'line': b'--   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[1.102712] (teleop_panel) StdoutLine: {'line': b'--   media      : /opt/ros/lyrical/opt/rviz_ogre_vendor/share/OGRE/Media\n'}
+[1.102855] (teleop_panel) StdoutLine: {'line': b'-- OGRE_LIBRARIES: OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain\n'}
+[1.102952] (teleop_panel) StdoutLine: {'line': b'-- OGRE_LIBRARY_DIRS: /opt/ros/lyrical/opt/rviz_ogre_vendor/lib\n'}
+[1.104133] (teleop_panel) StdoutLine: {'line': b'-- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[1.104235] (teleop_panel) StdoutLine: {'line': b'-- OGRE_PLUGIN_DIR: /opt/ros/lyrical/opt/rviz_ogre_vendor/lib/OGRE\n'}
+[1.104287] (teleop_panel) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/lyrical/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[1.104333] (teleop_panel) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/lyrical/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[1.104376] (teleop_panel) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/lyrical/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[1.104418] (teleop_panel) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/lyrical/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[1.106847] (teleop_panel) StdoutLine: {'line': b'-- Could not find freeimage library\n'}
+[1.140545] (teleop_panel) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3.1")\n'}
+[1.200819] (-) TimerEvent: {}
+[1.302027] (-) TimerEvent: {}
+[1.390343] (teleop_panel) StdoutLine: {'line': b'-- Found X11: /usr/include\n'}
+[1.390557] (teleop_panel) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so\n'}
+[1.402077] (-) TimerEvent: {}
+[1.478257] (teleop_panel) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found\n'}
+[1.479470] (teleop_panel) StdoutLine: {'line': b'-- Looking for gethostbyname\n'}
+[1.502179] (-) TimerEvent: {}
+[1.566402] (teleop_panel) StdoutLine: {'line': b'-- Looking for gethostbyname - found\n'}
+[1.566785] (teleop_panel) StdoutLine: {'line': b'-- Looking for connect\n'}
+[1.602279] (-) TimerEvent: {}
+[1.657454] (teleop_panel) StdoutLine: {'line': b'-- Looking for connect - found\n'}
+[1.657615] (teleop_panel) StdoutLine: {'line': b'-- Looking for remove\n'}
+[1.702381] (-) TimerEvent: {}
+[1.745098] (teleop_panel) StdoutLine: {'line': b'-- Looking for remove - found\n'}
+[1.745269] (teleop_panel) StdoutLine: {'line': b'-- Looking for shmat\n'}
+[1.802485] (-) TimerEvent: {}
+[1.825171] (teleop_panel) StdoutLine: {'line': b'-- Looking for shmat - found\n'}
+[1.825333] (teleop_panel) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE\n'}
+[1.828647] (stage) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_callbacks.cc.o\x1b[0m\n'}
+[1.834651] (stage) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_bumper.cc.o\x1b[0m\n'}
+[1.843386] (stage) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_draw.cc.o\x1b[0m\n'}
+[1.902590] (-) TimerEvent: {}
+[1.908329] (teleop_panel) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE - found\n'}
+[1.990052] (stage) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_gripper.cc.o\x1b[0m\n'}
+[1.990248] (stage) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_camera.cc.o\x1b[0m\n'}
+[1.990847] (stage) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_fiducial.cc.o\x1b[0m\n'}
+[1.999392] (stage) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_position.cc.o\x1b[0m\n'}
+[2.002689] (-) TimerEvent: {}
+[2.045439] (stage) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_ranger.cc.o\x1b[0m\n'}
+[2.045602] (stage) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/model_lightindicator.cc.o\x1b[0m\n'}
+[2.103079] (-) TimerEvent: {}
+[2.203343] (-) TimerEvent: {}
+[2.243060] (teleop_panel) StdoutLine: {'line': b'-- Configuring done (2.2s)\n'}
+[2.269864] (teleop_panel) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[2.303481] (-) TimerEvent: {}
+[2.304110] (teleop_panel) StdoutLine: {'line': b'-- Build files have been written to: /home/lab50/nmsi_ws/src/NMSI/build/teleop_panel\n'}
+[2.320082] (teleop_panel) CommandEnded: {'returncode': 0}
+[2.320401] (teleop_panel) JobProgress: {'identifier': 'teleop_panel', 'progress': 'build'}
+[2.320423] (teleop_panel) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lab50/nmsi_ws/src/NMSI/build/teleop_panel', '--', '-j12', '-l12'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/teleop_panel', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/teleop_panel', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[2.358540] (teleop_panel) StdoutLine: {'line': b'[  0%] Built target teleop_panel_autogen_timestamp_deps\n'}
+[2.374750] (teleop_panel) StdoutLine: {'line': b'[ 16%] \x1b[1m\x1b[34mAutomatic MOC for target teleop_panel\x1b[0m\n'}
+[2.404063] (-) TimerEvent: {}
+[2.504303] (-) TimerEvent: {}
+[2.604549] (-) TimerEvent: {}
+[2.690147] (stage) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/option.cc.o\x1b[0m\n'}
+[2.691095] (stage) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/powerpack.cc.o\x1b[0m\n'}
+[2.704647] (-) TimerEvent: {}
+[2.738751] (teleop_panel) StdoutLine: {'line': b'[ 16%] Built target teleop_panel_autogen\n'}
+[2.770858] (teleop_panel) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/teleop_panel.dir/teleop_panel_autogen/mocs_compilation.cpp.o\x1b[0m\n'}
+[2.807071] (-) TimerEvent: {}
+[2.839374] (stage) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/texture_manager.cc.o\x1b[0m\n'}
+[2.846188] (stage) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/region.cc.o\x1b[0m\n'}
+[2.850124] (stage) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/stage.cc.o\x1b[0m\n'}
+[2.907177] (-) TimerEvent: {}
+[3.008382] (-) TimerEvent: {}
+[3.101841] (stage) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/worldfile.cc.o\x1b[0m\n'}
+[3.102021] (stage) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/typetable.cc.o\x1b[0m\n'}
+[3.104699] (stage) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/world.cc.o\x1b[0m\n'}
+[3.108483] (-) TimerEvent: {}
+[3.111084] (stage) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/canvas.cc.o\x1b[0m\n'}
+[3.181872] (stage) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/options_dlg.cc.o\x1b[0m\n'}
+[3.208587] (-) TimerEvent: {}
+[3.308868] (-) TimerEvent: {}
+[3.411289] (-) TimerEvent: {}
+[3.490909] (stage) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/worldgui.cc.o\x1b[0m\n'}
+[3.491134] (stage) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/vis_strip.cc.o\x1b[0m\n'}
+[3.511390] (-) TimerEvent: {}
+[3.603088] (stage) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stage.dir/ancestor.cc.o\x1b[0m\n'}
+[3.611496] (-) TimerEvent: {}
+[3.712741] (-) TimerEvent: {}
+[3.813177] (-) TimerEvent: {}
+[3.913468] (-) TimerEvent: {}
+[4.014353] (-) TimerEvent: {}
+[4.114633] (-) TimerEvent: {}
+[4.214893] (-) TimerEvent: {}
+[4.315167] (-) TimerEvent: {}
+[4.415430] (-) TimerEvent: {}
+[4.515687] (-) TimerEvent: {}
+[4.615950] (-) TimerEvent: {}
+[4.716208] (-) TimerEvent: {}
+[4.816465] (-) TimerEvent: {}
+[4.904103] (stage) StdoutLine: {'line': b'[ 57%] \x1b[1m\x1b[32mLinking CXX shared library libstage.so\x1b[0m\n'}
+[4.916577] (-) TimerEvent: {}
+[4.988316] (stage) StdoutLine: {'line': b'[ 57%] Built target stage\n'}
+[5.005125] (stage) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/wander.dir/wander.cc.o\x1b[0m\n'}
+[5.005289] (stage) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/fasr.dir/fasr.cc.o\x1b[0m\n'}
+[5.005353] (stage) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/sink.dir/sink.cc.o\x1b[0m\n'}
+[5.005403] (stage) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object libstage/CMakeFiles/stagebinary.dir/main.cc.o\x1b[0m\n'}
+[5.005447] (stage) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/source.dir/source.cc.o\x1b[0m\n'}
+[5.006245] (stage) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/pioneer_flocking.dir/pioneer_flocking.cc.o\x1b[0m\n'}
+[5.006377] (stage) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/lasernoise.dir/lasernoise.cc.o\x1b[0m\n'}
+[5.006431] (stage) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/dynamic.dir/dynamic.cc.o\x1b[0m\n'}
+[5.006476] (stage) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/rasterize.dir/rasterize.cc.o\x1b[0m\n'}
+[5.006515] (stage) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/fasr2.dir/fasr2.cc.o\x1b[0m\n'}
+[5.016678] (-) TimerEvent: {}
+[5.117069] (-) TimerEvent: {}
+[5.218073] (-) TimerEvent: {}
+[5.318344] (-) TimerEvent: {}
+[5.418618] (-) TimerEvent: {}
+[5.518901] (-) TimerEvent: {}
+[5.620072] (-) TimerEvent: {}
+[5.720340] (-) TimerEvent: {}
+[5.739102] (stage) StdoutLine: {'line': b'[ 77%] \x1b[1m\x1b[32mLinking CXX shared module sink.so\x1b[0m\n'}
+[5.739230] (stage) StdoutLine: {'line': b'[ 77%] \x1b[1m\x1b[32mLinking CXX shared module rasterize.so\x1b[0m\n'}
+[5.743282] (stage) StdoutLine: {'line': b'[ 79%] \x1b[1m\x1b[32mLinking CXX shared module lasernoise.so\x1b[0m\n'}
+[5.775915] (stage) StdoutLine: {'line': b'[ 81%] \x1b[1m\x1b[32mLinking CXX shared module pioneer_flocking.so\x1b[0m\n'}
+[5.780988] (stage) StdoutLine: {'line': b'[ 84%] \x1b[1m\x1b[32mLinking CXX executable stage\x1b[0m\n'}
+[5.781191] (stage) StdoutLine: {'line': b'[ 84%] \x1b[1m\x1b[32mLinking CXX shared module dynamic.so\x1b[0m\n'}
+[5.789058] (stage) StdoutLine: {'line': b'[ 86%] \x1b[1m\x1b[32mLinking CXX shared module wander.so\x1b[0m\n'}
+[5.821077] (-) TimerEvent: {}
+[5.829996] (stage) StdoutLine: {'line': b'[ 86%] Built target sink\n'}
+[5.830192] (stage) StdoutLine: {'line': b'[ 86%] Built target rasterize\n'}
+[5.834145] (stage) StdoutLine: {'line': b'[ 88%] \x1b[1m\x1b[32mLinking CXX shared module source.so\x1b[0m\n'}
+[5.835985] (stage) StdoutLine: {'line': b'[ 89%] \x1b[1m\x1b[32mLinking CXX shared module fasr.so\x1b[0m\n'}
+[5.840990] (stage) StdoutLine: {'line': b'[ 89%] Built target lasernoise\n'}
+[5.848778] (stage) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding CXX object worlds/benchmark/CMakeFiles/expand_swarm.dir/expand_swarm.cc.o\x1b[0m\n'}
+[5.850789] (stage) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding CXX object worlds/benchmark/CMakeFiles/expand_pioneer.dir/expand_pioneer.cc.o\x1b[0m\n'}
+[5.869550] (stage) StdoutLine: {'line': b'[ 93%] Built target dynamic\n'}
+[5.881539] (stage) StdoutLine: {'line': b'[ 93%] Built target wander\n'}
+[5.883545] (stage) StdoutLine: {'line': b'[ 93%] Built target pioneer_flocking\n'}
+[5.901749] (stage) StdoutLine: {'line': b'[ 93%] Built target stagebinary\n'}
+[5.915660] (stage) StdoutLine: {'line': b'[ 93%] Built target source\n'}
+[5.921157] (-) TimerEvent: {}
+[5.933661] (stage) StdoutLine: {'line': b'[ 93%] Built target fasr\n'}
+[5.962887] (stage) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding CXX object examples/ctrl/CMakeFiles/fasr2.dir/astar/findpath.cpp.o\x1b[0m\n'}
+[6.021278] (-) TimerEvent: {}
+[6.121524] (-) TimerEvent: {}
+[6.221790] (-) TimerEvent: {}
+[6.322060] (-) TimerEvent: {}
+[6.334309] (stage) StdoutLine: {'line': b'[ 96%] \x1b[1m\x1b[32mLinking CXX shared module expand_pioneer.so\x1b[0m\n'}
+[6.334456] (stage) StdoutLine: {'line': b'[ 98%] \x1b[1m\x1b[32mLinking CXX shared module expand_swarm.so\x1b[0m\n'}
+[6.375964] (stage) StdoutLine: {'line': b'[100%] \x1b[1m\x1b[32mLinking CXX shared module fasr2.so\x1b[0m\n'}
+[6.393921] (stage) StdoutLine: {'line': b'[100%] Built target expand_pioneer\n'}
+[6.394084] (stage) StdoutLine: {'line': b'[100%] Built target expand_swarm\n'}
+[6.422160] (-) TimerEvent: {}
+[6.435126] (stage) StdoutLine: {'line': b'[100%] Built target fasr2\n'}
+[6.442621] (stage) CommandEnded: {'returncode': 0}
+[6.443585] (stage) JobProgress: {'identifier': 'stage', 'progress': 'install'}
+[6.448863] (stage) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/lab50/nmsi_ws/src/NMSI/build/stage'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/stage', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/stage', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[6.453770] (stage) StdoutLine: {'line': b'-- Install configuration: "RELEASE"\n'}
+[6.453864] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig/stage.pc\n'}
+[6.453921] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/cmake/Stage/stage-config.cmake\n'}
+[6.453974] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/cmake/Stage/stage-config-version.cmake\n'}
+[6.454123] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/bin/stage\n'}
+[6.454269] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/bin/stage" to ""\n'}
+[6.454319] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/libstage.so.4.3.0\n'}
+[6.454625] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/libstage.so\n'}
+[6.454678] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/include/Stage-4.3/stage.hh\n'}
+[6.455004] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/fasr.so\n'}
+[6.455142] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/fasr.so" to ""\n'}
+[6.455210] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/sink.so\n'}
+[6.455309] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/sink.so" to ""\n'}
+[6.455378] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/source.so\n'}
+[6.455457] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/source.so" to ""\n'}
+[6.455496] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/wander.so\n'}
+[6.455588] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/wander.so" to ""\n'}
+[6.455635] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/pioneer_flocking.so\n'}
+[6.455737] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/pioneer_flocking.so" to ""\n'}
+[6.455798] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/rasterize.so\n'}
+[6.455869] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/rasterize.so" to ""\n'}
+[6.455921] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/lasernoise.so\n'}
+[6.456001] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/lasernoise.so" to ""\n'}
+[6.456097] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/dynamic.so\n'}
+[6.456148] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/dynamic.so" to ""\n'}
+[6.456212] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/fasr2.so\n'}
+[6.456322] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/fasr2.so" to ""\n'}
+[6.456471] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/blue.png\n'}
+[6.456516] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/death.png\n'}
+[6.456568] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/green.png\n'}
+[6.456609] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/logo.png\n'}
+[6.456646] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/mains.png\n'}
+[6.456711] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/mainspower.png\n'}
+[6.456762] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/question_mark.png\n'}
+[6.456804] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/red.png\n'}
+[6.456842] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/stagelogo.png\n'}
+[6.456881] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/stall-old.png\n'}
+[6.456930] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/stall.png\n'}
+[6.456975] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/assets/rgb.txt\n'}
+[6.457035] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/rgb.txt\n'}
+[6.457196] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/amcl-sonar.cfg\n'}
+[6.457235] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/autolab.cfg\n'}
+[6.457275] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/camera.cfg\n'}
+[6.457317] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/everything.cfg\n'}
+[6.457360] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/lsp_test.cfg\n'}
+[6.457407] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/mbicp.cfg\n'}
+[6.457445] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/nd.cfg\n'}
+[6.457478] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/roomba.cfg\n'}
+[6.457522] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/simple.cfg\n'}
+[6.457555] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/test.cfg\n'}
+[6.457602] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/uoa_robotics_lab.cfg\n'}
+[6.457634] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/vfh.cfg\n'}
+[6.457666] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wavefront-remote.cfg\n'}
+[6.457713] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wavefront.cfg\n'}
+[6.457744] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi.cfg\n'}
+[6.457785] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/SFU.world\n'}
+[6.457816] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/autolab.world\n'}
+[6.457849] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/camera.world\n'}
+[6.457895] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/circuit.world\n'}
+[6.457928] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/everything.world\n'}
+[6.457958] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/fasr.world\n'}
+[6.458002] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/fasr2.world\n'}
+[6.458042] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/fasr_plan.world\n'}
+[6.458073] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/large.world\n'}
+[6.458117] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/lsp_test.world\n'}
+[6.458151] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/mbicp.world\n'}
+[6.458192] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/pioneer_flocking.world\n'}
+[6.458222] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/pioneer_follow.world\n'}
+[6.458262] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/pioneer_walle.world\n'}
+[6.458293] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/roomba.world\n'}
+[6.458324] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/sensor_noise_demo.world\n'}
+[6.458368] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/sensor_noise_module_demo.world\n'}
+[6.458405] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/simple.world\n'}
+[6.458439] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/uoa_robotics_lab.world\n'}
+[6.458469] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi.world\n'}
+[6.458500] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/beacons.inc\n'}
+[6.458543] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/chatterbox.inc\n'}
+[6.458574] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/hokuyo.inc\n'}
+[6.458607] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/irobot.inc\n'}
+[6.458658] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/map.inc\n'}
+[6.458689] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/objects.inc\n'}
+[6.458720] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/pantilt.inc\n'}
+[6.458765] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/pioneer.inc\n'}
+[6.458797] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/sick.inc\n'}
+[6.458826] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/ubot.inc\n'}
+[6.458871] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/uoa_robotics_lab_models.inc\n'}
+[6.458903] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/walle.inc\n'}
+[6.458933] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/cfggen.sh\n'}
+[6.458977] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/test.sh\n'}
+[6.459005] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/worldgen.sh\n'}
+[6.459071] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/expand_swarm.so\n'}
+[6.459204] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/expand_swarm.so" to ""\n'}
+[6.459243] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/expand_pioneer.so\n'}
+[6.459371] (stage) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/Stage-4.3/expand_pioneer.so" to ""\n'}
+[6.459493] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/889_05.png\n'}
+[6.459535] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/SFU_1200x615.png\n'}
+[6.459670] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/SRI-AIC-kwing.png\n'}
+[6.459715] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/autolab.png\n'}
+[6.459755] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/cave.png\n'}
+[6.459791] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/cave_compact.png\n'}
+[6.459831] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/cave_filled.png\n'}
+[6.459870] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/frieburg.png\n'}
+[6.459908] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/ghost.png\n'}
+[6.459948] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/hospital.png\n'}
+[6.459988] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/hospital_section.png\n'}
+[6.460042] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/human_outline.png\n'}
+[6.460096] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/mbicp.png\n'}
+[6.460131] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/rink.png\n'}
+[6.460167] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/sal2.png\n'}
+[6.460229] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/simple_rooms.png\n'}
+[6.460330] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/space_invader.png\n'}
+[6.460372] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/submarine.png\n'}
+[6.460408] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/submarine_small.png\n'}
+[6.460454] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/table.png\n'}
+[6.460489] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/bitmaps/uoa_robotics_lab.png\n'}
+[6.460535] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi/commando.world\n'}
+[6.460566] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi/hosp_wifi.world\n'}
+[6.460597] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi/hosp_wifi_5.world\n'}
+[6.460641] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi/wifi.world\n'}
+[6.460673] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi/wifi_itu.world\n'}
+[6.460704] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi/wifi_logdistance.world\n'}
+[6.460750] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi/wifi_ray.world\n'}
+[6.460781] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi/wifi_simple.world\n'}
+[6.460815] (stage) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage/share/stage/worlds/wifi/map.inc\n'}
+[6.461918] (stage) CommandEnded: {'returncode': 0}
+[6.480275] (stage) JobEnded: {'identifier': 'stage', 'rc': 0}
+[6.480742] (stage_ros2) JobStarted: {'identifier': 'stage_ros2'}
+[6.487265] (stage_ros2) JobProgress: {'identifier': 'stage_ros2', 'progress': 'cmake'}
+[6.487477] (stage_ros2) Command: {'cmd': ['/usr/bin/cmake', '/home/lab50/nmsi_ws/src/NMSI/stage_ros2', '-DCMAKE_INSTALL_PREFIX=/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/share:/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[6.494080] (stage_ros2) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):\n'}
+[6.494205] (stage_ros2) StderrLine: {'line': b'  Compatibility with CMake < 3.10 will be removed from a future version of\n'}
+[6.494240] (stage_ros2) StderrLine: {'line': b'  CMake.\n'}
+[6.494270] (stage_ros2) StderrLine: {'line': b'\n'}
+[6.494297] (stage_ros2) StderrLine: {'line': b'  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax\n'}
+[6.494322] (stage_ros2) StderrLine: {'line': b'  to tell CMake that the project requires at least <min> but has been updated\n'}
+[6.494350] (stage_ros2) StderrLine: {'line': b'  to work with policies introduced by <max> or earlier.\n'}
+[6.494376] (stage_ros2) StderrLine: {'line': b'\n'}
+[6.494401] (stage_ros2) StderrLine: {'line': b'\x1b[0m\n'}
+[6.522251] (-) TimerEvent: {}
+[6.527850] (stage_ros2) StdoutLine: {'line': b'-- The C compiler identification is GNU 15.2.0\n'}
+[6.572571] (stage_ros2) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 15.2.0\n'}
+[6.578117] (stage_ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[6.622341] (-) TimerEvent: {}
+[6.629404] (stage_ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[6.639588] (stage_ros2) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[6.639836] (stage_ros2) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[6.640154] (stage_ros2) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[6.648219] (stage_ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[6.706344] (stage_ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[6.716708] (stage_ros2) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[6.716919] (stage_ros2) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[6.717430] (stage_ros2) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[6.722419] (-) TimerEvent: {}
+[6.722995] (stage_ros2) StdoutLine: {'line': b'-- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)\n'}
+[6.822525] (-) TimerEvent: {}
+[6.919285] (stage_ros2) StdoutLine: {'line': b'-- Found rclcpp: 32.0.3 (/opt/ros/lyrical/share/rclcpp/cmake)\n'}
+[6.922584] (-) TimerEvent: {}
+[6.938187] (stage_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_c: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_c/cmake)\n'}
+[6.943040] (stage_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_cpp/cmake)\n'}
+[6.951597] (stage_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[6.959968] (stage_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.961092] (teleop_panel) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/teleop_panel.dir/src/teleop_panel.cpp.o\x1b[0m\n'}
+[6.961150] (teleop_panel) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/teleop_panel.dir/src/drive_widget.cpp.o\x1b[0m\n'}
+[7.002385] (stage_ros2) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.10.2 (/opt/ros/lyrical/share/rmw_implementation_cmake/cmake)\n'}
+[7.003902] (stage_ros2) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 9.4.10 (/opt/ros/lyrical/share/rmw_fastrtps_cpp/cmake)\n'}
+[7.022690] (-) TimerEvent: {}
+[7.023441] (stage_ros2) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[7.070143] (stage_ros2) StdoutLine: {'line': b'-- Found rclcpp_components: 32.0.3 (/opt/ros/lyrical/share/rclcpp_components/cmake)\n'}
+[7.092871] (stage_ros2) StdoutLine: {'line': b'-- Found sensor_msgs: 5.9.3 (/opt/ros/lyrical/share/sensor_msgs/cmake)\n'}
+[7.122881] (-) TimerEvent: {}
+[7.131526] (stage_ros2) StdoutLine: {'line': b'-- Found marker_msgs: 0.0.8 (/opt/ros/lyrical/share/marker_msgs/cmake)\n'}
+[7.146621] (stage_ros2) StdoutLine: {'line': b'-- Found ackermann_msgs: 2.0.2 (/opt/ros/lyrical/share/ackermann_msgs/cmake)\n'}
+[7.157814] (stage_ros2) StdoutLine: {'line': b'-- Found nav_msgs: 5.9.3 (/opt/ros/lyrical/share/nav_msgs/cmake)\n'}
+[7.177151] (stage_ros2) StdoutLine: {'line': b'-- Found tf2_ros: 0.45.10 (/opt/ros/lyrical/share/tf2_ros/cmake)\n'}
+[7.222991] (-) TimerEvent: {}
+[7.232482] (stage_ros2) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.45.10 (/opt/ros/lyrical/share/tf2_geometry_msgs/cmake)\n'}
+[7.240972] (stage_ros2) StdoutLine: {'line': b'-- Found std_srvs: 5.9.3 (/opt/ros/lyrical/share/std_srvs/cmake)\n'}
+[7.252654] (stage_ros2) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.20.6 (/opt/ros/lyrical/share/ament_lint_auto/cmake)\n'}
+[7.323088] (-) TimerEvent: {}
+[7.339104] (stage_ros2) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[7.339338] (stage_ros2) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/lab50/nmsi_ws/src/NMSI/stage_ros2/./include;$<BUILD_INTERFACE:/home/lab50/nmsi_ws/src/NMSI/stage_ros2/include>\n'}
+[7.339410] (stage_ros2) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[7.340097] (stage_ros2) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[7.340171] (stage_ros2) StdoutLine: {'line': b"-- Configured 'flake8' exclude dirs and/or files: \n"}
+[7.340886] (stage_ros2) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[7.341494] (stage_ros2) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[7.343070] (stage_ros2) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[7.343142] (stage_ros2) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[7.343732] (stage_ros2) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[7.345594] (stage_ros2) StdoutLine: {'line': b"-- Added test 'clang_format' to check C / C++ code style\n"}
+[7.346213] (stage_ros2) StdoutLine: {'line': b"-- Added test 'pycodestyle' to check Python code against some of the style conventions in PEP 8\n"}
+[7.346948] (stage_ros2) StdoutLine: {'line': b'-- Configuring done (0.9s)\n'}
+[7.364833] (stage_ros2) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[7.392408] (stage_ros2) StdoutLine: {'line': b'-- Build files have been written to: /home/lab50/nmsi_ws/src/NMSI/build/stage_ros2\n'}
+[7.398592] (stage_ros2) CommandEnded: {'returncode': 0}
+[7.399270] (stage_ros2) JobProgress: {'identifier': 'stage_ros2', 'progress': 'build'}
+[7.399288] (stage_ros2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2', '--', '-j12', '-l12'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/share:/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[7.423252] (-) TimerEvent: {}
+[7.432896] (stage_ros2) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/stage_node.dir/src/vehicle.cpp.o\x1b[0m\n'}
+[7.433066] (stage_ros2) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/stage_node.dir/src/stage_node.cpp.o\x1b[0m\n'}
+[7.433135] (stage_ros2) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/stage_node.dir/src/fiducial_detector.cpp.o\x1b[0m\n'}
+[7.433213] (stage_ros2) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/stage_node.dir/src/camera.cpp.o\x1b[0m\n'}
+[7.434083] (stage_ros2) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/stage_node.dir/src/ranger.cpp.o\x1b[0m\n'}
+[7.523341] (-) TimerEvent: {}
+[7.623601] (-) TimerEvent: {}
+[7.723876] (-) TimerEvent: {}
+[7.824152] (-) TimerEvent: {}
+[7.924427] (-) TimerEvent: {}
+[8.024709] (-) TimerEvent: {}
+[8.124990] (-) TimerEvent: {}
+[8.225270] (-) TimerEvent: {}
+[8.325554] (-) TimerEvent: {}
+[8.425843] (-) TimerEvent: {}
+[8.526081] (-) TimerEvent: {}
+[8.626385] (-) TimerEvent: {}
+[8.670288] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void teleop_panel::DriveWidget::\x1b[01;32m\x1b[KmouseMoveEvent\x1b[m\x1b[K(QMouseEvent*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.670511] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:190:35:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kint QMouseEvent::\x1b[01;32m\x1b[Kx\x1b[m\x1b[K() const\x1b[m\x1b[K\xe2\x80\x99 is deprecated: Use position() [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[8.670587] (teleop_panel) StderrLine: {'line': b'  190 |   sendVelocitiesFromMouse(\x1b[01;35m\x1b[Kevent->x()\x1b[m\x1b[K, event->y(), width(), height());\n'}
+[8.670639] (teleop_panel) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K~~~~~~~~^~\x1b[m\x1b[K\n'}
+[8.670686] (teleop_panel) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent:1\x1b[m\x1b[K,\n'}
+[8.670731] (teleop_panel) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:34\x1b[m\x1b[K:\n'}
+[8.670776] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h:227:16:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[8.670823] (teleop_panel) StderrLine: {'line': b'  227 |     inline int \x1b[01;36m\x1b[Kx\x1b[m\x1b[K() const { return qRound(position().x()); }\n'}
+[8.670868] (teleop_panel) StderrLine: {'line': b'      |                \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[8.670912] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:190:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kint QMouseEvent::\x1b[01;32m\x1b[Ky\x1b[m\x1b[K() const\x1b[m\x1b[K\xe2\x80\x99 is deprecated: Use position() [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[8.671040] (teleop_panel) StderrLine: {'line': b'  190 |   sendVelocitiesFromMouse(event->x(), \x1b[01;35m\x1b[Kevent->y()\x1b[m\x1b[K, width(), height());\n'}
+[8.671102] (teleop_panel) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K~~~~~~~~^~\x1b[m\x1b[K\n'}
+[8.671145] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h:229:16:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[8.671188] (teleop_panel) StderrLine: {'line': b'  229 |     inline int \x1b[01;36m\x1b[Ky\x1b[m\x1b[K() const { return qRound(position().y()); }\n'}
+[8.671230] (teleop_panel) StderrLine: {'line': b'      |                \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[8.671272] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void teleop_panel::DriveWidget::\x1b[01;32m\x1b[KmousePressEvent\x1b[m\x1b[K(QMouseEvent*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.671316] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:196:35:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kint QMouseEvent::\x1b[01;32m\x1b[Kx\x1b[m\x1b[K() const\x1b[m\x1b[K\xe2\x80\x99 is deprecated: Use position() [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[8.671360] (teleop_panel) StderrLine: {'line': b'  196 |   sendVelocitiesFromMouse(\x1b[01;35m\x1b[Kevent->x()\x1b[m\x1b[K, event->y(), width(), height());\n'}
+[8.671400] (teleop_panel) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K~~~~~~~~^~\x1b[m\x1b[K\n'}
+[8.671441] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h:227:16:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[8.671484] (teleop_panel) StderrLine: {'line': b'  227 |     inline int \x1b[01;36m\x1b[Kx\x1b[m\x1b[K() const { return qRound(position().x()); }\n'}
+[8.671529] (teleop_panel) StderrLine: {'line': b'      |                \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[8.671570] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:196:47:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kint QMouseEvent::\x1b[01;32m\x1b[Ky\x1b[m\x1b[K() const\x1b[m\x1b[K\xe2\x80\x99 is deprecated: Use position() [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[8.671618] (teleop_panel) StderrLine: {'line': b'  196 |   sendVelocitiesFromMouse(event->x(), \x1b[01;35m\x1b[Kevent->y()\x1b[m\x1b[K, width(), height());\n'}
+[8.671661] (teleop_panel) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K~~~~~~~~^~\x1b[m\x1b[K\n'}
+[8.671701] (teleop_panel) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h:229:16:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[8.671744] (teleop_panel) StderrLine: {'line': b'  229 |     inline int \x1b[01;36m\x1b[Ky\x1b[m\x1b[K() const { return qRound(position().y()); }\n'}
+[8.671786] (teleop_panel) StderrLine: {'line': b'      |                \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[8.726492] (-) TimerEvent: {}
+[8.826769] (-) TimerEvent: {}
+[8.927060] (-) TimerEvent: {}
+[9.027344] (-) TimerEvent: {}
+[9.127640] (-) TimerEvent: {}
+[9.227925] (-) TimerEvent: {}
+[9.328256] (-) TimerEvent: {}
+[9.428536] (-) TimerEvent: {}
+[9.528813] (-) TimerEvent: {}
+[9.629074] (-) TimerEvent: {}
+[9.729353] (-) TimerEvent: {}
+[9.829633] (-) TimerEvent: {}
+[9.929909] (-) TimerEvent: {}
+[10.030195] (-) TimerEvent: {}
+[10.130480] (-) TimerEvent: {}
+[10.230756] (-) TimerEvent: {}
+[10.331043] (-) TimerEvent: {}
+[10.431318] (-) TimerEvent: {}
+[10.531592] (-) TimerEvent: {}
+[10.631867] (-) TimerEvent: {}
+[10.732140] (-) TimerEvent: {}
+[10.832414] (-) TimerEvent: {}
+[10.932693] (-) TimerEvent: {}
+[11.032977] (-) TimerEvent: {}
+[11.133281] (-) TimerEvent: {}
+[11.233546] (-) TimerEvent: {}
+[11.333819] (-) TimerEvent: {}
+[11.434091] (-) TimerEvent: {}
+[11.534392] (-) TimerEvent: {}
+[11.634653] (-) TimerEvent: {}
+[11.734921] (-) TimerEvent: {}
+[11.835185] (-) TimerEvent: {}
+[11.935461] (-) TimerEvent: {}
+[12.035783] (-) TimerEvent: {}
+[12.083947] (teleop_panel) StdoutLine: {'line': b'[ 83%] \x1b[1m\x1b[32mLinking CXX shared library libteleop_panel.so\x1b[0m\n'}
+[12.135885] (-) TimerEvent: {}
+[12.236165] (-) TimerEvent: {}
+[12.336456] (-) TimerEvent: {}
+[12.436742] (-) TimerEvent: {}
+[12.537060] (-) TimerEvent: {}
+[12.637307] (-) TimerEvent: {}
+[12.737581] (-) TimerEvent: {}
+[12.837946] (-) TimerEvent: {}
+[12.938268] (-) TimerEvent: {}
+[13.038597] (-) TimerEvent: {}
+[13.138922] (-) TimerEvent: {}
+[13.239187] (-) TimerEvent: {}
+[13.339513] (-) TimerEvent: {}
+[13.439762] (-) TimerEvent: {}
+[13.496109] (teleop_panel) StdoutLine: {'line': b'[100%] Built target teleop_panel\n'}
+[13.503593] (teleop_panel) CommandEnded: {'returncode': 0}
+[13.504419] (teleop_panel) JobProgress: {'identifier': 'teleop_panel', 'progress': 'install'}
+[13.504621] (teleop_panel) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/lab50/nmsi_ws/src/NMSI/build/teleop_panel'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/teleop_panel', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/teleop_panel', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[13.510106] (teleop_panel) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[13.510213] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/plugin_description.xml\n'}
+[13.510267] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/lib/libteleop_panel.so\n'}
+[13.511175] (teleop_panel) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/lib/libteleop_panel.so" to ""\n'}
+[13.511226] (teleop_panel) StdoutLine: {'line': b'-- Up-to-date: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/plugin_description.xml\n'}
+[13.511263] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/icons\n'}
+[13.511300] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/icons/classes\n'}
+[13.511330] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/icons/classes/Teleop.png\n'}
+[13.511377] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/ament_index/resource_index/package_run_dependencies/teleop_panel\n'}
+[13.511426] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/ament_index/resource_index/parent_prefix_path/teleop_panel\n'}
+[13.511481] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/environment/ament_prefix_path.sh\n'}
+[13.511526] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/environment/ament_prefix_path.dsv\n'}
+[13.511566] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/environment/path.sh\n'}
+[13.511619] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/environment/path.dsv\n'}
+[13.511673] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/local_setup.bash\n'}
+[13.511724] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/local_setup.fish\n'}
+[13.511765] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/local_setup.sh\n'}
+[13.511806] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/local_setup.zsh\n'}
+[13.511850] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/local_setup.dsv\n'}
+[13.511881] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/package.dsv\n'}
+[13.511919] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/ament_index/resource_index/packages/teleop_panel\n'}
+[13.511965] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/ament_index/resource_index/rviz_common__pluginlib__plugin/teleop_panel\n'}
+[13.512025] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/cmake/teleop_panelConfig.cmake\n'}
+[13.512080] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/cmake/teleop_panelConfig-version.cmake\n'}
+[13.512120] (teleop_panel) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/teleop_panel/share/teleop_panel/package.xml\n'}
+[13.513248] (teleop_panel) CommandEnded: {'returncode': 0}
+[13.524944] (teleop_panel) JobEnded: {'identifier': 'teleop_panel', 'rc': 0}
+[13.539871] (-) TimerEvent: {}
+[13.640465] (-) TimerEvent: {}
+[13.740766] (-) TimerEvent: {}
+[13.841081] (-) TimerEvent: {}
+[13.941404] (-) TimerEvent: {}
+[14.041708] (-) TimerEvent: {}
+[14.141948] (-) TimerEvent: {}
+[14.242251] (-) TimerEvent: {}
+[14.342492] (-) TimerEvent: {}
+[14.442806] (-) TimerEvent: {}
+[14.543125] (-) TimerEvent: {}
+[14.643430] (-) TimerEvent: {}
+[14.743732] (-) TimerEvent: {}
+[14.844046] (-) TimerEvent: {}
+[14.944255] (-) TimerEvent: {}
+[15.044559] (-) TimerEvent: {}
+[15.144859] (-) TimerEvent: {}
+[15.245152] (-) TimerEvent: {}
+[15.345445] (-) TimerEvent: {}
+[15.445740] (-) TimerEvent: {}
+[15.546056] (-) TimerEvent: {}
+[15.646363] (-) TimerEvent: {}
+[15.746642] (-) TimerEvent: {}
+[15.846855] (-) TimerEvent: {}
+[15.947098] (-) TimerEvent: {}
+[16.047618] (-) TimerEvent: {}
+[16.147916] (-) TimerEvent: {}
+[16.248216] (-) TimerEvent: {}
+[16.348512] (-) TimerEvent: {}
+[16.448740] (-) TimerEvent: {}
+[16.548951] (-) TimerEvent: {}
+[16.649247] (-) TimerEvent: {}
+[16.749478] (-) TimerEvent: {}
+[16.849774] (-) TimerEvent: {}
+[16.950015] (-) TimerEvent: {}
+[17.050313] (-) TimerEvent: {}
+[17.150604] (-) TimerEvent: {}
+[17.250894] (-) TimerEvent: {}
+[17.351189] (-) TimerEvent: {}
+[17.451418] (-) TimerEvent: {}
+[17.551714] (-) TimerEvent: {}
+[17.652009] (-) TimerEvent: {}
+[17.752306] (-) TimerEvent: {}
+[17.852528] (-) TimerEvent: {}
+[17.952769] (-) TimerEvent: {}
+[18.053019] (-) TimerEvent: {}
+[18.153262] (-) TimerEvent: {}
+[18.253503] (-) TimerEvent: {}
+[18.353747] (-) TimerEvent: {}
+[18.454076] (-) TimerEvent: {}
+[18.554289] (-) TimerEvent: {}
+[18.654583] (-) TimerEvent: {}
+[18.754822] (-) TimerEvent: {}
+[18.855060] (-) TimerEvent: {}
+[18.955295] (-) TimerEvent: {}
+[19.055591] (-) TimerEvent: {}
+[19.155833] (-) TimerEvent: {}
+[19.256092] (-) TimerEvent: {}
+[19.356353] (-) TimerEvent: {}
+[19.456622] (-) TimerEvent: {}
+[19.502030] (stage_ros2) StdoutLine: {'line': b'[ 75%] \x1b[1m\x1b[32mLinking CXX shared library libstage_node.so\x1b[0m\n'}
+[19.556732] (-) TimerEvent: {}
+[19.657045] (-) TimerEvent: {}
+[19.757342] (-) TimerEvent: {}
+[19.857616] (-) TimerEvent: {}
+[19.957860] (-) TimerEvent: {}
+[20.058168] (-) TimerEvent: {}
+[20.131659] (stage_ros2) StdoutLine: {'line': b'[ 75%] Built target stage_node\n'}
+[20.144362] (stage_ros2) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding CXX object CMakeFiles/stage_ros2.dir/src/main.cpp.o\x1b[0m\n'}
+[20.158246] (-) TimerEvent: {}
+[20.258499] (-) TimerEvent: {}
+[20.358742] (-) TimerEvent: {}
+[20.459005] (-) TimerEvent: {}
+[20.559313] (-) TimerEvent: {}
+[20.659599] (-) TimerEvent: {}
+[20.759896] (-) TimerEvent: {}
+[20.860206] (-) TimerEvent: {}
+[20.960509] (-) TimerEvent: {}
+[21.060823] (-) TimerEvent: {}
+[21.161124] (-) TimerEvent: {}
+[21.261370] (-) TimerEvent: {}
+[21.361644] (-) TimerEvent: {}
+[21.461993] (-) TimerEvent: {}
+[21.562276] (-) TimerEvent: {}
+[21.662511] (-) TimerEvent: {}
+[21.762772] (-) TimerEvent: {}
+[21.863103] (-) TimerEvent: {}
+[21.963321] (-) TimerEvent: {}
+[22.063536] (-) TimerEvent: {}
+[22.163752] (-) TimerEvent: {}
+[22.264027] (-) TimerEvent: {}
+[22.364334] (-) TimerEvent: {}
+[22.464550] (-) TimerEvent: {}
+[22.564776] (-) TimerEvent: {}
+[22.665054] (-) TimerEvent: {}
+[22.765296] (-) TimerEvent: {}
+[22.865547] (-) TimerEvent: {}
+[22.965803] (-) TimerEvent: {}
+[23.066110] (-) TimerEvent: {}
+[23.121884] (stage_ros2) StdoutLine: {'line': b'[100%] \x1b[1m\x1b[32mLinking CXX executable stage_ros2\x1b[0m\n'}
+[23.166199] (-) TimerEvent: {}
+[23.266433] (-) TimerEvent: {}
+[23.366671] (-) TimerEvent: {}
+[23.466942] (-) TimerEvent: {}
+[23.520151] (stage_ros2) StdoutLine: {'line': b'[100%] Built target stage_ros2\n'}
+[23.527650] (stage_ros2) CommandEnded: {'returncode': 0}
+[23.528757] (stage_ros2) JobProgress: {'identifier': 'stage_ros2', 'progress': 'install'}
+[23.528858] (stage_ros2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/share:/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[23.533521] (stage_ros2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[23.533595] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/library_path.sh\n'}
+[23.533658] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/library_path.dsv\n'}
+[23.533702] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch\n'}
+[23.533747] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/rviz_ns.launch.py\n'}
+[23.533787] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/stage.launch.py\n'}
+[23.533827] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/stage_street.launch.py\n'}
+[23.533875] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/demo.launch.py\n'}
+[23.533913] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/rviz.launch.py\n'}
+[23.533946] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/f710.launch.py\n'}
+[23.533995] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world\n'}
+[23.534032] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/lines.world\n'}
+[23.534083] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/willow-four-erratics-multisensor.world\n'}
+[23.534118] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/hallway.world\n'}
+[23.534152] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include\n'}
+[23.534196] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include/pioneer2dx.inc\n'}
+[23.534255] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include/chimera.inc\n'}
+[23.534290] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include/robots.inc\n'}
+[23.534323] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_three_robots.world\n'}
+[23.534357] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave.world\n'}
+[23.534408] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/straden.world\n'}
+[23.534449] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/oval_circuit.world\n'}
+[23.534476] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps\n'}
+[23.534505] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/cave.png\n'}
+[23.534533] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/line.png\n'}
+[23.534559] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/oval_circuit.png\n'}
+[23.534647] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/street.png\n'}
+[23.534718] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/hallway.png\n'}
+[23.534760] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/straden.png\n'}
+[23.534797] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/willow-full.pgm\n'}
+[23.534952] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/hallway.pgm\n'}
+[23.535137] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/warehouse008.pgm\n'}
+[23.535203] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/warehouse032.pgm\n'}
+[23.535393] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/warehouse200.pgm\n'}
+[23.536028] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_seven_robots.world\n'}
+[23.536075] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_multi.world\n'}
+[23.536124] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_fiducial.world\n'}
+[23.536170] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/street.world\n'}
+[23.536203] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config\n'}
+[23.536244] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/teleop_twist_joy\n'}
+[23.536277] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/teleop_twist_joy/f710.config.yaml\n'}
+[23.536320] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz\n'}
+[23.536353] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/lines.rviz\n'}
+[23.536386] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/oval_circuit.rviz\n'}
+[23.536434] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave_seven_robots.rviz\n'}
+[23.536472] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/robot_ns.rviz\n'}
+[23.536505] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/robot_ns_depth.rviz\n'}
+[23.536536] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/robot0.rviz\n'}
+[23.536583] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave_fiducial.rviz\n'}
+[23.536613] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave_three_robots.rviz\n'}
+[23.536641] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave.rviz\n'}
+[23.536674] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/libstage_node.so\n'}
+[23.544600] (stage_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/libstage_node.so" to ""\n'}
+[23.544677] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/stage_ros2/stage_ros2\n'}
+[23.544777] (stage_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/stage_ros2/stage_ros2" to ""\n'}
+[23.544841] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/ament_index/resource_index/package_run_dependencies/stage_ros2\n'}
+[23.544901] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/ament_index/resource_index/parent_prefix_path/stage_ros2\n'}
+[23.544958] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/ament_prefix_path.sh\n'}
+[23.545021] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/ament_prefix_path.dsv\n'}
+[23.545089] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/path.sh\n'}
+[23.545141] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/path.dsv\n'}
+[23.545201] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.bash\n'}
+[23.545253] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.fish\n'}
+[23.545310] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.sh\n'}
+[23.545355] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.zsh\n'}
+[23.545402] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.dsv\n'}
+[23.545447] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/package.dsv\n'}
+[23.545502] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/ament_index/resource_index/packages/stage_ros2\n'}
+[23.545545] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/cmake/stage_ros2Config.cmake\n'}
+[23.545588] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/cmake/stage_ros2Config-version.cmake\n'}
+[23.545640] (stage_ros2) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/package.xml\n'}
+[23.546601] (stage_ros2) CommandEnded: {'returncode': 0}
+[23.558627] (stage_ros2) JobEnded: {'identifier': 'stage_ros2', 'rc': 0}
+[23.559062] (nmsi_lab) JobStarted: {'identifier': 'nmsi_lab'}
+[23.567041] (-) TimerEvent: {}
+[23.568107] (nmsi_lab) JobProgress: {'identifier': 'nmsi_lab', 'progress': 'cmake'}
+[23.568350] (nmsi_lab) Command: {'cmd': ['/usr/bin/cmake', '/home/lab50/nmsi_ws/src/NMSI/nmsi_lab', '-DCMAKE_INSTALL_PREFIX=/home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/share:/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2:/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2:/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[23.615735] (nmsi_lab) StdoutLine: {'line': b'-- The C compiler identification is GNU 15.2.0\n'}
+[23.667133] (-) TimerEvent: {}
+[23.674490] (nmsi_lab) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 15.2.0\n'}
+[23.679731] (nmsi_lab) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[23.766913] (nmsi_lab) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[23.767194] (-) TimerEvent: {}
+[23.782482] (nmsi_lab) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[23.782586] (nmsi_lab) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[23.782849] (nmsi_lab) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[23.790968] (nmsi_lab) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[23.857784] (nmsi_lab) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[23.867265] (-) TimerEvent: {}
+[23.870559] (nmsi_lab) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[23.870823] (nmsi_lab) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[23.871380] (nmsi_lab) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[23.877858] (nmsi_lab) StdoutLine: {'line': b'-- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)\n'}
+[23.967440] (-) TimerEvent: {}
+[24.067706] (-) TimerEvent: {}
+[24.081448] (nmsi_lab) StdoutLine: {'line': b'-- Found rclcpp: 32.0.3 (/opt/ros/lyrical/share/rclcpp/cmake)\n'}
+[24.100271] (nmsi_lab) StdoutLine: {'line': b'-- Found rosidl_generator_c: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_c/cmake)\n'}
+[24.105084] (nmsi_lab) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_cpp/cmake)\n'}
+[24.113750] (nmsi_lab) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[24.121722] (nmsi_lab) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[24.164203] (nmsi_lab) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.10.2 (/opt/ros/lyrical/share/rmw_implementation_cmake/cmake)\n'}
+[24.165793] (nmsi_lab) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 9.4.10 (/opt/ros/lyrical/share/rmw_fastrtps_cpp/cmake)\n'}
+[24.167787] (-) TimerEvent: {}
+[24.184812] (nmsi_lab) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[24.230538] (nmsi_lab) StdoutLine: {'line': b'-- Found rclcpp_action: 32.0.3 (/opt/ros/lyrical/share/rclcpp_action/cmake)\n'}
+[24.257473] (nmsi_lab) StdoutLine: {'line': b'-- Found geometry_msgs: 5.9.3 (/opt/ros/lyrical/share/geometry_msgs/cmake)\n'}
+[24.267881] (-) TimerEvent: {}
+[24.278435] (nmsi_lab) StdoutLine: {'line': b'-- Found nav_msgs: 5.9.3 (/opt/ros/lyrical/share/nav_msgs/cmake)\n'}
+[24.297984] (nmsi_lab) StdoutLine: {'line': b'-- Found nav2_msgs: 1.5.2 (/opt/ros/lyrical/share/nav2_msgs/cmake)\n'}
+[24.363665] (nmsi_lab) StdoutLine: {'line': b'-- Found tf2: 0.45.10 (/opt/ros/lyrical/share/tf2/cmake)\n'}
+[24.366288] (nmsi_lab) StdoutLine: {'line': b'-- Found tf2_ros: 0.45.10 (/opt/ros/lyrical/share/tf2_ros/cmake)\n'}
+[24.368035] (-) TimerEvent: {}
+[24.415092] (nmsi_lab) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.45.10 (/opt/ros/lyrical/share/tf2_geometry_msgs/cmake)\n'}
+[24.423439] (nmsi_lab) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.20.6 (/opt/ros/lyrical/share/ament_lint_auto/cmake)\n'}
+[24.468120] (-) TimerEvent: {}
+[24.501340] (nmsi_lab) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[24.501460] (nmsi_lab) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/lab50/nmsi_ws/src/NMSI/nmsi_lab/include>\n'}
+[24.501497] (nmsi_lab) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[24.501896] (nmsi_lab) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[24.501930] (nmsi_lab) StdoutLine: {'line': b"-- Configured 'flake8' exclude dirs and/or files: \n"}
+[24.502509] (nmsi_lab) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[24.502799] (nmsi_lab) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[24.503855] (nmsi_lab) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[24.503904] (nmsi_lab) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[24.504171] (nmsi_lab) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[24.505118] (nmsi_lab) StdoutLine: {'line': b'-- Configuring done (0.9s)\n'}
+[24.521003] (nmsi_lab) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[24.546002] (nmsi_lab) StdoutLine: {'line': b'-- Build files have been written to: /home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab\n'}
+[24.551690] (nmsi_lab) CommandEnded: {'returncode': 0}
+[24.552206] (nmsi_lab) JobProgress: {'identifier': 'nmsi_lab', 'progress': 'build'}
+[24.552224] (nmsi_lab) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab', '--', '-j12', '-l12'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/share:/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2:/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2:/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[24.568193] (-) TimerEvent: {}
+[24.585160] (nmsi_lab) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/a_star.dir/src/a_star.cpp.o\x1b[0m\n'}
+[24.585298] (nmsi_lab) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/path_follower.dir/src/path_follower.cpp.o\x1b[0m\n'}
+[24.585344] (nmsi_lab) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/map_processor.dir/src/map_processor.cpp.o\x1b[0m\n'}
+[24.668288] (-) TimerEvent: {}
+[24.768523] (-) TimerEvent: {}
+[24.868752] (-) TimerEvent: {}
+[24.968989] (-) TimerEvent: {}
+[25.069211] (-) TimerEvent: {}
+[25.169444] (-) TimerEvent: {}
+[25.269684] (-) TimerEvent: {}
+[25.369922] (-) TimerEvent: {}
+[25.470151] (-) TimerEvent: {}
+[25.570398] (-) TimerEvent: {}
+[25.670642] (-) TimerEvent: {}
+[25.770893] (-) TimerEvent: {}
+[25.871113] (-) TimerEvent: {}
+[25.971335] (-) TimerEvent: {}
+[26.071569] (-) TimerEvent: {}
+[26.171804] (-) TimerEvent: {}
+[26.272060] (-) TimerEvent: {}
+[26.311127] (nmsi_lab) StderrLine: {'line': b'\x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/nmsi_lab/src/path_follower.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid PathFollower::\x1b[01;32m\x1b[Kfollow_path\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[26.311304] (nmsi_lab) StderrLine: {'line': b'\x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/nmsi_lab/src/path_follower.cpp:102:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<geometry_msgs::msg::PoseStamped_<std::allocator<void> >, std::allocator<geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-sign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[26.311361] (nmsi_lab) StderrLine: {'line': b'  102 |     while (\x1b[01;35m\x1b[Kpose_id < path->poses.size() - 1\x1b[m\x1b[K && distance(target) < lookahead)\n'}
+[26.311395] (nmsi_lab) StderrLine: {'line': b'      |            \x1b[01;35m\x1b[K~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[26.311534] (nmsi_lab) StderrLine: {'line': b'\x1b[01m\x1b[K/home/lab50/nmsi_ws/src/NMSI/nmsi_lab/src/path_follower.cpp:120:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<geometry_msgs::msg::PoseStamped_<std::allocator<void> >, std::allocator<geometry_msgs::msg::PoseStamped_<std::allocator<void> > > >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-sign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[26.311578] (nmsi_lab) StderrLine: {'line': b'  120 |       if (\x1b[01;35m\x1b[Kpose_id == path->poses.size() - 1\x1b[m\x1b[K)\n'}
+[26.311610] (nmsi_lab) StderrLine: {'line': b'      |           \x1b[01;35m\x1b[K~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[26.372145] (-) TimerEvent: {}
+[26.472372] (-) TimerEvent: {}
+[26.572641] (-) TimerEvent: {}
+[26.672884] (-) TimerEvent: {}
+[26.773135] (-) TimerEvent: {}
+[26.873380] (-) TimerEvent: {}
+[26.973626] (-) TimerEvent: {}
+[27.073867] (-) TimerEvent: {}
+[27.174079] (-) TimerEvent: {}
+[27.274305] (-) TimerEvent: {}
+[27.374557] (-) TimerEvent: {}
+[27.474801] (-) TimerEvent: {}
+[27.575043] (-) TimerEvent: {}
+[27.675262] (-) TimerEvent: {}
+[27.775518] (-) TimerEvent: {}
+[27.875778] (-) TimerEvent: {}
+[27.976020] (-) TimerEvent: {}
+[28.076237] (-) TimerEvent: {}
+[28.176473] (-) TimerEvent: {}
+[28.276712] (-) TimerEvent: {}
+[28.376943] (-) TimerEvent: {}
+[28.477174] (-) TimerEvent: {}
+[28.577415] (-) TimerEvent: {}
+[28.677648] (-) TimerEvent: {}
+[28.777875] (-) TimerEvent: {}
+[28.878078] (-) TimerEvent: {}
+[28.978297] (-) TimerEvent: {}
+[29.078534] (-) TimerEvent: {}
+[29.178781] (-) TimerEvent: {}
+[29.279064] (-) TimerEvent: {}
+[29.379285] (-) TimerEvent: {}
+[29.479514] (-) TimerEvent: {}
+[29.579745] (-) TimerEvent: {}
+[29.679978] (-) TimerEvent: {}
+[29.780194] (-) TimerEvent: {}
+[29.880432] (-) TimerEvent: {}
+[29.980669] (-) TimerEvent: {}
+[30.080904] (-) TimerEvent: {}
+[30.140793] (nmsi_lab) StdoutLine: {'line': b'[ 66%] \x1b[1m\x1b[32mLinking CXX executable map_processor\x1b[0m\n'}
+[30.181021] (-) TimerEvent: {}
+[30.281231] (-) TimerEvent: {}
+[30.327723] (nmsi_lab) StdoutLine: {'line': b'[ 66%] Built target map_processor\n'}
+[30.381321] (-) TimerEvent: {}
+[30.481554] (-) TimerEvent: {}
+[30.581787] (-) TimerEvent: {}
+[30.681999] (-) TimerEvent: {}
+[30.777512] (nmsi_lab) StdoutLine: {'line': b'[ 83%] \x1b[1m\x1b[32mLinking CXX executable path_follower\x1b[0m\n'}
+[30.782132] (-) TimerEvent: {}
+[30.882345] (-) TimerEvent: {}
+[30.982669] (-) TimerEvent: {}
+[31.008465] (nmsi_lab) StdoutLine: {'line': b'[ 83%] Built target path_follower\n'}
+[31.082758] (-) TimerEvent: {}
+[31.182963] (-) TimerEvent: {}
+[31.283190] (-) TimerEvent: {}
+[31.383443] (-) TimerEvent: {}
+[31.483680] (-) TimerEvent: {}
+[31.583911] (-) TimerEvent: {}
+[31.684231] (-) TimerEvent: {}
+[31.784486] (-) TimerEvent: {}
+[31.884720] (-) TimerEvent: {}
+[31.985027] (-) TimerEvent: {}
+[32.085240] (-) TimerEvent: {}
+[32.185532] (-) TimerEvent: {}
+[32.285766] (-) TimerEvent: {}
+[32.386061] (-) TimerEvent: {}
+[32.486360] (-) TimerEvent: {}
+[32.586600] (-) TimerEvent: {}
+[32.609490] (nmsi_lab) StdoutLine: {'line': b'[100%] \x1b[1m\x1b[32mLinking CXX executable a_star\x1b[0m\n'}
+[32.686713] (-) TimerEvent: {}
+[32.787033] (-) TimerEvent: {}
+[32.887325] (-) TimerEvent: {}
+[32.906341] (nmsi_lab) StdoutLine: {'line': b'[100%] Built target a_star\n'}
+[32.913480] (nmsi_lab) CommandEnded: {'returncode': 0}
+[32.914188] (nmsi_lab) JobProgress: {'identifier': 'nmsi_lab', 'progress': 'install'}
+[32.914408] (nmsi_lab) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab'], 'cwd': '/home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'lab50', 'ROS_PACKAGE_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/share:/home/lab50/nmsi_ws/install/stage/share', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:/home/lab50/nmsi_ws/install/teleop_panel/lib:/home/lab50/nmsi_ws/install/stage_ros2/lib:/home/lab50/nmsi_ws/install/stage/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'HOME': '/home/lab50', 'OLDPWD': '/home/lab50/nmsi_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/lab50/.config/autostart/guake.desktop', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2542', 'SYSTEMD_EXEC_PID': '2826', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3353', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/lab50/nmsi_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'lab50', 'MANAGERPIDFDID': '323', 'JOURNAL_STREAM': '10:15717', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/install/stage/lib/pkgconfig', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'lab50', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:/home/lab50/nmsi_ws/install/stage/bin:/opt/ros/lyrical/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': 'efc3cb44dda643c6a02ed0a6b8c6ba6c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.603NX3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'TERM_PROGRAM': 'guake', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'AMENT_PREFIX_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2:/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'LOCALHOST', 'QT_IM_MODULE': 'ibus', 'GUAKE_TAB_UUID': '84bf7f26-01ad-4e3d-a6e4-64ed87b86ad8', 'PWD': '/home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CMAKE_PREFIX_PATH': '/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2:/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:/home/lab50/nmsi_ws/install/teleop_panel:/home/lab50/nmsi_ws/install/nmsi_lab:/home/lab50/nmsi_ws/install/stage_ros2:/home/lab50/nmsi_ws/install/stage:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[32.919394] (nmsi_lab) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[32.919469] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/lib/nmsi_lab/a_star\n'}
+[32.922610] (nmsi_lab) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/lib/nmsi_lab/a_star" to ""\n'}
+[32.922680] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/lib/nmsi_lab/a_star.py\n'}
+[32.922711] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/lib/nmsi_lab/path_follower\n'}
+[32.924735] (nmsi_lab) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/lib/nmsi_lab/path_follower" to ""\n'}
+[32.924805] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/launch\n'}
+[32.924847] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/launch/robot_controller.launch.py\n'}
+[32.924876] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/launch/robot_controller_python.launch.py\n'}
+[32.924915] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/launch/simulation.launch.py\n'}
+[32.924948] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/config\n'}
+[32.924974] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/config/maps\n'}
+[32.925019] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/config/maps/cave.yaml\n'}
+[32.925045] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/config/maps/hallway.yaml\n'}
+[32.925076] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/config/maps/lines.yaml\n'}
+[32.925110] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/config/nav_config.yaml\n'}
+[32.925136] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/config/rviz\n'}
+[32.925163] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/config/rviz/simulation.rviz\n'}
+[32.925203] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world\n'}
+[32.925230] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/lines.world\n'}
+[32.925258] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/hallway.world\n'}
+[32.925297] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/include\n'}
+[32.925324] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/include/pioneer2dx.inc\n'}
+[32.925351] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/include/robots.inc\n'}
+[32.925391] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/cave.world\n'}
+[32.925423] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/bitmaps\n'}
+[32.925450] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/bitmaps/cave.png\n'}
+[32.925477] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/bitmaps/line.png\n'}
+[32.925514] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/world/bitmaps/hallway.png\n'}
+[32.925537] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/lib/nmsi_lab/map_processor\n'}
+[32.927337] (nmsi_lab) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/lib/nmsi_lab/map_processor" to ""\n'}
+[32.927402] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/ament_index/resource_index/package_run_dependencies/nmsi_lab\n'}
+[32.927453] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/ament_index/resource_index/parent_prefix_path/nmsi_lab\n'}
+[32.927503] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/environment/ament_prefix_path.sh\n'}
+[32.927547] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/environment/ament_prefix_path.dsv\n'}
+[32.927588] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/environment/path.sh\n'}
+[32.927628] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/environment/path.dsv\n'}
+[32.927667] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/local_setup.bash\n'}
+[32.927709] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/local_setup.fish\n'}
+[32.927747] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/local_setup.sh\n'}
+[32.927788] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/local_setup.zsh\n'}
+[32.927829] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/local_setup.dsv\n'}
+[32.927867] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/package.dsv\n'}
+[32.927922] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/ament_index/resource_index/packages/nmsi_lab\n'}
+[32.927976] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/cmake/nmsi_labConfig.cmake\n'}
+[32.928014] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/cmake/nmsi_labConfig-version.cmake\n'}
+[32.928053] (nmsi_lab) StdoutLine: {'line': b'-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/nmsi_lab/share/nmsi_lab/package.xml\n'}
+[32.929046] (nmsi_lab) CommandEnded: {'returncode': 0}
+[32.939377] (nmsi_lab) JobEnded: {'identifier': 'nmsi_lab', 'rc': 0}
+[32.940930] (-) EventReactorShutdown: {}

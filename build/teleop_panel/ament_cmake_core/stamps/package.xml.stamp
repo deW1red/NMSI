@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>teleop_panel</name>
+  <version>0.10.4</version>
+  <description>RViz teleoperation panel for Robotnik robots.</description>
+  <maintainer email="mbosch@robotnik.es">Marc Bosch-Jorge</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/teleop_panel</url>
+  <author>Marc Bosch-Jorge</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp</depend>
+  <depend>rviz_common</depend>
+
+  <build_depend>qtbase5-dev</build_depend>
+
+  <exec_depend>libqt5-core</exec_depend>
+  <exec_depend>libqt5-gui</exec_depend>
+  <exec_depend>libqt5-widgets</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

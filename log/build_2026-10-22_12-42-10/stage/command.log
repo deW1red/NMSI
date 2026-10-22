@@ -1,0 +1,6 @@
+Invoking command in '/home/lab50/nmsi_ws/src/NMSI/build/stage': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/lab50/nmsi_ws/src/NMSI/Stage -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/lab50/nmsi_ws/src/NMSI/install/stage
+Invoked command in '/home/lab50/nmsi_ws/src/NMSI/build/stage' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/lab50/nmsi_ws/src/NMSI/Stage -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/lab50/nmsi_ws/src/NMSI/install/stage
+Invoking command in '/home/lab50/nmsi_ws/src/NMSI/build/stage': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/lab50/nmsi_ws/src/NMSI/build/stage -- -j12 -l12
+Invoked command in '/home/lab50/nmsi_ws/src/NMSI/build/stage' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/lab50/nmsi_ws/src/NMSI/build/stage -- -j12 -l12
+Invoking command in '/home/lab50/nmsi_ws/src/NMSI/build/stage': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/lab50/nmsi_ws/src/NMSI/build/stage
+Invoked command in '/home/lab50/nmsi_ws/src/NMSI/build/stage' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/lab50/nmsi_ws/src/NMSI/build/stage

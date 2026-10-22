@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/lab50/nmsi_ws/src/NMSI/build/teleop_panel/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

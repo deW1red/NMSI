@@ -1,0 +1,126 @@
+-- The C compiler identification is GNU 15.2.0
+-- The CXX compiler identification is GNU 15.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+-- Found rclcpp: 32.0.3 (/opt/ros/lyrical/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.10.2 (/opt/ros/lyrical/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 9.4.10 (/opt/ros/lyrical/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclcpp_components: 32.0.3 (/opt/ros/lyrical/share/rclcpp_components/cmake)
+-- Found sensor_msgs: 5.9.3 (/opt/ros/lyrical/share/sensor_msgs/cmake)
+-- Found marker_msgs: 0.0.8 (/opt/ros/lyrical/share/marker_msgs/cmake)
+-- Found ackermann_msgs: 2.0.2 (/opt/ros/lyrical/share/ackermann_msgs/cmake)
+-- Found nav_msgs: 5.9.3 (/opt/ros/lyrical/share/nav_msgs/cmake)
+-- Found tf2_ros: 0.45.10 (/opt/ros/lyrical/share/tf2_ros/cmake)
+-- Found tf2_geometry_msgs: 0.45.10 (/opt/ros/lyrical/share/tf2_geometry_msgs/cmake)
+-- Found std_srvs: 5.9.3 (/opt/ros/lyrical/share/std_srvs/cmake)
+-- Found ament_lint_auto: 0.20.6 (/opt/ros/lyrical/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /home/lab50/nmsi_ws/src/NMSI/stage_ros2/./include;$<BUILD_INTERFACE:/home/lab50/nmsi_ws/src/NMSI/stage_ros2/include>
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Configured 'flake8' exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Added test 'clang_format' to check C / C++ code style
+-- Added test 'pycodestyle' to check Python code against some of the style conventions in PEP 8
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/lab50/nmsi_ws/src/NMSI/build/stage_ros2
+[ 37%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/vehicle.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/stage_node.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/fiducial_detector.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/camera.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/ranger.cpp.o[0m
+[ 75%] [1m[32mLinking CXX shared library libstage_node.so[0m
+[ 75%] Built target stage_node
+[ 87%] [32mBuilding CXX object CMakeFiles/stage_ros2.dir/src/main.cpp.o[0m
+[100%] [1m[32mLinking CXX executable stage_ros2[0m
+[100%] Built target stage_ros2
+-- Install configuration: ""
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/library_path.sh
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/library_path.dsv
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/rviz_ns.launch.py
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/stage.launch.py
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/stage_street.launch.py
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/demo.launch.py
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/rviz.launch.py
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/f710.launch.py
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/lines.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/willow-four-erratics-multisensor.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/hallway.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include/pioneer2dx.inc
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include/chimera.inc
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include/robots.inc
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_three_robots.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/straden.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/oval_circuit.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/cave.png
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/line.png
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/oval_circuit.png
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/street.png
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/hallway.png
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/straden.png
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/willow-full.pgm
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/hallway.pgm
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/warehouse008.pgm
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/warehouse032.pgm
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/warehouse200.pgm
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_seven_robots.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_multi.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_fiducial.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/street.world
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/teleop_twist_joy
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/teleop_twist_joy/f710.config.yaml
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/lines.rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/oval_circuit.rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave_seven_robots.rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/robot_ns.rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/robot_ns_depth.rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/robot0.rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave_fiducial.rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave_three_robots.rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave.rviz
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/libstage_node.so
+-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/libstage_node.so" to ""
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/stage_ros2/stage_ros2
+-- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/stage_ros2/stage_ros2" to ""
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/ament_index/resource_index/package_run_dependencies/stage_ros2
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/ament_index/resource_index/parent_prefix_path/stage_ros2
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/ament_prefix_path.sh
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/ament_prefix_path.dsv
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/path.sh
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/path.dsv
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.bash
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.fish
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.sh
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.zsh
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.dsv
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/package.dsv
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/ament_index/resource_index/packages/stage_ros2
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/cmake/stage_ros2Config.cmake
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/cmake/stage_ros2Config-version.cmake
+-- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/package.xml

@@ -1,0 +1,36 @@
+/**:
+  ros__parameters:
+    use_sim_time: true
+
+map_server:
+  ros__parameters:
+    topic_name: "map"
+    frame_id: "map"
+
+amcl:
+  ros__parameters:
+    # 1. Coordinate Frames
+    global_frame_id: "map"
+    odom_frame_id: "odom"
+    base_frame_id: "base_link"
+    
+    # 2. Stage Simulator Laser Topic
+    scan_topic: "base_scan" 
+    
+    # 3. Initial pose is set per world in simulation.launch.py
+      
+    # 4. Particle Filter settings
+    max_particles: 2000
+    min_particles: 500
+    
+    # Odometry Model (Assume basic differential drive)
+    robot_model_type: "nav2_amcl::DifferentialMotionModel"
+    alpha1: 0.5
+    alpha2: 0.5
+    alpha3: 0.5
+    alpha4: 0.5
+
+    update_min_d: 0.02
+    update_min_a: 0.02
+    z_hit: 0.9
+    sigma_hit: 0.05

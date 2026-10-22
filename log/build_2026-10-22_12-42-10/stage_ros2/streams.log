@@ -1,0 +1,141 @@
+[0.007s] Invoking command in '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2': CMAKE_PREFIX_PATH=/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:${LD_LIBRARY_PATH} PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:${PATH} PKG_CONFIG_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:${PKG_CONFIG_PATH} ROS_PACKAGE_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/share:${ROS_PACKAGE_PATH} /usr/bin/cmake /home/lab50/nmsi_ws/src/NMSI/stage_ros2 -DCMAKE_INSTALL_PREFIX=/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2
+[0.013s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.013s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.014s]   CMake.
+[0.014s] 
+[0.014s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.014s]   to tell CMake that the project requires at least <min> but has been updated
+[0.014s]   to work with policies introduced by <max> or earlier.
+[0.014s] 
+[0.014s] [0m
+[0.047s] -- The C compiler identification is GNU 15.2.0
+[0.092s] -- The CXX compiler identification is GNU 15.2.0
+[0.097s] -- Detecting C compiler ABI info
+[0.149s] -- Detecting C compiler ABI info - done
+[0.159s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.159s] -- Detecting C compile features
+[0.159s] -- Detecting C compile features - done
+[0.168s] -- Detecting CXX compiler ABI info
+[0.226s] -- Detecting CXX compiler ABI info - done
+[0.236s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.236s] -- Detecting CXX compile features
+[0.237s] -- Detecting CXX compile features - done
+[0.242s] -- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+[0.439s] -- Found rclcpp: 32.0.3 (/opt/ros/lyrical/share/rclcpp/cmake)
+[0.458s] -- Found rosidl_generator_c: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_c/cmake)
+[0.462s] -- Found rosidl_generator_cpp: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_cpp/cmake)
+[0.471s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.479s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.522s] -- Found rmw_implementation_cmake: 7.10.2 (/opt/ros/lyrical/share/rmw_implementation_cmake/cmake)
+[0.523s] -- Found rmw_fastrtps_cpp: 9.4.10 (/opt/ros/lyrical/share/rmw_fastrtps_cpp/cmake)
+[0.543s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.589s] -- Found rclcpp_components: 32.0.3 (/opt/ros/lyrical/share/rclcpp_components/cmake)
+[0.612s] -- Found sensor_msgs: 5.9.3 (/opt/ros/lyrical/share/sensor_msgs/cmake)
+[0.651s] -- Found marker_msgs: 0.0.8 (/opt/ros/lyrical/share/marker_msgs/cmake)
+[0.666s] -- Found ackermann_msgs: 2.0.2 (/opt/ros/lyrical/share/ackermann_msgs/cmake)
+[0.677s] -- Found nav_msgs: 5.9.3 (/opt/ros/lyrical/share/nav_msgs/cmake)
+[0.696s] -- Found tf2_ros: 0.45.10 (/opt/ros/lyrical/share/tf2_ros/cmake)
+[0.752s] -- Found tf2_geometry_msgs: 0.45.10 (/opt/ros/lyrical/share/tf2_geometry_msgs/cmake)
+[0.760s] -- Found std_srvs: 5.9.3 (/opt/ros/lyrical/share/std_srvs/cmake)
+[0.772s] -- Found ament_lint_auto: 0.20.6 (/opt/ros/lyrical/share/ament_lint_auto/cmake)
+[0.858s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.859s] -- Configured cppcheck include dirs: /home/lab50/nmsi_ws/src/NMSI/stage_ros2/./include;$<BUILD_INTERFACE:/home/lab50/nmsi_ws/src/NMSI/stage_ros2/include>
+[0.859s] -- Configured cppcheck exclude dirs and/or files: 
+[0.859s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.859s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.860s] -- Added test 'lint_cmake' to check CMake code style
+[0.861s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.862s] -- Added test 'uncrustify' to check C / C++ code style
+[0.862s] -- Configured uncrustify additional arguments: 
+[0.863s] -- Added test 'xmllint' to check XML markup files
+[0.865s] -- Added test 'clang_format' to check C / C++ code style
+[0.866s] -- Added test 'pycodestyle' to check Python code against some of the style conventions in PEP 8
+[0.866s] -- Configuring done (0.9s)
+[0.884s] -- Generating done (0.0s)
+[0.912s] -- Build files have been written to: /home/lab50/nmsi_ws/src/NMSI/build/stage_ros2
+[0.918s] Invoked command in '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:${LD_LIBRARY_PATH} PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:${PATH} PKG_CONFIG_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:${PKG_CONFIG_PATH} ROS_PACKAGE_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/share:${ROS_PACKAGE_PATH} /usr/bin/cmake /home/lab50/nmsi_ws/src/NMSI/stage_ros2 -DCMAKE_INSTALL_PREFIX=/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2
+[0.919s] Invoking command in '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2': CMAKE_PREFIX_PATH=/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:${LD_LIBRARY_PATH} PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:${PATH} PKG_CONFIG_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:${PKG_CONFIG_PATH} ROS_PACKAGE_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/share:${ROS_PACKAGE_PATH} /usr/bin/cmake --build /home/lab50/nmsi_ws/src/NMSI/build/stage_ros2 -- -j12 -l12
+[0.952s] [ 37%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/vehicle.cpp.o[0m
+[0.952s] [ 37%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/stage_node.cpp.o[0m
+[0.952s] [ 37%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/fiducial_detector.cpp.o[0m
+[0.952s] [ 50%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/camera.cpp.o[0m
+[0.953s] [ 62%] [32mBuilding CXX object CMakeFiles/stage_node.dir/src/ranger.cpp.o[0m
+[13.021s] [ 75%] [1m[32mLinking CXX shared library libstage_node.so[0m
+[13.651s] [ 75%] Built target stage_node
+[13.664s] [ 87%] [32mBuilding CXX object CMakeFiles/stage_ros2.dir/src/main.cpp.o[0m
+[16.641s] [100%] [1m[32mLinking CXX executable stage_ros2[0m
+[17.039s] [100%] Built target stage_ros2
+[17.047s] Invoked command in '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:${LD_LIBRARY_PATH} PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:${PATH} PKG_CONFIG_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:${PKG_CONFIG_PATH} ROS_PACKAGE_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/share:${ROS_PACKAGE_PATH} /usr/bin/cmake --build /home/lab50/nmsi_ws/src/NMSI/build/stage_ros2 -- -j12 -l12
+[17.048s] Invoking command in '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2': CMAKE_PREFIX_PATH=/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:${LD_LIBRARY_PATH} PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:${PATH} PKG_CONFIG_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:${PKG_CONFIG_PATH} ROS_PACKAGE_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/share:${ROS_PACKAGE_PATH} /usr/bin/cmake --install /home/lab50/nmsi_ws/src/NMSI/build/stage_ros2
+[17.053s] -- Install configuration: ""
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/library_path.sh
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/library_path.dsv
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/rviz_ns.launch.py
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/stage.launch.py
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/stage_street.launch.py
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/demo.launch.py
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/rviz.launch.py
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//launch/f710.launch.py
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/lines.world
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/willow-four-erratics-multisensor.world
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/hallway.world
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include
+[17.053s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include/pioneer2dx.inc
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include/chimera.inc
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/include/robots.inc
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_three_robots.world
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave.world
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/straden.world
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/oval_circuit.world
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/cave.png
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/line.png
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/oval_circuit.png
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/street.png
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/hallway.png
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/straden.png
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/willow-full.pgm
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/hallway.pgm
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/warehouse008.pgm
+[17.054s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/warehouse032.pgm
+[17.055s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/bitmaps/warehouse200.pgm
+[17.055s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_seven_robots.world
+[17.055s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_multi.world
+[17.055s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/cave_fiducial.world
+[17.055s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//world/street.world
+[17.055s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/teleop_twist_joy
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/teleop_twist_joy/f710.config.yaml
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/lines.rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/oval_circuit.rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave_seven_robots.rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/robot_ns.rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/robot_ns_depth.rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/robot0.rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave_fiducial.rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave_three_robots.rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2//config/rviz/cave.rviz
+[17.056s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/libstage_node.so
+[17.064s] -- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/libstage_node.so" to ""
+[17.064s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/stage_ros2/stage_ros2
+[17.064s] -- Set non-toolchain portion of runtime path of "/home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/lib/stage_ros2/stage_ros2" to ""
+[17.064s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/ament_index/resource_index/package_run_dependencies/stage_ros2
+[17.064s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/ament_index/resource_index/parent_prefix_path/stage_ros2
+[17.064s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/ament_prefix_path.sh
+[17.064s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/ament_prefix_path.dsv
+[17.064s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/path.sh
+[17.064s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/environment/path.dsv
+[17.064s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.bash
+[17.065s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.fish
+[17.065s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.sh
+[17.065s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.zsh
+[17.065s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/local_setup.dsv
+[17.065s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/package.dsv
+[17.065s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/ament_index/resource_index/packages/stage_ros2
+[17.065s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/cmake/stage_ros2Config.cmake
+[17.065s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/cmake/stage_ros2Config-version.cmake
+[17.065s] -- Installing: /home/lab50/nmsi_ws/src/NMSI/install/stage_ros2/share/stage_ros2/package.xml
+[17.066s] Invoked command in '/home/lab50/nmsi_ws/src/NMSI/build/stage_ros2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/lyrical:/home/lab50/nmsi_ws/src/NMSI/install/stage:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib:${LD_LIBRARY_PATH} PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/bin:${PATH} PKG_CONFIG_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/x86_64-linux-gnu/pkgconfig:/home/lab50/nmsi_ws/src/NMSI/install/stage/lib/pkgconfig:${PKG_CONFIG_PATH} ROS_PACKAGE_PATH=/home/lab50/nmsi_ws/src/NMSI/install/stage/share:${ROS_PACKAGE_PATH} /usr/bin/cmake --install /home/lab50/nmsi_ws/src/NMSI/build/stage_ros2

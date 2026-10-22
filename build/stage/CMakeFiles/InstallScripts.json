@@ -1,0 +1,15 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/lab50/nmsi_ws/src/NMSI/build/stage/cmake_install.cmake",
+		"/home/lab50/nmsi_ws/src/NMSI/build/stage/libstage/cmake_install.cmake",
+		"/home/lab50/nmsi_ws/src/NMSI/build/stage/examples/cmake_install.cmake",
+		"/home/lab50/nmsi_ws/src/NMSI/build/stage/examples/ctrl/cmake_install.cmake",
+		"/home/lab50/nmsi_ws/src/NMSI/build/stage/assets/cmake_install.cmake",
+		"/home/lab50/nmsi_ws/src/NMSI/build/stage/worlds/cmake_install.cmake",
+		"/home/lab50/nmsi_ws/src/NMSI/build/stage/worlds/benchmark/cmake_install.cmake",
+		"/home/lab50/nmsi_ws/src/NMSI/build/stage/worlds/bitmaps/cmake_install.cmake",
+		"/home/lab50/nmsi_ws/src/NMSI/build/stage/worlds/wifi/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

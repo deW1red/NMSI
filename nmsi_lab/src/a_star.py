@@ -62,6 +62,29 @@ class AStarCalculator(Node):
         self.map_cost = map_msg
 
     def a_star(self, start: PoseStamped, end: PoseStamped) -> None:
+        self.update_map_info()
+
+        goal_position = {"x" = end.pose.position.x,"y" = end.pose.position.y}
+
+        open = []
+        closed = []
+
+        open.append(build_tile(start.pose.position.x,start.pose.position.y,0+euclidean_distance(dgsfb),None))    
+
+        while open:
+
+            min_f = 1000000000
+            currentTile = None
+            for tile in open
+                if(tile."f" < min_f):
+                    min_f = tile."f"
+                    currentTile = tile
+
+            neighbors = []
+            
+            
+
+
         calculated_path = Path()
         calculated_path.header.frame_id = 'map'
         calculated_path.header.stamp = self.get_clock().now().to_msg()
@@ -76,21 +99,20 @@ class AStarCalculator(Node):
         self.map_oy = self.map_dilated.info.origin.position.y
         self.map_res = self.map_dilated.info.resolution
     
-    def array_position(self,ix,iy):
-        self.update_map_info(self)
-        return self.map_width*iy +ix
+    def list_position(self,ix,iy):
+        return self.map_width*iy + ix
 
     def meter_to_index(self,x,y):
-        self.update_map_info(self)
+        
 
         if(x < 0):
             x = 0
         if(y < 0):
             y = 0
         if(x > self.map_width):
-            x = self.map_width - 0.1
+            x = self.map_width - self.map_res
         if(y > self.map_height):
-            y = self.map_height - 0.1
+            y = self.map_height - self.map_res
 
         ix = floor((x - self.map_ox)/self.map_res)
         iy = floor((y - self.map_oy)/self.map_res)
@@ -98,17 +120,33 @@ class AStarCalculator(Node):
         return ix, iy
 
     def index_to_meter(self,ix,iy):
-        self.update_map_info(self)
 
         x = self.map_ox + (ix + 0.5)*self.map_res
         y = self.map_oy + (iy + 0.5)*self.map_res
 
         return x, y
 
+    def get_tile_cost(self,ix,iy):
+        return self.map_cost.data[list_position(self,ix,iy)]
+
+    def is_tile_reachable(self,ix,iy):
+
+        if(ix < 0 or iy < 0 or index_to_meter(ix) >= self.map_width or index_to_meter(iy) >= self.map_height):
+            return False
+
+        is_occupied = self.map_dilated.data[list_position(self,ix,iy)]
+
+        if(is_occupied):
+            return False
+        else:
+            return True
 
 
 def euclidean_distance(x1,y1,x2,y2):
     return sqrt((x2-x1)**2+(y2-y1)**2)
+def build_tile(x,y,f_cost,parent):
+    return {"x":x,"y":y,"f":f_cost,"parent":parent}
+
 
 def main(args=None) -> None:
     rclpy.init(args=args)

@@ -1,0 +1,28 @@
+[01m[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:[m[K In member function ‘[01m[Kvirtual void teleop_panel::DriveWidget::[01;32m[KmouseMoveEvent[m[K(QMouseEvent*)[m[K’:
+[01m[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:190:35:[m[K [01;35m[Kwarning: [m[K‘[01m[Kint QMouseEvent::[01;32m[Kx[m[K() const[m[K’ is deprecated: Use position() [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+  190 |   sendVelocitiesFromMouse([01;35m[Kevent->x()[m[K, event->y(), width(), height());
+      |                           [01;35m[K~~~~~~~~^~[m[K
+In file included from [01m[K/usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent:1[m[K,
+                 from [01m[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:34[m[K:
+[01m[K/usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h:227:16:[m[K [01;36m[Knote: [m[Kdeclared here
+  227 |     inline int [01;36m[Kx[m[K() const { return qRound(position().x()); }
+      |                [01;36m[K^[m[K
+[01m[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:190:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kint QMouseEvent::[01;32m[Ky[m[K() const[m[K’ is deprecated: Use position() [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+  190 |   sendVelocitiesFromMouse(event->x(), [01;35m[Kevent->y()[m[K, width(), height());
+      |                                       [01;35m[K~~~~~~~~^~[m[K
+[01m[K/usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h:229:16:[m[K [01;36m[Knote: [m[Kdeclared here
+  229 |     inline int [01;36m[Ky[m[K() const { return qRound(position().y()); }
+      |                [01;36m[K^[m[K
+[01m[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:[m[K In member function ‘[01m[Kvirtual void teleop_panel::DriveWidget::[01;32m[KmousePressEvent[m[K(QMouseEvent*)[m[K’:
+[01m[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:196:35:[m[K [01;35m[Kwarning: [m[K‘[01m[Kint QMouseEvent::[01;32m[Kx[m[K() const[m[K’ is deprecated: Use position() [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+  196 |   sendVelocitiesFromMouse([01;35m[Kevent->x()[m[K, event->y(), width(), height());
+      |                           [01;35m[K~~~~~~~~^~[m[K
+[01m[K/usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h:227:16:[m[K [01;36m[Knote: [m[Kdeclared here
+  227 |     inline int [01;36m[Kx[m[K() const { return qRound(position().x()); }
+      |                [01;36m[K^[m[K
+[01m[K/home/lab50/nmsi_ws/src/NMSI/teleop_panel/src/drive_widget.cpp:196:47:[m[K [01;35m[Kwarning: [m[K‘[01m[Kint QMouseEvent::[01;32m[Ky[m[K() const[m[K’ is deprecated: Use position() [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+  196 |   sendVelocitiesFromMouse(event->x(), [01;35m[Kevent->y()[m[K, width(), height());
+      |                                       [01;35m[K~~~~~~~~^~[m[K
+[01m[K/usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h:229:16:[m[K [01;36m[Knote: [m[Kdeclared here
+  229 |     inline int [01;36m[Ky[m[K() const { return qRound(position().y()); }
+      |                [01;36m[K^[m[K

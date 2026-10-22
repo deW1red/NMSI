@@ -1,0 +1,785 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Fontconfig::Fontconfig::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Fontconfig__Fontconfig-RELEASE-ed8e7a8a4ecfa6210033.json",
+					"name" : "Fontconfig::Fontconfig",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Freetype::Freetype::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Freetype__Freetype-RELEASE-dcd9578ddd3edb06d5cb.json",
+					"name" : "Freetype::Freetype",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "JPEG::JPEG::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-JPEG__JPEG-RELEASE-ab4fbd0bf80280bf8dea.json",
+					"name" : "JPEG::JPEG",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::EGL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__EGL-RELEASE-0a0424fd944185d05169.json",
+					"name" : "OpenGL::EGL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GL-RELEASE-cf2b3cc7b183f080626f.json",
+					"name" : "OpenGL::GL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GLES2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GLES2-RELEASE-1de52791d4728f5c4c0c.json",
+					"name" : "OpenGL::GLES2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GLES3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GLES3-RELEASE-2abb789259675645015f.json",
+					"name" : "OpenGL::GLES3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GLU::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GLU-RELEASE-593368c793439fd5cdb7.json",
+					"name" : "OpenGL::GLU",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::GLX::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__GLX-RELEASE-3ba0bf8e66c6843c727b.json",
+					"name" : "OpenGL::GLX",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "OpenGL::OpenGL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OpenGL__OpenGL-RELEASE-53297802063f7892e929.json",
+					"name" : "OpenGL::OpenGL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "PNG::PNG::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PNG__PNG-RELEASE-ad46ce3ba79370ea5551.json",
+					"name" : "PNG::PNG",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::ICE::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__ICE-RELEASE-d512bb3a1d58478cd021.json",
+					"name" : "X11::ICE",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::SM::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__SM-RELEASE-3735093894de7dc0c33d.json",
+					"name" : "X11::SM",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::X11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__X11-RELEASE-80e36344503d1c9ca114.json",
+					"name" : "X11::X11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xau::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xau-RELEASE-82ec0e27ef1dd77bb3aa.json",
+					"name" : "X11::Xau",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xaw::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xaw-RELEASE-e6118a3b2dec7f74b8bd.json",
+					"name" : "X11::Xaw",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xcursor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xcursor-RELEASE-c5aeeefe7ce15bb060ba.json",
+					"name" : "X11::Xcursor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xdmcp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xdmcp-RELEASE-da79b04c1b98db983364.json",
+					"name" : "X11::Xdmcp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xext-RELEASE-18e54ce4ca8deec33efa.json",
+					"name" : "X11::Xext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xfixes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xfixes-RELEASE-e736de93c8de86afa63a.json",
+					"name" : "X11::Xfixes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xft::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xft-RELEASE-33b7da7ed93712f72a54.json",
+					"name" : "X11::Xft",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xi-RELEASE-b315861f0d3a993af64f.json",
+					"name" : "X11::Xi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xinerama::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xinerama-RELEASE-8556ab1cb1ed8c63a4f6.json",
+					"name" : "X11::Xinerama",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xkb::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xkb-RELEASE-93a22e2d307ec859a047.json",
+					"name" : "X11::Xkb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xmu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xmu-RELEASE-51f9a9836ca978871854.json",
+					"name" : "X11::Xmu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xpm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xpm-RELEASE-2af8c2ed2dd1eb774f03.json",
+					"name" : "X11::Xpm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xrandr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xrandr-RELEASE-a1cde4c01f876486c893.json",
+					"name" : "X11::Xrandr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xrender::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xrender-RELEASE-0a614914b5a31c9e3efc.json",
+					"name" : "X11::Xrender",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xss::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xss-RELEASE-40aae67f51ce72a18a73.json",
+					"name" : "X11::Xss",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xt-RELEASE-02d516c8e1bffbef0df4.json",
+					"name" : "X11::Xt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xutil::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xutil-RELEASE-ac3cf5160113e3402b03.json",
+					"name" : "X11::Xutil",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xv::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xv-RELEASE-281c1675561f40e1acba.json",
+					"name" : "X11::Xv",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::Xxf86vm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__Xxf86vm-RELEASE-ee977612fb078d827312.json",
+					"name" : "X11::Xxf86vm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xcb::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xcb-RELEASE-dbc01c97542aa88988d0.json",
+					"name" : "X11::xcb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "X11::xkbcommon::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-X11__xkbcommon-RELEASE-8532c2777659322945b9.json",
+					"name" : "X11::xkbcommon",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZLIB::ZLIB::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZLIB__ZLIB-RELEASE-e7e19e4f14eb29f3c1a6.json",
+					"name" : "ZLIB::ZLIB",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk-RELEASE-4f841496e54c90ad469f.json",
+					"name" : "fltk",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_SHARED::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_SHARED-RELEASE-89f90914a0f14e852113.json",
+					"name" : "fltk_SHARED",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_STATIC::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_STATIC-RELEASE-768599a2d6e86ca4b2e1.json",
+					"name" : "fltk_STATIC",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_cairo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_cairo-RELEASE-ff128122b0e43a3ba617.json",
+					"name" : "fltk_cairo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_cairo_SHARED::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_cairo_SHARED-RELEASE-77cd13a720ca1569a65e.json",
+					"name" : "fltk_cairo_SHARED",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_cairo_STATIC::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_cairo_STATIC-RELEASE-3eaffb612879c691bbfd.json",
+					"name" : "fltk_cairo_STATIC",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_forms::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_forms-RELEASE-cf0041170089aec80460.json",
+					"name" : "fltk_forms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_forms_SHARED::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_forms_SHARED-RELEASE-bbd65fdf72cc00c9382c.json",
+					"name" : "fltk_forms_SHARED",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_forms_STATIC::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_forms_STATIC-RELEASE-1d17db0857e2779d441a.json",
+					"name" : "fltk_forms_STATIC",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_gl::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_gl-RELEASE-53aba7dd480859bab6ae.json",
+					"name" : "fltk_gl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_gl_SHARED::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_gl_SHARED-RELEASE-ac49b3b034e6daedae0d.json",
+					"name" : "fltk_gl_SHARED",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_gl_STATIC::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_gl_STATIC-RELEASE-dc56f220ee58f60b9526.json",
+					"name" : "fltk_gl_STATIC",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_images::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_images-RELEASE-f51828740d02d59de8e4.json",
+					"name" : "fltk_images",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_images_SHARED::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_images_SHARED-RELEASE-d9b34bd9b77505dd6229.json",
+					"name" : "fltk_images_SHARED",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fltk_images_STATIC::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fltk_images_STATIC-RELEASE-928d023451e15cb19676.json",
+					"name" : "fltk_images_STATIC",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fluid::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fluid-RELEASE-c5e3ae07327c6259ff19.json",
+					"name" : "fluid",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51
+					],
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						4,
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-RELEASE-fcf9e0ba82e9f65a7d8d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						12
+					]
+				},
+				{
+					"build" : "libstage",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libstage-RELEASE-ca12032385090ebf107f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libstage",
+					"targetIndexes" : 
+					[
+						10,
+						11
+					]
+				},
+				{
+					"build" : "examples",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-examples-RELEASE-b031b47ad7104f1f4794.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "examples"
+				},
+				{
+					"build" : "examples/ctrl",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-examples.ctrl-RELEASE-b5c32a5d60acba272554.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "examples/ctrl",
+					"targetIndexes" : 
+					[
+						0,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						13
+					]
+				},
+				{
+					"build" : "assets",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-assets-RELEASE-eaf966cc87752052e551.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "assets"
+				},
+				{
+					"build" : "worlds",
+					"childIndexes" : 
+					[
+						6,
+						7,
+						8
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-worlds-RELEASE-a6a3b83748938ae5f1b7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "worlds"
+				},
+				{
+					"build" : "worlds/benchmark",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-worlds.benchmark-RELEASE-9f25819e01f75a7a1248.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "worlds/benchmark",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"build" : "worlds/bitmaps",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-worlds.bitmaps-RELEASE-08d92d76fd21a3d1f457.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "worlds/bitmaps"
+				},
+				{
+					"build" : "worlds/wifi",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-worlds.wifi-RELEASE-42ae7f1556e8d693ad30.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "worlds/wifi"
+				}
+			],
+			"name" : "RELEASE",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					],
+					"name" : "Stage",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "dynamic::@9bee9553c6af5f7157eb",
+					"jsonFile" : "target-dynamic-RELEASE-aad7ac66d7953ab343fd.json",
+					"name" : "dynamic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "expand_pioneer::@1a6822d6749951a0f70b",
+					"jsonFile" : "target-expand_pioneer-RELEASE-d6d4eb262536cabf90dc.json",
+					"name" : "expand_pioneer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "expand_swarm::@1a6822d6749951a0f70b",
+					"jsonFile" : "target-expand_swarm-RELEASE-d0f8f6d6dc6164cedba2.json",
+					"name" : "expand_swarm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "fasr::@9bee9553c6af5f7157eb",
+					"jsonFile" : "target-fasr-RELEASE-7fff3241a9515646afa5.json",
+					"name" : "fasr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "fasr2::@9bee9553c6af5f7157eb",
+					"jsonFile" : "target-fasr2-RELEASE-d42eeed278a95c589aaa.json",
+					"name" : "fasr2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "lasernoise::@9bee9553c6af5f7157eb",
+					"jsonFile" : "target-lasernoise-RELEASE-323c0ffb6c9bb8de9062.json",
+					"name" : "lasernoise",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "pioneer_flocking::@9bee9553c6af5f7157eb",
+					"jsonFile" : "target-pioneer_flocking-RELEASE-3b023e0f9d9ab2134d92.json",
+					"name" : "pioneer_flocking",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "rasterize::@9bee9553c6af5f7157eb",
+					"jsonFile" : "target-rasterize-RELEASE-91e38ce6dd6da13369a1.json",
+					"name" : "rasterize",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "sink::@9bee9553c6af5f7157eb",
+					"jsonFile" : "target-sink-RELEASE-14ed657265f9753c0942.json",
+					"name" : "sink",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "source::@9bee9553c6af5f7157eb",
+					"jsonFile" : "target-source-RELEASE-ecade3aa4aa494f375fb.json",
+					"name" : "source",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "stage::@6ba44a9ac7ace0708564",
+					"jsonFile" : "target-stage-RELEASE-1155c3ca4c0b1320d5cf.json",
+					"name" : "stage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "stagebinary::@6ba44a9ac7ace0708564",
+					"jsonFile" : "target-stagebinary-RELEASE-1d7fba64001dd2e2cca4.json",
+					"name" : "stagebinary",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-RELEASE-adde364049acb16078a5.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "wander::@9bee9553c6af5f7157eb",
+					"jsonFile" : "target-wander-RELEASE-e2c94840ee9dd2ce2191.json",
+					"name" : "wander",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/lab50/nmsi_ws/src/NMSI/build/stage",
+		"source" : "/home/lab50/nmsi_ws/src/NMSI/Stage"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}

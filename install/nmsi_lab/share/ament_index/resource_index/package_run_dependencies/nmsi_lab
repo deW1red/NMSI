@@ -1,0 +1,1 @@
+rclcpp;rclcpp_action;geometry_msgs;nav_msgs;nav2_msgs;nav2_amcl;nav2_map_server;nav2_lifecycle_manager;tf2;tf2_ros;stage_ros2;rviz2;rclpy;launch;launch_ros;ament_index_python;ament_lint_auto;ament_lint_common

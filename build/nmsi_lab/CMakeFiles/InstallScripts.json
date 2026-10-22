@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/lab50/nmsi_ws/src/NMSI/build/nmsi_lab/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,5 @@
+source;share/nmsi_lab/local_setup.bash
+source;share/nmsi_lab/local_setup.dsv
+source;share/nmsi_lab/local_setup.fish
+source;share/nmsi_lab/local_setup.sh
+source;share/nmsi_lab/local_setup.zsh
