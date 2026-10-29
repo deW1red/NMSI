@@ -64,32 +64,75 @@ class AStarCalculator(Node):
     def a_star(self, start: PoseStamped, end: PoseStamped) -> None:
         self.update_map_info()
 
-        goal_position = {"x" = end.pose.position.x,"y" = end.pose.position.y}
+        start_node = (start.pose.position.x,start.pose.position.y)
+        goal_node = (end.pose.position.x,end.pose.position.y)
 
-        open = []
-        closed = []
+        open = {}
+        closed = {}
+        parent = {}
+        g = {}
+        path = []
+        g[start_node] = 0
 
-        open.append(build_tile(start.pose.position.x,start.pose.position.y,0+euclidean_distance(dgsfb),None))    
+        open[start_node] = g[start_node] + self.heuristic(start_node,goal_node)   
 
-        while open:
+        while len(open) > 0:
 
-            min_f = 1000000000
-            currentTile = None
-            for tile in open
-                if(tile."f" < min_f):
-                    min_f = tile."f"
-                    currentTile = tile
+            min_f = 10000000000000000
+            current_node = ()
 
-            neighbors = []
+            for node in open.keys():
+                if(open[node] < min_f):
+                    min_f = open[node] 
+                    current_node = node
+
+            open.pop(current_node)
+
+            if(current_node[0] == goal_node[0] and current_node[1] == goal_node[1]):
+                
+
+                while True:
+
+                    new_pose = PoseStamped()
+                    new_pose.header.frame_id = 'map'
+                    new_pose.header.stamp = self.get_clock().now().to_msg()
+
+                    new_pose.pose.position.x = index_to_meter(current_node[0])
+                    new_pose.pose.position.y = index_to_meter(current_node[1])
+                    new_pose.pose.position.z = 0
+
+                    new_pose.pose.orientation.x = 0
+                    new_pose.pose.orientation.y = 0
+                    new_pose.pose.orientation.z = 0
+                    new_pose.pose.orientation.w = 1
+
+                    path.append(new_pose)
+
+                    if(current_node[0] == start_node[0] and current_node[1] == start_node[1]):
+                        break
+
+                    current_node = parent[current_node] 
+
+                break
+
+            neighbors = self.get_neighbors(current_node)
             
-            
-
+            for neighbor_node in neighbors:
+                temp_g = g[current_node] + self.index_to_meter(1) #tymczasowe rozwiązanie
+                if((not neighbor_node in g.keys()) or temp_g < g[neighbor_node]):
+                    parent[neighbor_node] = current_node
+                    g[neighbor_node] = temp_g
+                    open[neighbor_node] = g[neighbor_node] + self.heuristic(neighbor_node,goal_node)
 
         calculated_path = Path()
         calculated_path.header.frame_id = 'map'
         calculated_path.header.stamp = self.get_clock().now().to_msg()
-        calculated_path.poses.append(start)
-        calculated_path.poses.append(end)
+
+        path = reversed(path)
+        self.get_logger().info(f"{path}")
+        for pose in path:
+            calculated_path.poses.append(pose)
+
         self.publisher.publish(calculated_path)
 
     def update_map_info(self):
@@ -103,8 +146,6 @@ class AStarCalculator(Node):
         return self.map_width*iy + ix
 
     def meter_to_index(self,x,y):
-        
-
         if(x < 0):
             x = 0
         if(y < 0):
@@ -131,21 +172,38 @@ class AStarCalculator(Node):
 
     def is_tile_reachable(self,ix,iy):
 
-        if(ix < 0 or iy < 0 or index_to_meter(ix) >= self.map_width or index_to_meter(iy) >= self.map_height):
-            return False
+        # if(ix < 0 or iy < 0 or index_to_meter(ix) >= self.map_width or index_to_meter(iy) >= self.map_height):
+        #     return False
 
         is_occupied = self.map_dilated.data[list_position(self,ix,iy)]
 
-        if(is_occupied):
+        if(is_occupied == 100):
             return False
         else:
             return True
 
+    def get_neighbors(self,node,diagonals = False):
+        neighbors = []
+        for i in range(-1,2):
+            for j in range(-1,2):
+                if(not diagonals and (i == j or (i == -1 and j == 1) or (i == 1 and j == -1))):
+                    continue
+                if(i == 0 and j == 0):
+                    continue
+                if(not self.is_tile_reachable(node[0],node[1])):
+                    continue
+                neighbors.append((node[0] - i,node[1] - j))
+        return neighbors
+
+    def heuristic(self,node,end):
+        x1,y1 = self.index_to_meter(node[0],node[1])
+        x2,y2 = self.index_to_meter(end[0],end[1])
+        return euclidean_distance(x1,y1,x2,y2)
+
 
 def euclidean_distance(x1,y1,x2,y2):
     return sqrt((x2-x1)**2+(y2-y1)**2)
-def build_tile(x,y,f_cost,parent):
-    return {"x":x,"y":y,"f":f_cost,"parent":parent}
+
 
 
 def main(args=None) -> None:
