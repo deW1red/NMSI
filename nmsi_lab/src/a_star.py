@@ -6,6 +6,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile, ReliabilityPolicy
 from rclpy.time import Time
+from rclpy.duration import Duration
 from tf2_ros import Buffer, TransformException, TransformListener
 from math import sqrt,floor
 
@@ -37,6 +38,7 @@ class AStarCalculator(Node):
         self.tf_listener = TransformListener(self.tf_buffer, self)
 
     def pose_callback(self, pose: PoseStamped) -> None:
+
         try:
             trans = self.tf_buffer.lookup_transform(
                 self.fixed_frame, self.robot_frame, Time())
@@ -62,10 +64,11 @@ class AStarCalculator(Node):
         self.map_cost = map_msg
 
     def a_star(self, start: PoseStamped, end: PoseStamped) -> None:
+        
         self.update_map_info()
 
-        start_node = (start.pose.position.x,start.pose.position.y)
-        goal_node = (end.pose.position.x,end.pose.position.y)
+        start_node = (self.meter_to_index(start.pose.position.x,start.pose.position.y))
+        goal_node = (self.meter_to_index(end.pose.position.x,end.pose.position.y))
 
         open = {}
         closed = {}
@@ -74,9 +77,13 @@ class AStarCalculator(Node):
         path = []
         g[start_node] = 0
 
-        open[start_node] = g[start_node] + self.heuristic(start_node,goal_node)   
+        
 
-        while len(open) > 0:
+        open[start_node] = g[start_node] + self.heuristic(start_node,goal_node)   
+        
+        #self.get_logger().info(f"Początek algorytmu, open = {open}")
+
+        while open:
 
             min_f = 10000000000000000
             current_node = ()
@@ -85,40 +92,41 @@ class AStarCalculator(Node):
                 if(open[node] < min_f):
                     min_f = open[node] 
                     current_node = node
-
+            self.get_logger().info(f"Dlugosc: {len(open)}")
             open.pop(current_node)
+            #self.get_logger().info(f"Obecny node to: {current_node}")
+            #self.get_logger().info(f"Początek algorytmu, open = {open}")
 
-            if(current_node[0] == goal_node[0] and current_node[1] == goal_node[1]):
+            if(current_node == goal_node):
                 
-
+                self.get_logger().info(f"ZNALEZIONO!!!!!!!!!!!!!!!!!!!")
                 while True:
 
                     new_pose = PoseStamped()
                     new_pose.header.frame_id = 'map'
                     new_pose.header.stamp = self.get_clock().now().to_msg()
 
-                    new_pose.pose.position.x = index_to_meter(current_node[0])
-                    new_pose.pose.position.y = index_to_meter(current_node[1])
-                    new_pose.pose.position.z = 0
+                    new_pose.pose.position.x, new_pose.pose.position.y = self.index_to_meter(current_node[0],current_node[1])
+                    new_pose.pose.position.z = 0.0
 
-                    new_pose.pose.orientation.x = 0
-                    new_pose.pose.orientation.y = 0
-                    new_pose.pose.orientation.z = 0
-                    new_pose.pose.orientation.w = 1
+                    new_pose.pose.orientation.x = 0.0
+                    new_pose.pose.orientation.y = 0.0
+                    new_pose.pose.orientation.z = 0.0
+                    new_pose.pose.orientation.w = 1.0
 
-                    path.append(new_pose)
-
-                    if(current_node[0] == start_node[0] and current_node[1] == start_node[1]):
+                    path.insert(0,new_pose)
+                    self.get_logger().info(f"Obecny node to: {current_node}")
+                    if(current_node == start_node):
                         break
 
                     current_node = parent[current_node] 
 
                 break
 
-            neighbors = self.get_neighbors(current_node)
+            neighbors = self.get_neighbors(current_node,True)
             
             for neighbor_node in neighbors:
-                temp_g = g[current_node] + self.index_to_meter(1) #tymczasowe rozwiązanie
+                temp_g = g[current_node] + self.heuristic(neighbor_node,current_node) #tymczasowe rozwiązanie
                 if((not neighbor_node in g.keys()) or temp_g < g[neighbor_node]):
                     parent[neighbor_node] = current_node
                     g[neighbor_node] = temp_g
@@ -128,7 +136,6 @@ class AStarCalculator(Node):
         calculated_path.header.frame_id = 'map'
         calculated_path.header.stamp = self.get_clock().now().to_msg()
 
-        path = reversed(path)
         self.get_logger().info(f"{path}")
         for pose in path:
             calculated_path.poses.append(pose)
@@ -146,14 +153,14 @@ class AStarCalculator(Node):
         return self.map_width*iy + ix
 
     def meter_to_index(self,x,y):
-        if(x < 0):
-            x = 0
-        if(y < 0):
-            y = 0
-        if(x > self.map_width):
-            x = self.map_width - self.map_res
-        if(y > self.map_height):
-            y = self.map_height - self.map_res
+        # if(x < 0):
+        #     x = 0
+        # if(y < 0):
+        #     y = 0
+        # if(x > self.map_width):
+        #     x = self.map_width - self.map_res
+        # if(y > self.map_height):
+        #     y = self.map_height - self.map_res
 
         ix = floor((x - self.map_ox)/self.map_res)
         iy = floor((y - self.map_oy)/self.map_res)
@@ -168,14 +175,14 @@ class AStarCalculator(Node):
         return x, y
 
     def get_tile_cost(self,ix,iy):
-        return self.map_cost.data[list_position(self,ix,iy)]
+        return self.map_cost.data[list_position(ix,iy)]
 
     def is_tile_reachable(self,ix,iy):
 
         # if(ix < 0 or iy < 0 or index_to_meter(ix) >= self.map_width or index_to_meter(iy) >= self.map_height):
         #     return False
 
-        is_occupied = self.map_dilated.data[list_position(self,ix,iy)]
+        is_occupied = self.map_dilated.data[self.list_position(ix,iy)]
 
         if(is_occupied == 100):
             return False
