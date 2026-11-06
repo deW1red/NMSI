@@ -77,11 +77,14 @@ class AStarCalculator(Node):
         path = []
         g[start_node] = 0
 
+        k = 0.5
+
+        calculated_path = Path()
+        calculated_path.header.frame_id = 'map'
+        calculated_path.header.stamp = self.get_clock().now().to_msg()
         
 
         open[start_node] = g[start_node] + self.heuristic(start_node,goal_node)   
-        
-        #self.get_logger().info(f"Początek algorytmu, open = {open}")
 
         while open:
 
@@ -92,53 +95,29 @@ class AStarCalculator(Node):
                 if(open[node] < min_f):
                     min_f = open[node] 
                     current_node = node
-            self.get_logger().info(f"Dlugosc: {len(open)}")
+
             open.pop(current_node)
-            #self.get_logger().info(f"Obecny node to: {current_node}")
-            #self.get_logger().info(f"Początek algorytmu, open = {open}")
 
             if(current_node == goal_node):
-                
-                self.get_logger().info(f"ZNALEZIONO!!!!!!!!!!!!!!!!!!!")
                 while True:
+                    new_pose = self.pose_from_node(current_node)
+                    calculated_path.poses.insert(0,new_pose)
 
-                    new_pose = PoseStamped()
-                    new_pose.header.frame_id = 'map'
-                    new_pose.header.stamp = self.get_clock().now().to_msg()
-
-                    new_pose.pose.position.x, new_pose.pose.position.y = self.index_to_meter(current_node[0],current_node[1])
-                    new_pose.pose.position.z = 0.0
-
-                    new_pose.pose.orientation.x = 0.0
-                    new_pose.pose.orientation.y = 0.0
-                    new_pose.pose.orientation.z = 0.0
-                    new_pose.pose.orientation.w = 1.0
-
-                    path.insert(0,new_pose)
-                    self.get_logger().info(f"Obecny node to: {current_node}")
                     if(current_node == start_node):
                         break
 
                     current_node = parent[current_node] 
-
                 break
 
             neighbors = self.get_neighbors(current_node,True)
             
             for neighbor_node in neighbors:
-                temp_g = g[current_node] + self.heuristic(neighbor_node,current_node) #tymczasowe rozwiązanie
+                temp_g = g[current_node] + self.heuristic(neighbor_node,current_node)*(1 + k*self.get_node_cost(neighbor_node)/100) 
+
                 if((not neighbor_node in g.keys()) or temp_g < g[neighbor_node]):
                     parent[neighbor_node] = current_node
                     g[neighbor_node] = temp_g
                     open[neighbor_node] = g[neighbor_node] + self.heuristic(neighbor_node,goal_node)
-
-        calculated_path = Path()
-        calculated_path.header.frame_id = 'map'
-        calculated_path.header.stamp = self.get_clock().now().to_msg()
-
-        self.get_logger().info(f"{path}")
-        for pose in path:
-            calculated_path.poses.append(pose)
 
         self.publisher.publish(calculated_path)
 
@@ -149,7 +128,8 @@ class AStarCalculator(Node):
         self.map_oy = self.map_dilated.info.origin.position.y
         self.map_res = self.map_dilated.info.resolution
     
-    def list_position(self,ix,iy):
+    def list_position(self,node):
+        ix, iy = node
         return self.map_width*iy + ix
 
     def meter_to_index(self,x,y):
@@ -165,24 +145,20 @@ class AStarCalculator(Node):
         ix = floor((x - self.map_ox)/self.map_res)
         iy = floor((y - self.map_oy)/self.map_res)
 
-        return ix, iy
+        return (ix, iy)
 
-    def index_to_meter(self,ix,iy):
-
+    def index_to_meter(self,node):
+        ix, iy = node
         x = self.map_ox + (ix + 0.5)*self.map_res
         y = self.map_oy + (iy + 0.5)*self.map_res
 
         return x, y
 
-    def get_tile_cost(self,ix,iy):
-        return self.map_cost.data[list_position(ix,iy)]
+    def get_node_cost(self,node):
+        return self.map_cost.data[self.list_position(node)]
 
-    def is_tile_reachable(self,ix,iy):
-
-        # if(ix < 0 or iy < 0 or index_to_meter(ix) >= self.map_width or index_to_meter(iy) >= self.map_height):
-        #     return False
-
-        is_occupied = self.map_dilated.data[self.list_position(ix,iy)]
+    def is_node_reachable(self,node):
+        is_occupied = self.map_dilated.data[self.list_position(node)]
 
         if(is_occupied == 100):
             return False
@@ -197,15 +173,29 @@ class AStarCalculator(Node):
                     continue
                 if(i == 0 and j == 0):
                     continue
-                if(not self.is_tile_reachable(node[0],node[1])):
+                if(not self.is_node_reachable(node)):
                     continue
                 neighbors.append((node[0] - i,node[1] - j))
         return neighbors
 
     def heuristic(self,node,end):
-        x1,y1 = self.index_to_meter(node[0],node[1])
-        x2,y2 = self.index_to_meter(end[0],end[1])
+        x1,y1 = self.index_to_meter(node)
+        x2,y2 = self.index_to_meter(end)
         return euclidean_distance(x1,y1,x2,y2)
+
+    def pose_from_node(self,node):
+        new_pose = PoseStamped()
+        new_pose.header.frame_id = 'map'
+        new_pose.header.stamp = self.get_clock().now().to_msg()
+
+        new_pose.pose.position.x, new_pose.pose.position.y = self.index_to_meter(node)
+        new_pose.pose.position.z = 0.0
+        new_pose.pose.orientation.x = 0.0
+        new_pose.pose.orientation.y = 0.0
+        new_pose.pose.orientation.z = 0.0
+        new_pose.pose.orientation.w = 1.0
+
+        return new_pose
 
 
 def euclidean_distance(x1,y1,x2,y2):
