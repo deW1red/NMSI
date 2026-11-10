@@ -29,7 +29,7 @@ def launch_setup(context):
             executable='stage_ros2',
             name='stage',
             output='screen',
-            parameters=[{'world_file': world_path}]
+            parameters=[{'world_file': world_path, 'enable_random_reset': True}]
         ),
         Node(
             package='rviz2',
