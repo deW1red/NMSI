@@ -1,9 +1,9 @@
 [submodule "Stage"]
 	path = Stage
-	url = https://github.com/tuw-robotics/Stage
+	url = https://github.com/piotrdusz/Stage
 [submodule "stage_ros2"]
 	path = stage_ros2
-	url = https://github.com/tuw-robotics/stage_ros2
+	url = https://github.com/piotrdusz/stage_ros2
 	branch = lyrical-devel
 [submodule "teleop_panel"]
 	path = teleop_panel
