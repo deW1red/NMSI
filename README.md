@@ -1,7 +1,5 @@
 # NMSI — Q-learning: lokalna realizacja trasy
 
-Repozytorium na potrzeby przedmiotu Nowoczesne metody sztucznej inteligencji w robotyce.
-
 W poprzednim ćwiczeniu robot dostawał trasę wyznaczoną algorytmem A\* i jechał po niej dzięki gotowemu, „ręcznie" napisanym regulatorowi. Tym razem **regulator zastąpisz agentem uczonym metodą Q-learning**: robot sam nauczy się, jak podążać za trasą, nie znając modelu swojej dynamiki ani żadnego wzoru na sterowanie.
 
 ## 1. Cel ćwiczenia
@@ -44,10 +42,10 @@ Budowanie po zmianach: `colcon build --packages-select nmsi_lab && source instal
 | 3 | Aktualizacja Q-tablicy (`update_q_table`) | 1,5 |
 | 4 | Zapis i wczytanie Q-tablicy (`save_q_table`, `load_q_table`) | 1 |
 | 5 | Pętla uczenia: nagrody, warunki końca epizodu, przechowywanie poprzedniego stanu (`learning_loop`) | 2 |
-| 6 | Działająca polityka: po nauce robot w trybie „following" dojeżdża do celu bez kolizji w co najmniej 8 z 10 prób (świat `hallway`) | 2 |
-| Bonus | Zmiana stanu/akcji/nagród tak, aby polityka działała także w `cave` lub `lines`, albo porównanie (wykres) różnych wartości α, γ, ε | +1 |
+| 6 | Działająca polityka: po nauce robot w trybie „following" dojeżdża do celu bez kolizji w co najmniej 8 z 10 prób | 2 |
+| Bonus | Muszę jeszcze wymyślić | +1 |
 
-Termin oddania: **do ustalenia** (termin zapasowy: 75% punktów). Kod źródłowy należy przesłać przez platformę **LeON** — wyłącznie pliki źródłowe (bez `build`, `install`, `log`) oraz **plik z nauczoną Q-tablicą**.
+Termin oddania: **3 stycznia** (termin zapasowy: **10 stycznia** - 75% punktów). Kod źródłowy należy przesłać przez platformę **LeON** — wyłącznie pliki źródłowe (bez `build`, `install`, `log`) oraz **plik z nauczoną Q-tablicą**.
 
 ### 2.2. Samodzielność pracy
 
