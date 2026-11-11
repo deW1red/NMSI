@@ -60,6 +60,9 @@ target_compile_features(path_follower PUBLIC c_std_99 cxx_std_17)
 install(TARGETS path_follower
 DESTINATION lib/${PROJECT_NAME})
 
+install(PROGRAMS src/path_follower.py
+DESTINATION lib/${PROJECT_NAME})
+
 install(DIRECTORY 
   launch
   config
@@ -78,6 +81,9 @@ install(TARGETS map_processor
 DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
+  find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  add_test(NAME test_path_follower_python
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/test/test_path_follower.py)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
   # comment the line when a copyright and license is added to all source files

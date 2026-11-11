@@ -6,7 +6,7 @@ W poprzednim ćwiczeniu robot dostawał trasę wyznaczoną algorytmem A\* i jech
 
 Węzeł `path_follower` odbiera trasę z tematu `/path` (`nav_msgs/msg/Path`) i ma ją „lokalnie realizować": w każdym kroku korzysta z punktu trasy wybranego metodą opisaną w sekcji 4.1 i wybiera jedną z kilku dyskretnych akcji (zestaw prędkości), aby dojechać do końca trasy bez kolizji i bez zjechania z niej.
 
-Szkielet węzła `path_follower` (subskrypcje, publikacje, serwisy, reset robota, losowanie celów, odbiór trasy, wyszukiwanie punktu na trasie i timer) jest gotowy. Do wyznaczania trasy użyj rozwiązania A* z poprzedniego zadania — możesz podmienić nim kod planisty w C++ albo Pythonie i uruchomić odpowiadający mu launch. Jeśli Twoje rozwiązanie A* nie działa, poproś prowadzącego o kod planisty. Planista odbiera cel z `/goal_pose` (`geometry_msgs/msg/PoseStamped`) i publikuje trasę na `/path` (`nav_msgs/msg/Path`). Lidar nie jest używany przez `path_follower`; kolizję odczytuje on z `/collision`. Do napisania w pliku `nmsi_lab/src/path_follower.cpp` zostały funkcje oznaczone `TODO`:
+Szkielet węzła `path_follower` (subskrypcje, publikacje, serwisy, reset robota, losowanie celów, odbiór trasy, wyszukiwanie punktu na trasie i timer) jest gotowy w C++ i Pythonie. Do wyznaczania trasy użyj rozwiązania A* z poprzedniego zadania — możesz podmienić nim kod planisty w C++ albo Pythonie i uruchomić odpowiadający mu launch. Jeśli Twoje rozwiązanie A* nie działa, poproś prowadzącego o kod planisty. Planista odbiera cel z `/goal_pose` (`geometry_msgs/msg/PoseStamped`) i publikuje trasę na `/path` (`nav_msgs/msg/Path`). Lidar nie jest używany przez `path_follower`; kolizję odczytuje on z `/collision`. Do napisania w wybranym pliku `nmsi_lab/src/path_follower.cpp` albo `nmsi_lab/src/path_follower.py` zostały funkcje oznaczone `TODO`:
 
 | # | Funkcja | Zadanie |
 |---|---------|---------|
@@ -27,7 +27,16 @@ ros2 launch nmsi_lab simulation.launch.py world:=cave
 ros2 launch nmsi_lab robot_controller.launch.py
 ```
 
-Powyższy launch uruchamia przykładowy planista `a_star` oraz `path_follower`. Jeśli korzystasz ze swojego planisty z poprzedniego zadania, uruchom go (w C++ lub Pythonie) zamiast przykładowego `a_star`, a także uruchom `path_follower`. Jeśli Twój planista nie działa, poproś prowadzącego o kod planisty.
+Wybierz launch według języka planisty i węzła realizującego trasę:
+
+| Launch | A* | path_follower |
+|--------|----|---------------|
+| `robot_controller.launch.py` | C++ | C++ |
+| `robot_controller_python.launch.py` | Python | C++ |
+| `robot_controller_follower_python.launch.py` | C++ | Python |
+| `robot_controller_all_python.launch.py` | Python | Python |
+
+Na przykład: `ros2 launch nmsi_lab robot_controller_all_python.launch.py`. Każdy launch uruchamia po jednym planiscie i jednym `path_follower`; nie uruchamiaj jednocześnie kilku wariantów. Przykładowy planista i funkcje TODO w obu wersjach `path_follower` wymagają własnej implementacji. Jeżeli masz rozwiązanie A* z poprzedniego zadania, użyj go zamiast przykładowego planisty. Jeśli Twój planista nie działa, poproś prowadzącego o kod planisty.
 
 Budowanie po zmianach: `colcon build --packages-select nmsi_lab && source install/setup.bash` (w katalogu głównym przestrzeni roboczej).
 
@@ -56,7 +65,7 @@ Kod źródłowy należy przesłać przez platformę **LeON** — wyłącznie pli
 
 > **Zadanie trzeba wykonać samodzielnie.**
 >
-> Wolno korzystać z: własnej wiedzy, materiałów z wykładu (si8) i przygotowanych przez prowadzącego (w tym tej instrukcji i pseudokodu), dokumentacji ROS 2 oraz biblioteki standardowej C++.
+> Wolno korzystać z: własnej wiedzy, materiałów z wykładu (si8) i przygotowanych przez prowadzącego (w tym tej instrukcji i pseudokodu), dokumentacji ROS 2 oraz biblioteki standardowej wybranego języka (C++ lub Python).
 >
 > Nie wolno korzystać z: gotowych bibliotek i implementacji uczenia ze wzmocnieniem (np. Stable-Baselines, Gymnasium, PyTorch/TensorFlow), gotowych fragmentów kodu z internetu, kodu innych osób ani **kodu wygenerowanego przez modele językowe (LLM) i inne narzędzia AI**.
 >
@@ -129,7 +138,7 @@ Dobierz reprezentację i przedziały tak, aby liczba stanów była skończona i 
 
 ### 4.2. Akcje
 
-Zbiór akcji to wybrane przez Ciebie pary prędkości (liniowa, kątowa), np. „prosto", „łagodny skręt w lewo/prawo", „obrót w miejscu w lewo/prawo". `execute_action` zamienia numer akcji na `geometry_msgs/msg/Twist` i publikuje go na `/cmd_vel`. `action_count` jest stałą kompilacji, a tablica Q używa `std::array<double, action_count>`; nie można zmienić liczby akcji parametrem w trakcie działania. Możesz zmienić tę stałą, ale liczba i indeksy akcji, tablica Q oraz zapis/odczyt pliku muszą pozostać zgodne. Przed użyciem indeksu do dostępu do Q-tablicy lub mapowania go na prędkość sprawdź, czy akcja należy do zakresu `[0, action_count)`. Nie zakładaj domyślnej akcji dla niepoprawnego indeksu. Wartości prędkości dobierz samodzielnie i eksperymentuj z nimi w symulacji.
+Zbiór akcji to wybrane przez Ciebie pary prędkości (liniowa, kątowa), np. „prosto", „łagodny skręt w lewo/prawo", „obrót w miejscu w lewo/prawo". `execute_action` zamienia numer akcji na `geometry_msgs/msg/Twist` i publikuje go na `/cmd_vel`. W C++ `action_count` jest stałą kompilacji, a tablica Q używa `std::array<double, action_count>`; w Pythonie `action_count` jest polem klasy, a wartościami tablicy Q są listy. Liczbę akcji dobiera się w kodzie, nie parametrem ROS; liczba i indeksy akcji, tablica Q oraz zapis/odczyt pliku muszą pozostać zgodne. Przed użyciem indeksu do dostępu do Q-tablicy lub mapowania go na prędkość sprawdź, czy akcja należy do zakresu `[0, action_count)`. Nie zakładaj domyślnej akcji dla niepoprawnego indeksu. Wartości prędkości dobierz samodzielnie i eksperymentuj z nimi w symulacji.
 
 ### 4.3. Czas
 
@@ -178,7 +187,7 @@ ros2 topic echo /path           # trasa z węzła planującego
 ros2 topic echo /cmd_vel --once # ostatnie polecenie prędkości
 ```
 
-W kodzie: `collided` (`std::optional<bool>`) przechowuje ostatnią wiadomość z `/collision`, `publisher` publikuje na `/cmd_vel`.
+W kodzie: `collided` (`std::optional<bool>` w C++, `bool | None` w Pythonie) przechowuje ostatnią wiadomość z `/collision`, `publisher` publikuje na `/cmd_vel`.
 
 #### Krótka lista diagnostyczna
 
@@ -245,7 +254,7 @@ Do liczenia nagrody „za postęp" potrzebujesz wartości z poprzedniego kroku �
 
 ### 6.4. Zapis i wczytanie
 
-Uzgodnij jeden format tekstowy, który zapis i odczyt stosują identycznie. W obecnym szkielecie klucz to `std::vector<int>`, a każdy wiersz Q zawiera `action_count` wartości `double` (obecnie pięć). Parametr ROS `q_file` ma domyślną nazwę `q_table_path_only.txt`; jeżeli podasz ścieżkę względną, plik jest rozwiązywany względem bieżącego katalogu procesu, a nie automatycznie względem pakietu. Szkielet nie ustala katalogu przechowywania.
+Uzgodnij jeden format tekstowy, który zapis i odczyt stosują identycznie. W szkielecie C++ klucz to `std::vector<int>`, a każdy wiersz Q zawiera `action_count` wartości `double` (obecnie pięć); w Pythonie klucz to `tuple[int, ...]`, a wiersz to lista wartości `float`. Parametr ROS `q_file` ma domyślną nazwę `q_table_path_only.txt`; jeżeli podasz ścieżkę względną, plik jest rozwiązywany względem bieżącego katalogu procesu, a nie automatycznie względem pakietu. Szkielet nie ustala katalogu przechowywania. Zgodność plików między wersjami zależy od samodzielnego uzgodnienia formatu i znaczenia stanów oraz akcji.
 
 Przykładowy format, zgodny z tymi typami: wiersz zawiera najpierw liczbę cech stanu `N`, następnie `N` indeksów całkowitych, a następnie dokładnie `action_count` wartości Q. Przykład dla stanu o dwóch cechach i pięciu akcjach:
 
