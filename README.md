@@ -4,9 +4,9 @@ W poprzednim ćwiczeniu robot dostawał trasę wyznaczoną algorytmem A\* i jech
 
 ## 1. Cel ćwiczenia
 
-Węzeł `path_follower` odbiera trasę z tematu `/path` (nav_msgs/msg/Path) i ma ją „lokalnie realizować": w każdym kroku patrzy na punkt trasy leżący w odległości `head_radius` przed robotem i wybiera jedną z kilku dyskretnych akcji (zestaw prędkości) tak, aby dojechać do końca trasy bez kolizji i bez zjechania z niej.
+Węzeł `path_follower` odbiera trasę z tematu `/path` (`nav_msgs/msg/Path`) i ma ją „lokalnie realizować": w każdym kroku korzysta z punktu trasy wybranego metodą opisaną w sekcji 4.1 i wybiera jedną z kilku dyskretnych akcji (zestaw prędkości), aby dojechać do końca trasy bez kolizji i bez zjechania z niej.
 
-Szkielet węzła `path_follower` (subskrypcje, publikacje, serwisy, reset robota, losowanie celów, odbiór trasy, wyszukiwanie punktu na trasie i timer) jest gotowy. Planowanie trasy zapewnia osobny węzeł `a_star`, którego implementację bierzesz z poprzedniego zadania. Lidar **nie jest** używany — trasa z A\* jest wolna od kolizji, a o kolizji dowiadujesz się z tematu `/collision`. Do napisania w pliku `nmsi_lab/src/path_follower.cpp` zostały funkcje oznaczone `TODO`:
+Szkielet węzła `path_follower` (subskrypcje, publikacje, serwisy, reset robota, losowanie celów, odbiór trasy, wyszukiwanie punktu na trasie i timer) jest gotowy. Do wyznaczania trasy użyj rozwiązania A* z poprzedniego zadania — możesz podmienić nim kod planisty w C++ albo Pythonie i uruchomić odpowiadający mu launch. Jeśli Twoje rozwiązanie A* nie działa, poproś prowadzącego o kod planisty. Planista odbiera cel z `/goal_pose` (`geometry_msgs/msg/PoseStamped`) i publikuje trasę na `/path` (`nav_msgs/msg/Path`). Lidar nie jest używany przez `path_follower`; kolizję odczytuje on z `/collision`. Do napisania w pliku `nmsi_lab/src/path_follower.cpp` zostały funkcje oznaczone `TODO`:
 
 | # | Funkcja | Zadanie |
 |---|---------|---------|
@@ -18,16 +18,16 @@ Szkielet węzła `path_follower` (subskrypcje, publikacje, serwisy, reset robota
 | 6 | `load_q_table` | wczytanie Q-tablicy z pliku |
 | 7 | `learning_loop` | jeden krok uczenia (wywoływany z timera) |
 
-Do działania potrzebny jest węzeł `a_star` z poprzedniego zadania. Użyj własnej implementacji algorytmu, którą wtedy napisałeś. Jeśli nie udało Ci się jej ukończyć, poproś prowadzącego o kod — `a_star` nie jest gotowym elementem tego ćwiczenia.
-
 Uruchomienie (dwa terminale):
 
 ```bash
 # terminal 1
 ros2 launch nmsi_lab simulation.launch.py world:=cave
-# terminal 2
+# terminal 2: uruchom path_follower oraz planistę A*
 ros2 launch nmsi_lab robot_controller.launch.py
 ```
+
+Powyższy launch uruchamia przykładowy planista `a_star` oraz `path_follower`. Jeśli korzystasz ze swojego planisty z poprzedniego zadania, uruchom go (w C++ lub Pythonie) zamiast przykładowego `a_star`, a także uruchom `path_follower`. Jeśli Twój planista nie działa, poproś prowadzącego o kod planisty.
 
 Budowanie po zmianach: `colcon build --packages-select nmsi_lab && source install/setup.bash` (w katalogu głównym przestrzeni roboczej).
 
@@ -45,9 +45,12 @@ Do nauki zacznij od świata `cave`. Gdy rozwiązanie będzie działać, sprawdź
 | 4 | Zapis i wczytanie Q-tablicy (`save_q_table`, `load_q_table`) | 1 |
 | 5 | Krok uczenia: nagrody, warunki końca epizodu, przechowywanie poprzedniego stanu (`learning_loop`) | 2 |
 | 6 | Działająca polityka: po nauce robot w trybie „following" dojeżdża do celu bez kolizji w co najmniej 8 z 10 prób | 2 |
-| Bonus | Muszę jeszcze wymyślić | +1 |
+| Bonus| Jeszcze myślę | + 1 |
 
-Termin oddania: **3 stycznia** (termin zapasowy: **10 stycznia** - 75% punktów). Kod źródłowy należy przesłać przez platformę **LeON** — wyłącznie pliki źródłowe (bez `build`, `install`, `log`) oraz **plik z nauczoną Q-tablicą**.
+Kod źródłowy należy przesłać przez platformę **LeON** — wyłącznie pliki źródłowe (bez `build`, `install`, `log`) oraz **plik z nauczoną Q-tablicą**.
+
+- Termin zwykły: **3 stycznia**.
+- Termin dodatkowy: **10 stycznia**. Za pracę oddaną w tym terminie przyznaje się 75% uzyskanych punktów.
 
 ### 2.2. Samodzielność pracy
 
@@ -100,16 +103,25 @@ Q-learning jest algorytmem **off-policy** i **bezmodelowym**: aktualizacja używ
 
 Gdy zawsze wybieramy najlepszą znaną akcję, agent może utknąć w złym rozwiązaniu. Strategia **ε-zachłanna**: z prawdopodobieństwem $\varepsilon$ wybierz akcję losową (eksploracja), z prawdopodobieństwem $1-\varepsilon$ najlepszą wg $Q$ (eksploatacja). Za mały $\varepsilon$ — polityka suboptymalna, za duży — wolna zbieżność. Często $\varepsilon$ zmniejsza się w trakcie uczenia. (Alternatywa: eksploracja Boltzmanna — losowanie akcji z prawdopodobieństwem zależnym od $Q$.)
 
+### 3.5. Parametry i wybory projektowe
+
+- `epsilon` jest już parametrem ROS w szkielecie (domyślnie `0.2`, wartość powinna należeć do zakresu `0`–`1`). Możesz ustawić go przy uruchamianiu, np. w pliku launch/YAML lub przez argumenty ROS; szkielet nie zmniejsza go automatycznie.
+- `alpha`, `gamma` oraz wartości/zasady nagród nie są obecnie parametrami ROS ani polami gotowymi w szkielecie. Dobierz je i uzasadnij. Możesz przechowywać je jako pola albo jawnie zadeklarować jako parametry ROS; jeśli wybierzesz parametry ROS, opisz ich nazwy i sposób ustawienia.
+- Wartości `alpha` i `gamma` muszą być zgodne z definicjami z wykładu; instrukcja nie narzuca ich konkretnych wartości. Tak samo dobór nagród pozostaje decyzją studenta.
+
 ## 4. Dyskretyzacja stanu, akcji i czasu
 
 Q-tablica wymaga **skończonych, małych** zbiorów stanów i akcji. Robot działa w świecie ciągłym, więc trzeba zdecydować trzy rzeczy.
 
 ### 4.1. Stan
 
-Funkcja `find_head_point()` zwraca punkt trasy leżący w odległości `head_radius` od robota (w układzie robota `base_link`; gdy robot jest bliżej celu — koniec trasy). Z tego punktu można policzyć wielkości opisujące sytuację robota względem trasy, np.:
+Funkcja `find_head_point()` wybiera punkt trasy względem robota w układzie `base_link` (szczegóły wyboru poniżej). Wymaganym minimum obserwacji jest kąt do tego punktu (`atan2(y, x)`), aby stan odróżniał kierunek względem trasy. Możesz dodać inne cechy, np. odległość do końca trasy; są one opcjonalne, a nie wymagane przez szkielet. Wybierz i uzasadnij cechy oraz ich przedziały.
 
-- kąt do punktu: `atan2(y, x)` (czy trzeba skręcić w lewo, w prawo, czy jechać prosto),
-- odległość do końca trasy.
+`discretize_state` przyjmuje `std::vector<double>`; jego długość i kolejność cech ustala Twoja reprezentacja obserwacji. Minimalną wymaganą cechą jest kąt do punktu zwróconego przez `find_head_point()` (`atan2(y, x)` w `base_link`); odległość do celu jest przykładową cechą dodatkową.
+
+`find_head_point()` zwraca `std::optional<PoseStamped>`: pusty wynik oznacza brak ścieżki albo brak przecięcia ścieżki z okręgiem wyszukiwania. Przeliczenie punktów ścieżki do `base_link` może zgłosić wyjątek TF; funkcja nie zamienia tego wyjątku na pusty wynik. Nie dyskretyzuj brakującej obserwacji ani wartości niefinitywnych i nie podejmuj na ich podstawie akcji. Obsłuż brak punktu i wyjątek TF w miejscu wywołania, zatrzymując ruch, jeśli nie można wiarygodnie wyznaczyć obserwacji. Nie aktualizuj przejścia bez wymaganych danych. Szkielet nie narzuca dalszego rozstrzygnięcia stanu epizodu po błędzie TF.
+
+`find_head_point()` szuka przecięcia z okręgiem o środku w robocie i promieniu `head_radius` (0,4 m). Jeśli koniec trasy jest już w tym okręgu, zwraca koniec. W przeciwnym razie przegląda odcinki trasy od końca w stronę początku i zwraca przecięcie na pierwszym odcinku, który przecina okrąg; gdy odcinek ma dwa przecięcia, preferowane jest to bliższe końcowi trasy. Gdy nie ma takiego punktu, wynik jest pusty. `head_radius` nie określa tolerancji osiągnięcia celu.
 
 Każdą wielkość można podzielić na kilka przedziałów (np. „mocno w lewo / lekko w lewo / prosto / lekko w prawo / mocno w prawo"). Jednym z możliwych sposobów reprezentacji stanu jest wektor indeksów przedziałów (`std::vector<int>`), który w obecnym szkielecie jest kluczem Q-tablicy. To tylko przykład — możesz wybrać inną reprezentację, jeśli lepiej pasuje do Twojego pomysłu. W takim przypadku dostosuj typ `DiscreteState` oraz typ klucza Q-tablicy.
 
@@ -117,11 +129,11 @@ Dobierz reprezentację i przedziały tak, aby liczba stanów była skończona i 
 
 ### 4.2. Akcje
 
-Zbiór akcji to kilka gotowych par prędkości (liniowa, kątowa), np. „prosto", „łagodny skręt w lewo/prawo", „obrót w miejscu w lewo/prawo". `execute_action` zamienia numer akcji na `geometry_msgs/msg/Twist` i publikuje go na `/cmd_vel`. Stała `action_count` musi odpowiadać liczbie akcji.
+Zbiór akcji to wybrane przez Ciebie pary prędkości (liniowa, kątowa), np. „prosto", „łagodny skręt w lewo/prawo", „obrót w miejscu w lewo/prawo". `execute_action` zamienia numer akcji na `geometry_msgs/msg/Twist` i publikuje go na `/cmd_vel`. `action_count` jest stałą kompilacji, a tablica Q używa `std::array<double, action_count>`; nie można zmienić liczby akcji parametrem w trakcie działania. Możesz zmienić tę stałą, ale liczba i indeksy akcji, tablica Q oraz zapis/odczyt pliku muszą pozostać zgodne. Przed użyciem indeksu do dostępu do Q-tablicy lub mapowania go na prędkość sprawdź, czy akcja należy do zakresu `[0, action_count)`. Nie zakładaj domyślnej akcji dla niepoprawnego indeksu. Wartości prędkości dobierz samodzielnie i eksperymentuj z nimi w symulacji.
 
 ### 4.3. Czas
 
-**Ważne: w implementacji nie należy tworzyć pętli `for`/`while`, która wykonuje całe uczenie.** Q-learning opisuje kroki powtarzane w czasie, ale tutaj powtarzanie zapewnia timer ROS 2: co 100 ms wywołuje `follow_path()`, a ta w trybie jazdy po trasie wywołuje `learning_loop()`. **Jedno wywołanie `learning_loop()` wykonuje dokładnie jeden krok uczenia / jedną decyzję.** Funkcja zostaje wywołana ponownie przez timer; akcja (prędkość) działa do następnego wywołania.
+**Nie twórz pętli `for`/`while`, która wielokrotnie wykonuje kroki uczenia, czeka na ruch albo zastępuje timer.** Timer ROS 2 co 100 ms wywołuje `follow_path()`, a ta w trybie jazdy po trasie wywołuje `learning_loop()`. Jedno wywołanie `learning_loop()` obsługuje najwyżej jeden krok/przejście i jedną decyzję. Zwykłe lokalne iterowanie po akcjach, elementach obserwacji lub wierszach pliku jest dozwolone.
 
 Okres 100 ms jest już ustawiony w szkielecie. Zbyt krótki okres może oznaczać, że stan prawie się nie zmienia między decyzjami; zbyt długi może nie dać robotowi dość szybko zareagować na trasę.
 
@@ -151,7 +163,7 @@ W szkielecie są serwisy (zaimplementowane, nie zmieniaj ich):
 
 | Serwis | Działanie |
 |--------|-----------|
-| `/start_learning` | tryb **uczenia**: robot jest resetowany w losowe miejsce, losowany jest cel, A\* wyznacza trasę, uruchamiany jest epizod; po jego końcu — następny |
+| `/start_learning` | tryb **uczenia**: robot jest resetowany w losowe miejsce, losowany jest cel, węzeł planujący publikuje trasę, uruchamiany jest epizod; po jego końcu — następny |
 | `/start_following` | tryb **jazdy po trasie**: zapis Q-tablicy do pliku, robot czeka na cel z `/goal_pose` i jedzie, zawsze wybierając najlepszą akcję |
 | `/stop_path_follower` | zatrzymuje robota i czyści trasę |
 | `/random_reset` | (Stage) przenosi robota w losowe wolne miejsce |
@@ -162,11 +174,31 @@ Program **startuje w trybie jazdy po trasie** (stan `WAITING_FOR_PATH`, `trainin
 
 ```bash
 ros2 topic echo /collision      # std_msgs/msg/Bool: true po kolizji robota, false po resecie
-ros2 topic echo /path           # trasa z A*
+ros2 topic echo /path           # trasa z węzła planującego
 ros2 topic echo /cmd_vel --once # ostatnie polecenie prędkości
 ```
 
 W kodzie: `collided` (`std::optional<bool>`) przechowuje ostatnią wiadomość z `/collision`, `publisher` publikuje na `/cmd_vel`.
+
+#### Krótka lista diagnostyczna
+
+Jeśli robot nie jedzie lub nie pojawia się trasa, sprawdź najpierw, czy uruchomione są oczekiwane węzły i czy tematy publikują dane:
+
+```bash
+ros2 topic list
+ros2 topic echo /goal_pose --once
+ros2 topic info /path
+ros2 topic echo /path --once
+ros2 topic echo /collision --once
+ros2 topic echo /cmd_vel --once
+ros2 topic echo /map_dilated --once
+ros2 topic echo /amcl_pose --once
+ros2 run tf2_ros tf2_echo map base_link
+ros2 service list
+ros2 param get /path_follower epsilon
+```
+
+Wiadomości trasy i mapy używają ramki `map`, a punkt trasy jest przeliczany do `base_link`; sprawdź ramki wiadomości i dostępność transformacji `map` → `base_link`. Sprawdź również, czy `/goal_pose` otrzymuje cel i czy `/path` publikuje trasę. Polecenia pokazują stan systemu, nie zakładają konkretnej częstotliwości ani wartości danych.
 
 ### 5.3. Klienci serwisów i pliki
 
@@ -179,7 +211,7 @@ Szkielet pokazuje, jak węzeł sam woła serwisy (`reset_client->async_send_requ
 W trybie uczenia szkielet wykonuje (poza `learning_loop`) wszystko sam:
 
 1. reset robota w losowe miejsce → pauza `reset_settle_time`,
-2. losowanie celu i publikacja na `/goal_pose` → A\* publikuje `/path`,
+2. losowanie celu i publikacja na `/goal_pose` → uruchomiony węzeł planujący publikuje `/path`,
 3. pauza `path_settle_time` → od tego momentu timer wywołuje `learning_loop()`,
 4. `learning_loop()` kończy epizod przez `finish_episode("powód")`; ta funkcja czyści trasę i zleca kolejny reset (w trybie uczenia dodatkowo zapisuje Q-tablicę).
 
@@ -187,42 +219,23 @@ Epizod powinien się kończyć, gdy:
 
 1. robot ma kolizję (`*collided == true`),
 2. robot odjechał zbyt daleko od trasy (`find_head_point()` nie znajduje punktu — okrąg o promieniu `head_radius` nie przecina trasy),
-3. robot dojechał do celu z pewną tolerancją (np. odległość do ostatniego punktu trasy < 0,2 m).
+3. robot dojechał do celu w przyjętej tolerancji, mierzonej odległością od robota do końca trasy. `head_radius` (0,4 m) jest promieniem wyszukiwania punktu trasy, **nie** tolerancją celu. Tolerancję celu wybiera student, opisuje ją w sprawozdaniu i stosuje konsekwentnie.
+
+Szkielet nie określa kolejności sprawdzania kolizji, zjazdu z trasy i osiągnięcia celu. Zdarzenia mogą wystąpić w tym samym kroku — na przykład robot może jednocześnie znaleźć się w tolerancji celu i zgłosić kolizję — więc zdecyduj, które zdarzenie ma wtedy pierwszeństwo. Nie utożsamiaj braku planu z terminalnym przejściem Q: po wysłaniu losowego celu szkielet czeka na trasę, a po 10 sekundach bez niej próbuje inny cel. Po pięciu nieudanych próbach przechodzi do resetowania pozycji. Nie rozpoczął się wtedy krok jazdy po trasie, więc nie przypisuje się nagrody za wykonane działanie.
 
 ### 6.2. Poprzedni stan
 
-Efekt akcji poznajesz dopiero **po** jej wykonaniu. Dlatego w kroku $t$ trzeba:
+Efekt akcji poznajesz dopiero **po** jej wykonaniu. Rozróżnij trzy przypadki (opis kolejności pojęć, nie gotowa implementacja):
 
-- obserwację zamienić na stan $s_t$,
-- jeśli istnieje poprzedni krok (`previous_state`), policzyć nagrodę za *poprzednią akcję* i zaktualizować `Q(previous_state, previous_action)` przy użyciu $s_t$ jako następnego stanu,
-- wybrać i wykonać nową akcję, po czym zapamiętać `s_t` i `a_t` jako poprzednie.
+1. **Pierwszy poprawny krok epizodu:** nie ma jeszcze `previous_state`, więc nie ma przejścia do aktualizacji. Wybierz i wykonaj akcję, a następnie zapamiętaj stan i akcję.
+2. **Zwykły krok:** po wykonaniu poprzedniej akcji znasz nową obserwację. Nagroda za poprzednią akcję należy do przejścia `(previous_state, previous_action) → nowy_stan`; zaktualizuj je jako nieterminalne, a dopiero potem wybierz/wykonaj kolejną akcję i zapamiętaj bieżący stan/akcję.
+3. **Krok terminalny:** jeśli po poprzedniej akcji wykryto kolizję, zjazd z trasy lub osiągnięcie celu, przypisz nagrodę terminalną do właśnie zakończonego przejścia `(previous_state, previous_action)`. Zaktualizuj je jako terminalne (bez składnika wartości następnego stanu), zakończ epizod i nie wybieraj kolejnej akcji. Jeżeli epizod kończy się przed wykonaniem jakiejkolwiek akcji, nie ma przejścia do aktualizacji.
 
-Pseudokod kroku:
-
-```text
-learning_loop():
-    jeśli kolizja:
-        jeśli uczymy się i jest poprzedni_stan:
-            update(poprzedni_stan, poprzednia_akcja, kara, ..., terminalny = true)
-        finish_episode("kolizja"); return
-    punkt = find_head_point()
-    jeśli brak punktu:
-        (jak wyżej, z karą)   finish_episode("zjazd z trasy"); return
-    obserwacja = [kąt do punktu, odległość do celu]
-    s = discretize_state(obserwacja)
-    cel_osiągnięty = odległość do celu < tolerancja
-    jeśli uczymy się i jest poprzedni_stan:
-        r = nagroda(...)
-        update(poprzedni_stan, poprzednia_akcja, r, s, cel_osiągnięty)
-    jeśli cel_osiągnięty: finish_episode("cel"); return
-    a = choose_action(s)
-    execute_action(a)
-    poprzedni_stan = s; poprzednia_akcja = a
-```
+Kolizja i brak punktu trasy mogą nie dostarczyć poprawnego stanu następnego; nadal muszą być traktowane jako zdarzenia terminalne, a nie jako stan przekazywany do dyskretyzacji. Gdy osiągnięcie celu jest rozpoznane na podstawie poprawnej obserwacji, ten stan również jest terminalny.
 
 ### 6.3. Nagrody
 
-Nagroda jest jedyną informacją o tym, co jest „dobre". Pomysły do przemyślenia:
+Nagroda jest jedyną informacją o tym, co jest „dobre". Wybierz nagrody i opisz ich wartości/zasady; nie ma jednej skali narzuconej w szkielecie. Pomysły do przemyślenia:
 
 - duża kara za kolizję i zjechanie z trasy, nagroda za dotarcie do celu,
 - mała kara za każdy krok (zachęta do szybkiego dojazdu),
@@ -232,7 +245,15 @@ Do liczenia nagrody „za postęp" potrzebujesz wartości z poprzedniego kroku �
 
 ### 6.4. Zapis i wczytanie
 
-Wystarczy plik tekstowy: jeden wiersz = klucz stanu (liczby całkowite) + wartości Q dla wszystkich akcji. `load_q_table` jest wywoływane w konstruktorze; brak pliku to nie błąd. Zapis wywołują `finish_episode` oraz `/start_following`.
+Uzgodnij jeden format tekstowy, który zapis i odczyt stosują identycznie. W obecnym szkielecie klucz to `std::vector<int>`, a każdy wiersz Q zawiera `action_count` wartości `double` (obecnie pięć). Parametr ROS `q_file` ma domyślną nazwę `q_table_path_only.txt`; jeżeli podasz ścieżkę względną, plik jest rozwiązywany względem bieżącego katalogu procesu, a nie automatycznie względem pakietu. Szkielet nie ustala katalogu przechowywania.
+
+Przykładowy format, zgodny z tymi typami: wiersz zawiera najpierw liczbę cech stanu `N`, następnie `N` indeksów całkowitych, a następnie dokładnie `action_count` wartości Q. Przykład dla stanu o dwóch cechach i pięciu akcjach:
+
+```text
+2 1 3 0.0 0.25 -0.1 0.0 0.4
+```
+
+Wiersz oznacza stan `[1, 3]`, a następnie wartości Q kolejno dla akcji o indeksach `0`–`4`. To format ilustracyjny; możesz wybrać inny, ale opisz go i używaj konsekwentnie. Brak pliku lub pusty plik oznacza pustą Q-tablicę (jest to już wskazane w komentarzu TODO w szkielecie). Dla wiersza niekompletnego, z błędną liczbą pól, niepoprawnymi liczbami lub niefinitywną wartością odrzuć cały wiersz i zgłoś ostrzeżenie; nie wstawiaj częściowo odczytanego stanu. Niepoprawny plik nie może przerwać działania węzła ani spowodować wykonania akcji poza zakresem. `load_q_table` jest wywoływane w konstruktorze; zapis wywołują `finish_episode` oraz `/start_following`.
 
 ### 6.5. Zalecana kolejność pracy
 
@@ -246,11 +267,13 @@ Wystarczy plik tekstowy: jeden wiersz = klucz stanu (liczby całkowite) + warto�
 
 Typowe błędy: aktualizacja Q przed poznaniem następnego stanu, brak obsługi stanu terminalnego, brak resetu `previous_state` po zakończeniu epizodu, ε stałe i zbyt duże/małe, zbyt wiele stanów.
 
-## 7. Testowanie
+## 7. Sprawdzanie rozwiązania
+
+W rubryce podano wynik 8 udanych dojazdów bez kolizji na 10 prób w trybie `following`. Wynik może zależeć od wybranych parametrów uczenia, nagród, tolerancji celu i akcji. Zapisz te wybory, by umożliwić interpretację wyniku. Poniższe pozycje są sugestiami do samodzielnego sprawdzenia.
 
 | Scenariusz | Oczekiwany rezultat |
 |------------|---------------------|
-| uczenie w `cave` (kilkaset epizodów) | rosnąca liczba udanych epizodów, malejąca liczba kolizji |
+| uczenie w `cave` | obserwuj liczbę udanych epizodów i kolizji |
 | `/start_following` + cel z RViz2, prosta trasa | robot dojeżdża do celu |
 | `/start_following`, trasa z zakrętami | robot dojeżdża bez kolizji i bez zjechania z trasy |
 | restart węzła po nauce | polityka działa bez ponownego uczenia (wczytana Q-tablica) |

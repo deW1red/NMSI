@@ -169,7 +169,9 @@ private:
   // Przykładowa reprezentacja stanu; można ją zmienić razem z typem klucza QTable.
   using DiscreteState = std::vector<int>;
   using Action = int;
-  // TODO: dobierz liczbę akcji; swoje stałe (alfa, gamma, nagrody) dodaj jako pola lub parametry.
+  // TODO: dobierz liczbę akcji. action_count jest stałą kompilacji, bo QTable używa std::array;
+  // utrzymaj zgodność indeksów akcji i formatu pliku. Stałe (alfa, gamma, nagrody) dodaj jako pola
+  // lub parametry. Dobierz prędkości akcji samodzielnie i eksperymentuj z nimi w symulacji.
   static constexpr int action_count = 5;
   using QTable = std::map<DiscreteState, std::array<double, action_count>>;
 
@@ -204,6 +206,7 @@ private:
   double epsilon;
   double reset_settle_time;
   double path_settle_time;
+  // q_file is a ROS parameter; a relative filename is resolved from the process working directory.
   string q_file;
   std::mt19937 random;
   std::optional<DiscreteState> previous_state;
@@ -434,7 +437,8 @@ std::optional<PoseStamped> PathFollower::find_head_point()
 // ===========================================================================
 
 // TODO 1: Zamień ciągłą obserwację na dyskretny stan (indeksy przedziałów).
-// Obserwację ustalasz sam (np. kąt do punktu z find_head_point(), odległość do celu).
+// Wymagane minimum: kąt do punktu z find_head_point(); dodatkowe cechy, np. odległość do celu, są opcjonalne.
+// Nie dyskretyzuj brakującej obserwacji ani wartości niefinitywnych.
 PathFollower::DiscreteState PathFollower::discretize_state(const std::vector<double>& /*observation*/)
 {
   return {};
@@ -442,12 +446,14 @@ PathFollower::DiscreteState PathFollower::discretize_state(const std::vector<dou
 
 // TODO 2: Wybierz akcję strategią epsilon-zachłanną (epsilon to pole klasy).
 // Poza uczeniem (training == false) zawsze wybieraj najlepszą akcję.
+// Każda zwrócona akcja musi należeć do zakresu [0, action_count).
 PathFollower::Action PathFollower::choose_action(const DiscreteState& /*s*/)
 {
   return 0;
 }
 
-// TODO 3: Zamień numer akcji na prędkości i opublikuj je na /cmd_vel (publisher).
+// TODO 3: Zamień poprawny numer akcji na wybrane prędkości i opublikuj je na /cmd_vel (publisher).
+// Nie indeksuj mapowania akcji dla wartości spoza zakresu [0, action_count).
 void PathFollower::execute_action(Action /*action*/)
 {
 }
@@ -458,18 +464,21 @@ void PathFollower::update_q_table(const DiscreteState& /*s*/, Action /*action*/,
 {
 }
 
-// TODO 5: Zapisz q_table do pliku tekstowego.
+// TODO 5: Zapisz q_table do pliku tekstowego; format musi być jednoznaczny i zgodny z load_q_table.
 void PathFollower::save_q_table(const string& /*filename*/) const
 {
 }
 
 // TODO 6: Wczytaj q_table z pliku zapisanego przez save_q_table.
-// Brak pliku nie jest błędem – zaczynamy wtedy z pustą tablicą.
+// Brak/pusty plik oznacza pustą tablicę; odrzuć cały niepoprawny wiersz bez częściowego wpisu.
 void PathFollower::load_q_table(const string& /*filename*/)
 {
 }
 
-// TODO 7: Jeden krok uczenia. Timer wywołuje tę funkcję regularnie; nie twórz tu pętli for/while uczenia.
+// TODO 7: find_head_point() zwraca pusty optional dla braku trasy/przecięcia; przeliczenie TF może rzucić wyjątek.
+// Obsłuż te przypadki przed dyskretyzacją lub wykonaniem akcji.
+// Jeden krok uczenia. Timer wywołuje tę funkcję regularnie; nie twórz tu pętli
+// wielokrotnie wykonującej kroki uczenia. Lokalne iterowanie po danych/akcjach jest dozwolone.
 // Do dyspozycji: collided, find_head_point(), global_to_local(), distance(), path,
 // previous_state, previous_action, episode_steps, training, finish_episode().
 // Zakończenie epizodu: finish_episode("powód").
