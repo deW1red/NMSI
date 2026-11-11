@@ -6,7 +6,7 @@ W poprzednim ćwiczeniu robot dostawał trasę wyznaczoną algorytmem A\* i jech
 
 Węzeł `path_follower` odbiera trasę z tematu `/path` (nav_msgs/msg/Path) i ma ją „lokalnie realizować": w każdym kroku patrzy na punkt trasy leżący w odległości `head_radius` przed robotem i wybiera jedną z kilku dyskretnych akcji (zestaw prędkości) tak, aby dojechać do końca trasy bez kolizji i bez zjechania z niej.
 
-Cały szkielet (subskrypcje, publikacje, serwisy, reset robota, losowanie celów, planowanie trasy, wyszukiwanie punktu na trasie, timer) jest gotowy. Do napisania w pliku `nmsi_lab/src/path_follower.cpp` zostały funkcje oznaczone `TODO`:
+Szkielet węzła `path_follower` (subskrypcje, publikacje, serwisy, reset robota, losowanie celów, odbiór trasy, wyszukiwanie punktu na trasie i timer) jest gotowy. Planowanie trasy zapewnia osobny węzeł `a_star`, którego implementację bierzesz z poprzedniego zadania. Lidar **nie jest** używany — trasa z A\* jest wolna od kolizji, a o kolizji dowiadujesz się z tematu `/collision`. Do napisania w pliku `nmsi_lab/src/path_follower.cpp` zostały funkcje oznaczone `TODO`:
 
 | # | Funkcja | Zadanie |
 |---|---------|---------|
@@ -16,20 +16,22 @@ Cały szkielet (subskrypcje, publikacje, serwisy, reset robota, losowanie celów
 | 4 | `update_q_table` | aktualizacja Q-tablicy |
 | 5 | `save_q_table` | zapis Q-tablicy do pliku |
 | 6 | `load_q_table` | wczytanie Q-tablicy z pliku |
-| 7 | `learning_loop` | jeden krok pętli uczenia (wywoływany z timera) |
+| 7 | `learning_loop` | jeden krok uczenia (wywoływany z timera) |
 
-Zależności: A\* działa jako węzeł `a_star` (gotowa implementacja), lidar **nie jest** używany — trasa z A\* jest wolna od kolizji, a o kolizji dowiadujesz się z tematu `/collision`.
+Do działania potrzebny jest węzeł `a_star` z poprzedniego zadania. Użyj własnej implementacji algorytmu, którą wtedy napisałeś. Jeśli nie udało Ci się jej ukończyć, poproś prowadzącego o kod — `a_star` nie jest gotowym elementem tego ćwiczenia.
 
 Uruchomienie (dwa terminale):
 
 ```bash
 # terminal 1
-ros2 launch nmsi_lab simulation.launch.py world:=hallway
+ros2 launch nmsi_lab simulation.launch.py world:=cave
 # terminal 2
 ros2 launch nmsi_lab robot_controller.launch.py
 ```
 
 Budowanie po zmianach: `colcon build --packages-select nmsi_lab && source install/setup.bash` (w katalogu głównym przestrzeni roboczej).
+
+Do nauki zacznij od świata `cave`. Gdy rozwiązanie będzie działać, sprawdź je również w `hallway` i `lines`.
 
 ## 2. Punktacja i zasady
 
@@ -41,7 +43,7 @@ Budowanie po zmianach: `colcon build --packages-select nmsi_lab && source instal
 | 2 | Wybór akcji ε-zachłanny i wykonanie akcji (`choose_action`, `execute_action`) | 1,5 |
 | 3 | Aktualizacja Q-tablicy (`update_q_table`) | 1,5 |
 | 4 | Zapis i wczytanie Q-tablicy (`save_q_table`, `load_q_table`) | 1 |
-| 5 | Pętla uczenia: nagrody, warunki końca epizodu, przechowywanie poprzedniego stanu (`learning_loop`) | 2 |
+| 5 | Krok uczenia: nagrody, warunki końca epizodu, przechowywanie poprzedniego stanu (`learning_loop`) | 2 |
 | 6 | Działająca polityka: po nauce robot w trybie „following" dojeżdża do celu bez kolizji w co najmniej 8 z 10 prób | 2 |
 | Bonus | Muszę jeszcze wymyślić | +1 |
 
@@ -92,7 +94,7 @@ $$ Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \alpha \Big[ r_t + \gamma \max_{a'} Q(s_
 - wyrażenie w nawiasie to błąd różnicy czasowej (rzeczywiste „r + γ·max Q" minus dotychczasowe oszacowanie),
 - w **stanie terminalnym** nie ma następnego kroku, więc składnik $\gamma \max_{a'} Q(s_{t+1}, a')$ pomijamy (jest równy 0).
 
-Q-learning jest algorytmem **off-policy** i **bezmodelowym**: aktualizacja używa $\max$ po akcjach, niezależnie od tego, jaką akcję agent faktycznie wybierze w następnym kroku, i nie wymaga znajomości funkcji przejścia (w odróżnieniu od programowania dynamicznego). Porównaj z SARSA (on-policy), która używa faktycznie wybranej akcji $a_{t+1}$ i jest „ostrożniejsza".
+Q-learning jest algorytmem **off-policy** i **bezmodelowym**: aktualizacja używa $\max$ po akcjach, niezależnie od tego, jaką akcję agent faktycznie wybierze w następnym kroku, i nie wymaga znajomości funkcji przejścia (w odróżnieniu od programowania dynamicznego).
 
 ### 3.4. Eksploracja a eksploatacja
 
@@ -109,12 +111,9 @@ Funkcja `find_head_point()` zwraca punkt trasy leżący w odległości `head_rad
 - kąt do punktu: `atan2(y, x)` (czy trzeba skręcić w lewo, w prawo, czy jechać prosto),
 - odległość do końca trasy.
 
-Każdą wielkość dziel na kilka przedziałów (np. „mocno w lewo / lekko w lewo / prosto / lekko w prawo / mocno w prawo"). Stan to wektor indeksów przedziałów (`std::vector<int>`) — dzięki temu może być kluczem w `std::map`.
+Każdą wielkość można podzielić na kilka przedziałów (np. „mocno w lewo / lekko w lewo / prosto / lekko w prawo / mocno w prawo"). Jednym z możliwych sposobów reprezentacji stanu jest wektor indeksów przedziałów (`std::vector<int>`), który w obecnym szkielecie jest kluczem Q-tablicy. To tylko przykład — możesz wybrać inną reprezentację, jeśli lepiej pasuje do Twojego pomysłu. W takim przypadku dostosuj typ `DiscreteState` oraz typ klucza Q-tablicy.
 
-Zastanów się:
-
-- ile stanów powinna mieć tablica? Liczba stanów to iloczyn liczb przedziałów, a im ich więcej, tym dłużej trwa nauka,
-- czy stan ma własność Markowa, tzn. czy wystarcza do wyboru dobrej akcji? Czego w nim brakuje? Jakie granice przedziałów mają sens fizyczny (przy `head_radius` = 0,4 m)?
+Dobierz reprezentację i przedziały tak, aby liczba stanów była skończona i na tyle mała, by uczenie było wykonalne. Liczba stanów jest iloczynem liczby przedziałów dla poszczególnych wielkości; im więcej stanów, tym dłużej trwa nauka. Przy doborze granic weź pod uwagę fizyczne znaczenie obserwacji (np. `head_radius` = 0,4 m).
 
 ### 4.2. Akcje
 
@@ -122,11 +121,13 @@ Zbiór akcji to kilka gotowych par prędkości (liniowa, kątowa), np. „prosto
 
 ### 4.3. Czas
 
-Węzeł ma timer (100 ms) wywołujący `follow_path()`, a ten w trybie jazdy po trasie wywołuje `learning_loop()`. **Jedno wywołanie = jeden krok uczenia = jeden okres decyzji.** Akcja (prędkość) jest utrzymywana do kolejnego wywołania. Zastanów się, czy 100 ms to dobry okres: za krótki — stan prawie się nie zmienia między krokami i nagroda niesie mało informacji; za długi — robot zdąży uderzyć w ścianę. Możesz wykonywać decyzję rzadziej (np. co *n* wywołań timera), nie zmieniając timera.
+**Ważne: w implementacji nie należy tworzyć pętli `for`/`while`, która wykonuje całe uczenie.** Q-learning opisuje kroki powtarzane w czasie, ale tutaj powtarzanie zapewnia timer ROS 2: co 100 ms wywołuje `follow_path()`, a ta w trybie jazdy po trasie wywołuje `learning_loop()`. **Jedno wywołanie `learning_loop()` wykonuje dokładnie jeden krok uczenia / jedną decyzję.** Funkcja zostaje wywołana ponownie przez timer; akcja (prędkość) działa do następnego wywołania.
+
+Okres 100 ms jest już ustawiony w szkielecie. Zbyt krótki okres może oznaczać, że stan prawie się nie zmienia między decyzjami; zbyt długi może nie dać robotowi dość szybko zareagować na trasę.
 
 ## 5. ROS 2 — elementy potrzebne w tym ćwiczeniu
 
-Wcześniej korzystaliśmy z węzłów, tematów, parametrów i TF. Tu pojawiają się dodatkowo:
+Wcześniej korzystaliśmy z węzłów, tematów i TF. Tu pojawiają się dodatkowo:
 
 ### 5.1. Serwisy
 
@@ -137,6 +138,14 @@ ros2 service list                          # lista serwisów
 ros2 service type /start_learning          # typ serwisu
 ros2 service call /start_learning std_srvs/srv/Trigger "{}"
 ```
+
+Zanim uruchomisz uczenie, możesz sprawdzić działanie serwisu bezpośrednio z CLI. Przy uruchomionej symulacji (terminal 1) wywołaj:
+
+```bash
+ros2 service call /random_reset std_srvs/srv/Trigger "{}"
+```
+
+Serwis przeniesie robota w inne, losowe wolne miejsce świata. To dobry sposób, żeby zobaczyć, jak robot i symulacja reagują na wywołanie serwisu, zanim uruchomisz własny kod.
 
 W szkielecie są serwisy (zaimplementowane, nie zmieniaj ich):
 
@@ -159,18 +168,7 @@ ros2 topic echo /cmd_vel --once # ostatnie polecenie prędkości
 
 W kodzie: `collided` (`std::optional<bool>`) przechowuje ostatnią wiadomość z `/collision`, `publisher` publikuje na `/cmd_vel`.
 
-### 5.3. Parametry węzła
-
-```bash
-ros2 param list /path_follower
-ros2 param set /path_follower epsilon 0.1
-```
-
-Parametry deklarowane w konstruktorze: `epsilon`, `q_file` (nazwa pliku Q-tablicy), `random_seed`, `reset_settle_time`, `path_settle_time` (pauzy po resecie i po zaplanowaniu trasy). Możesz dodać własne (np. `alpha`, `gamma`) przez `declare_parameter` — wygodne, bo nie trzeba przebudowywać programu przy strojeniu.
-
-> Uwaga: `ros2 param set` zmienia wartość w węźle, ale pole klasy `epsilon` jest odczytywane tylko w konstruktorze. Jeśli chcesz zmieniać je w trakcie działania, odczytuj parametr w kodzie (`get_parameter`).
-
-### 5.4. Klienci serwisów i pliki
+### 5.3. Klienci serwisów i pliki
 
 Szkielet pokazuje, jak węzeł sam woła serwisy (`reset_client->async_send_request(...)`). Plik Q-tablicy zapisujesz zwykłym `std::ofstream` — nie jest to nic ROS-owego.
 
@@ -252,11 +250,12 @@ Typowe błędy: aktualizacja Q przed poznaniem następnego stanu, brak obsługi 
 
 | Scenariusz | Oczekiwany rezultat |
 |------------|---------------------|
-| uczenie w `hallway` (kilkaset epizodów) | rosnąca liczba udanych epizodów, malejąca liczba kolizji |
+| uczenie w `cave` (kilkaset epizodów) | rosnąca liczba udanych epizodów, malejąca liczba kolizji |
 | `/start_following` + cel z RViz2, prosta trasa | robot dojeżdża do celu |
 | `/start_following`, trasa z zakrętami | robot dojeżdża bez kolizji i bez zjechania z trasy |
 | restart węzła po nauce | polityka działa bez ponownego uczenia (wczytana Q-tablica) |
 | kilka celów po sobie | każdy cel realizowany |
+| uruchomienie w `hallway` i `lines` po sprawdzeniu w `cave` | sprawdzenie, jak polityka działa w innych światach |
 
 ## 8. Przydatne odnośniki
 

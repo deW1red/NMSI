@@ -166,6 +166,7 @@ public:
   }
 
 private:
+  // Przykładowa reprezentacja stanu; można ją zmienić razem z typem klucza QTable.
   using DiscreteState = std::vector<int>;
   using Action = int;
   // TODO: dobierz liczbę akcji; swoje stałe (alfa, gamma, nagrody) dodaj jako pola lub parametry.
@@ -468,7 +469,7 @@ void PathFollower::load_q_table(const string& /*filename*/)
 {
 }
 
-// TODO 7: Jeden krok pętli uczenia, wywoływany z timera (co 100 ms), gdy trasa jest gotowa.
+// TODO 7: Jeden krok uczenia. Timer wywołuje tę funkcję regularnie; nie twórz tu pętli for/while uczenia.
 // Do dyspozycji: collided, find_head_point(), global_to_local(), distance(), path,
 // previous_state, previous_action, episode_steps, training, finish_episode().
 // Zakończenie epizodu: finish_episode("powód").
