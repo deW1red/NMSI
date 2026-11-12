@@ -5,8 +5,8 @@ from nav_msgs.msg import OccupancyGrid, Path
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile, ReliabilityPolicy
-from rclpy.time import Time
 from rclpy.duration import Duration
+from rclpy.time import Time
 from tf2_ros import Buffer, TransformException, TransformListener
 from math import sqrt,floor
 
@@ -55,6 +55,7 @@ class AStarCalculator(Node):
         start.pose.position.y = trans.transform.translation.y
         start.pose.position.z = trans.transform.translation.z
         start.pose.orientation = trans.transform.rotation
+        self.a_star(start, pose, False)
         self.a_star(start, pose)
 
     def dilated_map_callback(self, map_msg: OccupancyGrid) -> None:
@@ -63,8 +64,7 @@ class AStarCalculator(Node):
     def cost_map_callback(self, map_msg: OccupancyGrid) -> None:
         self.map_cost = map_msg
 
-    def a_star(self, start: PoseStamped, end: PoseStamped) -> None:
-        
+    def a_star(self, start: PoseStamped, end: PoseStamped, use_closed = True) -> None:
         self.update_map_info()
 
         start_node = (self.meter_to_index(start.pose.position.x,start.pose.position.y))
@@ -77,7 +77,10 @@ class AStarCalculator(Node):
         path = []
         g[start_node] = 0
 
-        k = 0.5
+        visited_nodes = 0
+        total_distance = 0
+
+        k = 2
 
         calculated_path = Path()
         calculated_path.header.frame_id = 'map'
@@ -87,7 +90,7 @@ class AStarCalculator(Node):
         open[start_node] = g[start_node] + self.heuristic(start_node,goal_node)   
 
         while open:
-
+            
             min_f = 10000000000000000
             current_node = ()
 
@@ -95,8 +98,9 @@ class AStarCalculator(Node):
                 if(open[node] < min_f):
                     min_f = open[node] 
                     current_node = node
-
-            open.pop(current_node)
+            #self.get_logger().info(f"In open list: {len(open)}, lowest f: {min_f}")
+            del open[current_node]
+            visited_nodes += 1
 
             if(current_node == goal_node):
                 while True:
@@ -105,13 +109,21 @@ class AStarCalculator(Node):
 
                     if(current_node == start_node):
                         break
-
+                    total_distance += self.heuristic(current_node,parent[current_node])
                     current_node = parent[current_node] 
+                
                 break
+
+            if (use_closed):
+                closed[current_node] = 1
 
             neighbors = self.get_neighbors(current_node,True)
             
             for neighbor_node in neighbors:
+                if(neighbor_node in closed.keys() and use_closed):
+                    #self.get_logger().info(f"Node {neighbor_node} is in {closed}")
+                    continue
+
                 temp_g = g[current_node] + self.heuristic(neighbor_node,current_node)*(1 + k*self.get_node_cost(neighbor_node)/100) 
 
                 if((not neighbor_node in g.keys()) or temp_g < g[neighbor_node]):
@@ -119,7 +131,17 @@ class AStarCalculator(Node):
                     g[neighbor_node] = temp_g
                     open[neighbor_node] = g[neighbor_node] + self.heuristic(neighbor_node,goal_node)
 
-        self.publisher.publish(calculated_path)
+        if(use_closed):
+            self.get_logger().info(f"Użyto A* z listą przejrzanych")
+        else:
+            self.get_logger().info(f"Użyto A* bez listy przejrzanych")
+        self.get_logger().info(f"Łączny dystans: {total_distance}")
+        self.get_logger().info(f"Liczba rozwiniętych wierzchołków: {visited_nodes}\n\n")
+        #Do pomiarów uruchamia się najpierw A* bez listy closed,a potem z listą closed
+        #Tylko ścieżka z listą zamkniętych jest wysyłana 
+        if(use_closed):
+            self.publisher.publish(calculated_path)
+        
 
     def update_map_info(self):
         self.map_width = self.map_dilated.info.width
@@ -133,14 +155,6 @@ class AStarCalculator(Node):
         return self.map_width*iy + ix
 
     def meter_to_index(self,x,y):
-        # if(x < 0):
-        #     x = 0
-        # if(y < 0):
-        #     y = 0
-        # if(x > self.map_width):
-        #     x = self.map_width - self.map_res
-        # if(y > self.map_height):
-        #     y = self.map_height - self.map_res
 
         ix = floor((x - self.map_ox)/self.map_res)
         iy = floor((y - self.map_oy)/self.map_res)
@@ -155,10 +169,18 @@ class AStarCalculator(Node):
         return x, y
 
     def get_node_cost(self,node):
-        return self.map_cost.data[self.list_position(node)]
+
+        try:
+            return self.map_cost.data[self.list_position(node)]
+        except IndexError:
+            return 100
 
     def is_node_reachable(self,node):
-        is_occupied = self.map_dilated.data[self.list_position(node)]
+
+        try:
+            is_occupied = self.map_dilated.data[self.list_position(node)]
+        except IndexError:
+            return False
 
         if(is_occupied == 100):
             return False
