@@ -76,29 +76,18 @@ class AStarCalculator(Node):
         g = {}
         path = []
         g[start_node] = 0
-
         visited_nodes = 0
         total_distance = 0
-
-        k = 2
+        k = 1
+        open[start_node] = g[start_node] + self.heuristic(start_node,goal_node)  
 
         calculated_path = Path()
         calculated_path.header.frame_id = 'map'
         calculated_path.header.stamp = self.get_clock().now().to_msg()
-        
-
-        open[start_node] = g[start_node] + self.heuristic(start_node,goal_node)   
 
         while open:
             
-            min_f = 10000000000000000
-            current_node = ()
-
-            for node in open.keys():
-                if(open[node] < min_f):
-                    min_f = open[node] 
-                    current_node = node
-            #self.get_logger().info(f"In open list: {len(open)}, lowest f: {min_f}")
+            current_node = min(open, key=open.get)
             del open[current_node]
             visited_nodes += 1
 
@@ -121,28 +110,20 @@ class AStarCalculator(Node):
             
             for neighbor_node in neighbors:
                 if(neighbor_node in closed.keys() and use_closed):
-                    #self.get_logger().info(f"Node {neighbor_node} is in {closed}")
                     continue
 
                 temp_g = g[current_node] + self.heuristic(neighbor_node,current_node)*(1 + k*self.get_node_cost(neighbor_node)/100) 
-
                 if((not neighbor_node in g.keys()) or temp_g < g[neighbor_node]):
                     parent[neighbor_node] = current_node
                     g[neighbor_node] = temp_g
                     open[neighbor_node] = g[neighbor_node] + self.heuristic(neighbor_node,goal_node)
+        print_info(use_closed,visited_nodes,total_distance)
 
-        if(use_closed):
-            self.get_logger().info(f"Użyto A* z listą przejrzanych")
-        else:
-            self.get_logger().info(f"Użyto A* bez listy przejrzanych")
-        self.get_logger().info(f"Łączny dystans: {total_distance}")
-        self.get_logger().info(f"Liczba rozwiniętych wierzchołków: {visited_nodes}\n\n")
         #Do pomiarów uruchamia się najpierw A* bez listy closed,a potem z listą closed
         #Tylko ścieżka z listą zamkniętych jest wysyłana 
         if(use_closed):
             self.publisher.publish(calculated_path)
         
-
     def update_map_info(self):
         self.map_width = self.map_dilated.info.width
         self.map_height = self.map_dilated.info.height
@@ -155,7 +136,6 @@ class AStarCalculator(Node):
         return self.map_width*iy + ix
 
     def meter_to_index(self,x,y):
-
         ix = floor((x - self.map_ox)/self.map_res)
         iy = floor((y - self.map_oy)/self.map_res)
 
@@ -169,14 +149,12 @@ class AStarCalculator(Node):
         return x, y
 
     def get_node_cost(self,node):
-
         try:
             return self.map_cost.data[self.list_position(node)]
         except IndexError:
             return 100
 
     def is_node_reachable(self,node):
-
         try:
             is_occupied = self.map_dilated.data[self.list_position(node)]
         except IndexError:
@@ -222,6 +200,15 @@ class AStarCalculator(Node):
 
 def euclidean_distance(x1,y1,x2,y2):
     return sqrt((x2-x1)**2+(y2-y1)**2)
+
+def print_info(use_closed, visited_nodes, total_distance):
+    if(use_closed):
+        self.get_logger().info(f"Użyto A* z listą przejrzanych")
+    else:
+        self.get_logger().info(f"Użyto A* bez listy przejrzanych")
+
+    self.get_logger().info(f"Łączny dystans: {total_distance}")
+    self.get_logger().info(f"Liczba rozwiniętych wierzchołków: {visited_nodes}\n\n")
 
 
 
